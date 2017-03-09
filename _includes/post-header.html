@@ -1,0 +1,19 @@
+<header class="post-header" style="background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), rgba(0,0,0,0.55) url('{% if site.baseurl == "/" %}{{ site.data.settings.banner }}{% else %}{{ site.data.settings.banner | prepend: site.baseurl }}{% endif %}') no-repeat center; background-size: cover;">
+      <article class="header-content">
+        <h1>{{page.title}}</h1>
+        <div class="author-data">
+          <div class="avatar">
+            <img src="{% if site.baseurl == "/" %}{{ site.data.settings.avatar }}{% else %}{{ site.data.settings.avatar | prepend: site.baseurl }}{% endif %}" alt="avatar"/>
+          </div>
+          <a class="post-author" href="{% if site.baseurl == "/" %}/author{% else %}{{ site.baseurl }}/author{% endif %}">{{ page.author }}</a>
+        </div>
+
+        {% if page.tags.size > 0 %}
+          <ul class="tags">
+            {% for tag in page.tags %}
+              <li><a href="{% if site.baseurl == "/" %}/tag#{{ tag }}{% else %}{{ site.baseurl }}/tag#{{ tag }}{% endif %}" class="tag">{{ tag }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </article>
+</header>

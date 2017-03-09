@@ -1,0 +1,43 @@
+# Site settings
+title:  Jonathan Dursi
+description:  'R&amp;D computing at scale'
+url:  http://www.dursi.ca/
+baseurl:  / # Change this to your relative path (ex: /blog/), or leave just a /
+location: Toronto
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+permalink: /post/:title
+
+# Default values
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+      type: posts
+    values:
+      is_post: true
+      layout: post
+      author: Jonathan Dursi
+  -
+    scope:
+      path: ""
+      type: pages
+    values:
+        is_tag: true
+        layout: page
+
+paginate: 6
+paginate_path: "/blog/page:num/"
+
+# Plugins
+gems:
+- jekyll-autoprefixer
+- jekyll-paginate
+
+sass:
+  sass_dir: _sass
+  style: :nested

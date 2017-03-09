@@ -1,0 +1,206 @@
+---
+---
+@import 'config.scss';
+@import 'components/icon-fonts.scss';
+@import 'components/fonts.scss';
+@import 'components/vars.scss';
+@import 'components/mixins.scss';
+@import 'components/base.scss';
+
+@import 'sections/main-nav.scss';
+@import 'sections/main-header.scss';
+@import 'sections/sidebar.scss';
+@import 'sections/footer.scss';
+@import 'sections/post.scss';
+@import 'sections/page.scss';
+
+/*______ all styles on index.html goes here ______*/
+
+//index's banner
+.home-banner{
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+
+  img{
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+
+//blog entries
+.blog-entries{
+  float: right;
+  width: 75%;
+  padding: .58em;
+  margin-bottom: 2em;
+
+  &:not(:last-of-type){
+    border-bottom: 1px solid #f3f3f3;
+  }
+
+  .media{
+    width: 100%;
+    position: relative;
+  	padding-bottom: 46.25%; /* 16:9 */
+  	padding-top: 25px;
+  	height: 0;
+    transition: all .5s ease;
+
+    iframe, video, img{
+      position: absolute;
+      top:0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @include desktop-laptop{
+    float: none;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  img{
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+
+  .post-title{
+    color: $color-scheme;
+
+    &:hover{
+      color: darken($color-scheme, 10%);
+    }
+  }
+
+  .author-data{
+    display: flex;
+    flex-grow: 2;
+    margin: 2em 0;
+
+    @include smaller-tablet{
+      margin: .50em 0;
+    }
+
+    .post-author{
+      font-size: 1rem;
+    }
+  }
+
+  .avatar{
+    width: 25px;
+    margin-right: 10px;
+
+    img{
+      max-width: 100%;
+      margin: 0 auto;
+      border-radius: 50%;
+    }
+  }
+
+  @include tag-style;
+
+  li{
+    font-size: 1.125rem;
+
+    &:before{
+      display: none;
+    }
+  }
+
+  .post-content{
+    width: 100%;
+  }
+
+  .read-more{
+    background-color: $color-scheme;
+    color: $light-text;
+    width: 120px;
+    padding: .40em 1em;
+    font-size: .90rem;
+    border-radius: 5px;
+    margin: 3em 0;
+    position: relative;
+
+    &:after{
+      content: "\f061";
+      font-family: "FontAwesome";
+      display: inline-block;
+      position: absolute;
+      right: 18px;
+      z-index: 1;
+    }
+
+    &:hover{
+      background-color: #304094;
+    }
+  }
+}
+
+//---------------------
+.pagination{
+  width: 100%;
+  display: flex;
+  padding: 6em 0;
+  align-content: center;
+  justify-content: space-between;
+
+  a:first-of-type{
+    align-self: flex-start;
+  }
+
+  .current-page{
+    display: inline-block;
+    color: #222;
+    align-self: center;
+    flex-grow: 2;
+    text-align: center;
+  }
+
+  a:last-of-type{
+    align-self: flex-end;
+  }
+
+  .paginate-button{
+    color: $color-scheme;
+    border: 1px solid #f3f3f3;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: all .50s ease;
+
+    &:hover{
+      border: 1px solid $color-scheme;
+    }
+  }
+}
+
+/* hides the tags list*/
+.hidden {
+  display: none!important;
+  visibility: hidden!important;
+}
+
+/* back to top*/
+.scroll-top {
+    position: fixed;
+    right:  20px;
+    bottom: 20px;
+    cursor: pointer;
+    width:  35px;
+    height: 35px;
+    background-color: $color-scheme;
+    transition: all 0.2s ease-in;
+    opacity: .5;
+    display:  none;
+    border-radius: 5px;
+
+    i {
+      @include center;
+      color: #ffffff;
+  }
+}

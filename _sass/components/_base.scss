@@ -1,0 +1,52 @@
+*{
+ box-sizing: border-box;
+ -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+ ::selection{
+    background: #484d54;
+    color: #fff;
+ }
+}
+
+.pagewrap{
+  @include clearfix;
+  max-width: 85%;
+  margin: 0 auto;
+
+  @include tablet{
+    max-width: 95%;
+  }
+
+  @include smaller-tablet{
+    max-width: 98%;
+  }
+}
+
+body{
+  background-color: $light-background;
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: $base-font, Helvetica, Georgia, sans-serif, sans;
+  color: $dark-text;
+  line-height: 1.8;
+}
+
+a{
+  font-family: inherit;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+p{
+  font-size: 1.125rem;
+}
+
+em, strong{
+  display: inline-block;
+}

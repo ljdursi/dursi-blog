@@ -1,0 +1,9 @@
+<footer style="background-image: url('{% if site.baseurl == "/" %}{{ site.data.settings.banner }}{% else %}{{ site.data.settings.banner | prepend: site.baseurl }}{% endif %}')">
+  <div class="footer-content">
+    <a class="footer-rss" href="{% if site.baseurl == "/" %}/feed.xml{% else %}{{ site.baseurl }}/feed.xml{% endif %}"><i class="fa fa-rss" aria-hidden="true"></i></a>
+    <p>All content copyright
+      <a href="{{ site.url }}">Jonathan Dursi</a> &copy; 2017 • All rights reserved.
+      <br>Theme By <a href="https://www.gtheme.io/">GTheme</a>
+    </p>
+  </div>
+</footer>

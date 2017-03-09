@@ -1,0 +1,174 @@
+@font-face {
+  font-family: 'FontAwesome';
+  src:  url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'FontAwesome' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-twitter{
+  &:before {
+    content: "\f099";
+  }
+  &:hover{
+    color: #1da1f2;
+  }
+}
+.icon-facebook{
+  &:before {
+    content: "\f09a";
+  }
+
+  &:hover{
+    color: #4867aa;
+  }
+}
+.icon-facebook-f{
+  &:before {
+    content: "\f09a";
+  }
+
+  &:hover{
+    color: #3b5998;
+  }
+}
+.icon-github{
+  &:before {
+    content: "\f09b";
+  }
+
+  &:hover{
+    color: #24292e;
+  }
+}
+.icon-feed{
+  &:before {
+    content: "\f09e";
+  }
+
+  &:hover{
+    color: #e7b36c;
+  }
+}
+.icon-rss{
+  &:before {
+    content: "\f09e";
+  }
+
+  &:hover{
+    color: #e7b36c;
+  }
+}
+.icon-pinterest{
+  &:before {
+    content: "\f0d2";
+  }
+
+  &:hover{
+    color: #bd081c;
+  }
+}
+.icon-google-plus{
+  &:before {
+    content: "\f0d5";
+  }
+
+  &:hover{
+    color: #db4437;
+  }
+}
+.icon-linkedin{
+  &:before {
+    content: "\f0e1";
+  }
+
+  &:hover{
+    color: #1884bc;
+  }
+}
+.icon-youtube{
+  &:before {
+    content: "\f167";
+  }
+
+  &:hover{
+    color: #e62117;
+  }
+}
+.icon-stack-overflow{
+  &:before {
+    content: "\f16c";
+  }
+
+  &:hover{
+    color: #f48024;
+  }
+}
+.icon-instagram{
+  &:before {
+    content: "\f16d";
+  }
+
+  &:hover{
+    color: #e03b65;
+  }
+}
+.icon-tumblr{
+  &:before {
+    content: "\f173";
+  }
+
+  &:hover{
+    color: #36465d;
+  }
+}
+.icon-dribbble{
+  &:before {
+    content: "\f17d";
+  }
+
+  &:hover{
+    color: #eb5c93;
+  }
+}
+.icon-reddit{
+  &:before {
+    content: "\f1a1";
+  }
+
+  &:hover{
+    color: #ff4500;
+  }
+}
+.icon-behance{
+  &:before {
+    content: "\f1b4";
+  }
+
+  &:hover{
+    color: #131418;
+  }
+}
+.icon-soundcloud{
+  &:before {
+    content: "\f1be";
+  }
+
+  &:hover{
+    color: #fc441e;
+  }
+}

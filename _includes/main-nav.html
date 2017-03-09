@@ -1,0 +1,7 @@
+<nav class="main-nav">
+  <ul>
+    {% for item in site.data.settings.menu %}
+      <li><a href="{% if site.baseurl == "/" %}{{ item.url }}{% else %}{{ item.url | prepend: site.baseurl }}{% endif %}">{{ item.name }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>

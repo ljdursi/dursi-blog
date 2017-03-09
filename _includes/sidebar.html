@@ -1,0 +1,39 @@
+<aside class="sidebar">
+  {% if page.is_post %}
+  <div class="sidebar-image">
+    <img src="{% if site.baseurl == "/" %}{{ site.data.settings.avatar }}{% else %}{{ site.data.settings.avatar | prepend: site.baseurl }}{% endif %}" alt="avatar"/>
+  </div>
+  <h2><a href="{{ site.url }}">Jonathan Dursi</a></h2>
+  <div class="user-location"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{ site.location }}</div>
+  {% endif %}
+
+  <div class="sidebar-header">
+    <h1><a href="{{ site.url }}">Jonathan Dursi</a></h1>
+    <p>{{ site.data.settings.description }}</p>
+  </div>
+
+  {% if page.is_post %}
+  <style>
+  .sidebar-header{
+    display: none;
+  }
+  </style>
+  {% endif %}
+
+  <div class="social-links">
+    {% for link in site.data.settings.social %}
+    <a href="{{ link.link }}" class="icon-{{ link.icon }} icon"></a>
+    {% endfor %}
+  </div>
+
+  <ul class="tags">
+    {% assign sorted_tags = site.tags | sort %}
+    {% for tag in sorted_tags %}
+      {% assign t = tag | first %}
+      {% assign posts = tag | last %}
+      <li class="blog-tag-item" id="{{ t }}-item">
+        <a href="{% if site.baseurl == "/" %}/tag#{{ t }}{% else %}{{ site.baseurl }}/tag#{{ t }}{% endif %}" onclick="filter('{{ t }}'); return true;">{{ t }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</aside>

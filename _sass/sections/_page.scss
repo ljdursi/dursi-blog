@@ -1,0 +1,132 @@
+
+//default page style
+.page-container{
+  float: right;
+  width: 75%;
+  border-bottom: 1px solid #f3f3f3;
+  margin-bottom: 10em;
+  padding: 1em 2em 3.5em 2em;
+
+  @include desktop-laptop{
+    float: none;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  @include smaller-tablet{
+    padding: .80em .80em 3.5em .80em;
+  }
+
+  img{
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .blog-entries{
+    width: 100%;
+    position: relative;
+
+    @include smaller-tablet{
+      padding: 0;
+      margin-top: 3em;
+
+      .read-more{
+        margin: 1em 0 3em;
+      }
+    }
+
+    img{
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
+
+//tags page style
+.blog-data{
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  @include smaller-tablet{
+    flex-flow: column nowrap;
+    justify-content: center;
+  }
+
+  .author-data{
+    flex-grow: 2;
+  }
+
+  .blog-date{
+    margin-right: 15px;
+    position: relative;
+    padding-left: 1em;
+    display: inline-block;
+
+    &:before{
+      content: "\f017";
+      font-family: "FontAwesome";
+      display: inline-block;
+      position: absolute;
+      left: -5px;
+      margin-right: 10px;
+      color: $color-scheme;
+    }
+  }
+
+  @include tag-style;
+}
+
+.blog-list-container{
+  display: flex;
+  flex-flow: column nowrap;
+
+  .blog-entries{
+    width: 100%;
+    order: 2;
+  }
+
+  .tag-name{
+    order: 1;
+    color: $color-scheme;
+  }
+}
+
+//author page
+.author-page-header{
+  margin-bottom: 1em;
+  padding-bottom: 3em;
+  border-bottom: 1px solid #f3f3f3;
+  color: #222;
+
+  .author-header-image{
+    width: 120px;
+    margin: 0 auto;
+
+    img{
+      width: 100%;
+      margin: 0 auto;
+      border-radius: 50%;
+    }
+  }
+
+  .author-name{
+    text-align: center;
+    margin: 1em auto;
+  }
+
+  .author-meta{
+    display: flex;
+    justify-content: center;
+
+    span{
+      display: inline-block;
+      margin: 0 .60em;
+    }
+
+    a{
+      color: $color-scheme;
+    }
+  }
+}

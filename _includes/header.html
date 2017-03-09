@@ -1,0 +1,13 @@
+<header class="main-header" style="background-image: url('{% if site.baseurl == "/" %}{{ site.data.settings.banner }}{% else %}{{ site.data.settings.banner | prepend: site.baseurl }}{% endif %}'); background-size: cover;">
+  <div class="header-content">
+    <h1>{{page.title}}</h1>
+  </div>
+</header>
+
+{% if page.path contains 'tag' %}
+  <style>
+    .main-header{
+      display: none;
+    }
+  </style>
+{% endif %}

@@ -1,0 +1,88 @@
+.sidebar{
+  float: left;
+  text-align: center;
+  width: 25%;
+  padding: 0 20px;
+
+  @include desktop-laptop{
+    float: none;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .sidebar-header{
+    padding: 0 0 2em 0;
+  }
+
+  h1{
+    font-size: 2.5rem;
+    margin-bottom: .20em;
+    cursor: pointer;
+    color: #444444;
+
+    &:hover{
+      color: $color-scheme;
+    }
+  }
+
+  .social-links{
+    padding: 2em 0;
+    border: 1px solid #f3f3f3;
+    border-left: 0px solid transparent;
+    border-right: 0px solid transparent;
+    color: #444444;
+
+    .icon{
+      display: inline-block;
+      font-size: 2rem;
+      margin: .50em .20em;
+    }
+  }
+
+  .tags{
+    @include ul-reset;
+    padding: 1em 0;
+    border-bottom: 1px solid #f3f3f3;
+
+    @include desktop-laptop{
+      padding: 2em 0;
+    }
+
+    li{
+      padding: 0;
+    }
+
+    a{
+      background-color: #f7f6f6;
+      padding: 6px 12px;
+      border-radius: 5px;
+      margin: 3px 1px;
+      font-size: 	0.95rem;
+      font-weight: 400;
+      text-transform: lowercase;
+      transition: all .5s ease;
+
+      &:hover{
+        background-color: $color-scheme;
+        color: $light-text;
+      }
+    }
+  }
+}
+
+
+//sidebar image and location
+.sidebar-image{
+  width: 120px;
+  margin: 1em auto;
+
+  img{
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+}
+
+.user-location{
+  padding-bottom: 2em;
+}

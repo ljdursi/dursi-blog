@@ -1,0 +1,231 @@
+/*post page's header*/
+.post-header{
+  width: 100%;
+  min-height: 360px;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), rgba(0,0,0,0.55) url('/assets/imgs/cover.png') no-repeat center;
+  background-size: cover;
+  position: relative;
+  margin-bottom: 2em;
+
+  .header-content{
+    width: 65%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    color: $light-text;
+    padding: 4em 0;
+
+    @include desktop-laptop{
+      width: 90%;
+    }
+  }
+
+  h1{
+    flex: 1 1 100%;
+    font-size: 2.8125rem;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  .author-data{
+    display: flex;
+    flex-grow: 2;
+    margin: 2em 0;
+    width: 50%;
+    color: #D5D5D5;
+
+    .avatar{
+      width: 25px;
+      margin-right: 10px;
+
+      img{
+        max-width: 100%;
+        margin: 0 auto;
+        border-radius: 50%;
+      }
+    }
+
+    .post-author{
+      font-size: 1rem;
+
+      &:hover{
+        color: #fff;
+      }
+    }
+  }
+
+  .tags{
+    @include ul-reset;
+    align-items: flex-end;
+    text-align: right;
+    padding-left: 1.5em;
+    position: relative;
+    color: #D5D5D5;
+
+    a:hover{
+      color: #fff;
+    }
+
+    li:not(:last-of-type)::after{
+      content: "\f111";
+      font-family: "FontAwesome";
+      display: inline-block;
+      position: relative;
+      top: -1px;
+      left: 6.5px;
+      color: inherit;
+      font-size: .50rem;
+    }
+
+    &:before{
+      content: "\f02c";
+      font-family: "FontAwesome";
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      color: #D5D5D5;
+    }
+  }
+
+}
+
+
+/*entry article*/
+.post-page{
+  float: right;
+  width: 75%;
+  padding: .20em .58em .58em .58em;
+  margin-bottom: 10em;
+
+  @include desktop-laptop{
+    float: none;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .content{
+    width: 100%;
+    border-bottom: 1px solid #f3f3f3;
+
+    img{
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6{
+    color: #444444;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+  }
+
+  h2{font-size: 1.875rem;}
+
+  h3{font-size: 1.5rem;}
+
+  a{color: $color-scheme;}
+
+  pre{width: 100%;}
+
+  img{
+    width: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  li{
+    font-size: 1.125rem;
+
+    &:before{
+      display: none;
+    }
+  }
+}
+
+.bottom-tags{
+  @include ul-reset;
+  padding: 1em 0;
+  border-bottom: 1px solid #f3f3f3;
+
+  @include desktop-laptop{
+    padding: 2em 0;
+  }
+
+  li{
+    padding: 0;
+  }
+
+  a{
+    background-color: #f7f6f6;
+    padding: 6px 12px;
+    border-radius: 5px;
+    margin: 3px 1px;
+    font-size: 	0.95rem;
+    font-weight: 400;
+    text-transform: lowercase;
+    transition: all .5s ease;
+    color: inherit;
+
+    &:hover{
+      background-color: $color-scheme;
+      color: $light-text;
+    }
+  }
+}
+
+
+/*share buttons*/
+.share-page {
+  text-align: left;
+  margin: 2em 0;
+
+  a {
+    font-weight: 700;
+    color: $light-text;
+    margin-top: 1em;
+    margin-right: 10px;
+    display: inline-block;
+    width: 120px;
+    padding: .50em .50em .50em 2em;
+    position: relative;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .share-twitter{
+    background-color: #00aced;
+
+    &:before{
+      content: "\f099";
+      font-family: "FontAwesome";
+      position: absolute;
+      left: 15px;
+    }
+  }
+
+  .share-facebook{
+    background-color: #3b5999;
+
+    &:before{
+      content: "\f09a";
+      font-family: "FontAwesome";
+      position: absolute;
+      left: 15px;
+    }
+  }
+
+  .share-google{
+    background-color: #b53828;
+
+    &:before{
+      content: "\f0d5";
+      font-family: "FontAwesome";
+      position: absolute;
+      left: 15px;
+    }
+  }
+}

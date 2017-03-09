@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+<body>
+  {% include main-nav.html %}
+  {% include post-header.html %}
+  <div class="pagewrap">
+    {% include sidebar.html %}
+
+
+    <article class="post-page">
+    	<div class="content">
+
+        {% assign images = post.content | split:"<img " %}
+          {% for image in images %}
+            {% if image contains 'src=' %}
+            {% assign imageMarkup = image | split:">" | first %}
+              <img {{ imageMarkup }}>
+              {% break %}
+            {% endif %}
+          {% endfor %}
+
+          <style> span{display: inline-block;}</style>
+
+    		{{ content }}
+
+    	</div>
+
+      {% if page.tags.size > 0 %}
+        <ul class="bottom-tags">
+          {% for tag in page.tags %}
+            <li><a href="{% if site.baseurl == "/" %}/tag#{{ tag }}{% else %}{{ site.baseurl }}/tag#{{ tag }}{% endif %}" class="tag">{{ tag }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% include share-page.html %}
+
+      {% include disqus.html %}
+
+    </article>
+
+  </div>
+  {% include footer.html %}
+  <a href="javascript:void(0);" class="scroll-top" id="scroll" title="Scroll to Top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="{{ "/assets/js/main.js" | prepend: site.baseurl | replace: '//', '/'}}"></script>
+  <script src="{{ "/assets/js/prism.js" | prepend: site.baseurl | replace: '//', '/'}}"></script>
+</body>
+</html>

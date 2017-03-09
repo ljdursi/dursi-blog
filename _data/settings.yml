@@ -1,0 +1,34 @@
+#--------------------------------
+# Images
+avatar: "/assets/imgs/avatar.jpg"
+banner: "/assets/imgs/cover.png"
+
+#--------------------------------
+# Config
+home-banner: true # set to false if you don't want to include a banner on the hompage
+
+#--------------------------------
+# SEO Section
+
+# NOTE: Providing SEO information will make this website more searchable on the internet.
+
+seo:
+  description: 'R&amp;D computing at scale.'
+
+#--------------------------------
+# Main-nav menu section
+menu:
+- {name: HOME, url: '/'}
+- {name: ABOUT, url: '/about'}
+- {name: CONTACT, url: '/contact'}
+
+#--------------------------------
+# Social icons section
+social:
+- {icon: 'twitter', link: 'https://twitter.com/ljdursi'}
+- {icon: 'github', link: 'https://github.com/ljdursi'}
+- {icon: 'stack-overflow', link: 'http://stackoverflow.com/users/463827/jonathan-dursi'}
+- {icon: 'linkedin', link: 'https://www.linkedin.com/in/jonathandursi'}
+- {icon: 'rss', link: '/feed.xml'}
+
+# icons available: twitter, facebook, github, rss, pinterest, google plus, linkedin, youtube, stack-overflow, instagram, tumblr, dribbble reddit, behance and soundcloud.
