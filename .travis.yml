@@ -10,7 +10,7 @@ install:
   - pip install --user awscli
 script: 
   - bundle exec jekyll build
-  - ./script/make_links.sh
+  - ./scripts/make_links.sh
 deploy:
   on:
     branch: master
