@@ -4,10 +4,11 @@ rvm:
 python:
   - 2.7
 install: 
-  - gem install jekyll -v 2.4.0
+  - gem install jekyll bundler ffi
+  - bundle update
   - pip install --user -U pip
   - pip install --user awscli
-script: jekyll build
+script: bundle exec jekyll build
 deploy:
   on:
     branch: master
