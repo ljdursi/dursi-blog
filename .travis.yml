@@ -5,7 +5,8 @@ python:
   - 2.7
 install: 
   - gem install jekyll -v 2.4.0
-  - pip install awscli
+  - pip install --user -U pip
+  - pip install --user awscli
 script: jekyll build
 deploy:
   on:
