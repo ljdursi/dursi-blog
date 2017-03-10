@@ -10,7 +10,7 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-permalink: /post/:title
+permalink: /post/:title.html
 
 # Default values
 defaults:
