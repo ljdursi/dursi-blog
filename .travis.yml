@@ -8,7 +8,9 @@ install:
   - bundle update
   - pip install --user -U pip
   - pip install --user awscli
-script: bundle exec jekyll build
+script: 
+  - bundle exec jekyll build
+  - ./script/make_links.sh
 deploy:
   on:
     branch: master
