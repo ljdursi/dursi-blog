@@ -15,11 +15,11 @@ deploy:
   provider: s3
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
-  bucket: www.dursi.ca
+  region: $AWS_DEFAULT_REGION
+  bucket: "www.dursi.ca"
   skip_cleanup: true
   local_dir: _site
   acl: public_read
-  region: $AWS_DEFAULT_REGION
 after_deploy:
   - aws configure set preview.cloudfront true
   - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
