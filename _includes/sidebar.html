@@ -32,7 +32,7 @@
       {% assign t = tag | first %}
       {% assign posts = tag | last %}
       <li class="blog-tag-item" id="{{ t }}-item">
-        <a href="{% if site.baseurl == "/" %}/tag#{{ t }}{% else %}{{ site.baseurl }}/tag#{{ t }}{% endif %}" onclick="filter('{{ t }}'); return true;">{{ t }}</a>
+        <a href="{% if site.baseurl == "/" %}/tag.html#{{ t }}{% else %}{{ site.baseurl }}/tag.html#{{ t }}{% endif %}" onclick="filter('{{ t }}'); return true;">{{ t }}</a>
       </li>
     {% endfor %}
   </ul>
