@@ -19,8 +19,8 @@ seo:
 # Main-nav menu section
 menu:
 - {name: HOME, url: '/'}
-- {name: ABOUT, url: '/about'}
-- {name: CONTACT, url: '/contact'}
+- {name: ABOUT, url: '/about.html'}
+- {name: CONTACT, url: '/contact.html'}
 
 #--------------------------------
 # Social icons section
