@@ -2,7 +2,6 @@
 ---
 @import 'config.scss';
 @import 'components/icon-fonts.scss';
-@import 'components/fonts.scss';
 @import 'components/vars.scss';
 @import 'components/mixins.scss';
 @import 'components/base.scss';
@@ -137,7 +136,7 @@
     }
 
     &:hover{
-      background-color: #304094;
+      background-color: darken($color-scheme, 10%);
     }
   }
 }

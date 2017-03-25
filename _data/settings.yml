@@ -1,6 +1,7 @@
 #--------------------------------
 # Images
-avatar: "/assets/imgs/avatar.jpg"
+avatar: "/assets/imgs/avatar.png"
+avatar-medium: "/assets/imgs/avatar-medium.jpg"
 banner: "/assets/imgs/cover.png"
 
 #--------------------------------

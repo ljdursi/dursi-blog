@@ -1,7 +1,7 @@
 <aside class="sidebar">
   {% if page.is_post %}
   <div class="sidebar-image">
-    <img src="{% if site.baseurl == "/" %}{{ site.data.settings.avatar }}{% else %}{{ site.data.settings.avatar | prepend: site.baseurl }}{% endif %}" alt="avatar"/>
+    <img src="{% if site.baseurl == "/" %}{{ site.data.settings.avatar-medium }}{% else %}{{ site.data.settings.avatar-medium | prepend: site.baseurl }}{% endif %}" alt="avatar"/>
   </div>
   <h2><a href="{{ site.url }}">Jonathan Dursi</a></h2>
   <div class="user-location"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{ site.location }}</div>

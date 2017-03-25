@@ -5,11 +5,16 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
   <meta name="description" content="{{ site.data.settings.seo.description }}">
-  <link rel="shortcut icon" href="{{ "/assets/imgs/favicon.ico | prepend: site.baseurl | replace: '//', '/' }}"/>
+  <link rel="shortcut icon" href="{{ "/assets/imgs/favicon.ico" | prepend: site.baseurl | replace: '//', '/' }}"/>
   <link rel="alternate" type="application/rss+xml" title="Jonathan Dursi RSS" href="/feed.xml">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-  <link rel="stylesheet" href="{{ "/assets/css/tools/normalize.css" | prepend: site.baseurl | replace: '//', '/' }}"/>
-  <link rel="stylesheet" href="{{ "/assets/css/tools/prism.css" | prepend: site.baseurl | replace: '//', '/' }}"/>
-  <link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl | replace: '//', '/' }}"/>
+
+  <!-- critical css -->
+  <style type="text/css">
+    {% capture include_to_scssify %}
+      {% include critical.scss %}
+    {% endcapture %}
+    {{ include_to_scssify | scssify }}
+  </style>
+
   {% include mathjax.html %} <!-- mathjax -->
 </head>

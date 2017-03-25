@@ -1,0 +1,117 @@
+@import 'config.scss';
+@import 'components/icon-fonts.scss';
+@import 'components/vars.scss';
+@import 'components/mixins.scss';
+@import 'components/base.scss';
+
+@import 'sections/main-nav.scss';
+@import 'sections/main-header.scss';
+@import 'sections/sidebar.scss';
+/*______ all styles on index.html goes here ______*/
+
+//index's banner
+.home-banner{
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+
+  img{
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+// post header
+/*post page's header*/
+.post-header{
+  width: 100%;
+  min-height: 360px;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), rgba(0,0,0,0.55) url('/assets/imgs/cover.png') no-repeat center;
+  background-size: cover;
+  position: relative;
+  margin-bottom: 2em;
+
+  .header-content{
+    width: 65%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    color: $light-text;
+    padding: 4em 0;
+
+    @include desktop-laptop{
+      width: 90%;
+    }
+  }
+
+  h1{
+    flex: 1 1 100%;
+    font-size: 2.8125rem;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  .author-data{
+    display: flex;
+    flex-grow: 2;
+    margin: 2em 0;
+    width: 50%;
+    color: #D5D5D5;
+
+    .avatar{
+      width: 25px;
+      margin-right: 10px;
+
+      img{
+        max-width: 100%;
+        margin: 0 auto;
+        border-radius: 50%;
+      }
+    }
+
+    .post-author{
+      font-size: 1rem;
+
+      &:hover{
+        color: #fff;
+      }
+    }
+  }
+
+  .tags{
+    @include ul-reset;
+    align-items: flex-end;
+    text-align: right;
+    padding-left: 1.5em;
+    position: relative;
+    color: #D5D5D5;
+
+    a:hover{
+      color: #fff;
+    }
+
+    li:not(:last-of-type)::after{
+      content: "\f111";
+      font-family: "FontAwesome";
+      display: inline-block;
+      position: relative;
+      top: -1px;
+      left: 6.5px;
+      color: inherit;
+      font-size: .50rem;
+    }
+
+    &:before{
+      content: "\f02c";
+      font-family: "FontAwesome";
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      color: #D5D5D5;
+    }
+  }
+
+}
