@@ -1,5 +1,6 @@
 ---
 layout: page
+title: Author
 ---
 
 {% if page.path contains 'author' %}
@@ -11,7 +12,7 @@ layout: page
 {% endif %}
 
 <header class="author-page-header">
-  <div class="author-header-image"><img src="{% if site.baseurl == "/" %}{{ site.data.settings.avatar }}{% else %}{{ site.data.settings.avatar | prepend: site.baseurl }}{% endif %}" alt="avatar"/></div>
+  <div class="author-header-image"><img src="{% if site.baseurl == "/" %}{{ site.data.settings.avatar-medium }}{% else %}{{ site.data.settings.avatar-medium | prepend: site.baseurl }}{% endif %}" alt="avatar"/></div>
   <h2 class="author-name">Jonathan Dursi</h2>
   <div class="author-meta">
     <span class="locaton"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{ site.location }}</span>
