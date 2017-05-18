@@ -1,5 +1,6 @@
 ---
 title:  "HPC+MPI on RCE Podcast"
+tags: ['hpc']
 ---
 
 In [the latest episode](http://www.rce-cast.com/Podcast/rce-97-jonathan-dursi.html) of the [RCE podcast](http://www.rce-cast.com), Jeff Squyres, Brock Palen, and I spoke about the HPC and MPI series of blogposts and the community reaction.

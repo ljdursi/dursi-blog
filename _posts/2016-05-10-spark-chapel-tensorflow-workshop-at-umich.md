@@ -1,5 +1,6 @@
 ---
 title:  "Spark, Chapel, TensorFlow: Workshop at UMich"
+tags: ['spark', 'chapel', 'tensorflow']
 ---
 
 The kind folks at the University of Michigan's [Center for Computational Discovery and Engineering (MICDE)](http://micde.umich.edu), which is just part of the very impressive [Advanced Research Computing](http://arc.umich.edu) division, invited me to give a workshop there a couple of months ago about the rapidly-evolving large-scale numerical computing ecosystem.  
