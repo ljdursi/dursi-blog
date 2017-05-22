@@ -1,6 +1,6 @@
 ---
 title:  "On Random vs. Streaming I/O Performance; Or seek(), and You Shall Find --- Eventually."
-tags: ['bioinformatics', 'performance']
+tags: ['bioinformatics', 'performance', 'IO']
 ---
 
 At the [Simpson Lab blog](http://simpsonlab.github.io/blog/), I've written a post

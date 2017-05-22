@@ -1,5 +1,6 @@
 ---
 title:  "Beyond Single Core R: Parallel Data Analysis"
+tags: ['R', 'presentation']
 ---
 
 I was asked recently to do short presentation for the [Greater Toronto R Users Group](https://www.meetup.com/Greater-Toronto-Area-GTA-R-Users-Group)

@@ -1,5 +1,6 @@
 ---
 title:  "MPI's Place in Big Computing"
+tags: ['MPI', 'presentation']
 ---
 
 The organizers of [EuroMPI 2016](http://www.eurompi2016.ed.ac.uk) were kind enough to invite me to give a keynote and participate in a panel at their meeting, which was held at the end of September in beautiful Edinburgh.  The event was terrific, with lots of very interesting work going on in MPI implementations and with MPI.

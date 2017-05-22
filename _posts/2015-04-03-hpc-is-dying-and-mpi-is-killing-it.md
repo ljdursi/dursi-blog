@@ -1,6 +1,6 @@
 ---
 title:  "HPC is dying, and MPI is killing it"
-tags: ['hpc']
+tags: ['hpc', 'MPI', 'spark', 'chapel']
 ---
 
 ![King Canute](http://news.bbcimg.co.uk/media/images/53009000/jpg/_53009665_canutewaves.jpg)

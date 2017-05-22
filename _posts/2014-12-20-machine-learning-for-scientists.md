@@ -1,6 +1,6 @@
 ---
 title:  "Machine Learning for Scientists"
-tags: ['data', 'tutorial', 'machine-learning']
+tags: ['data', 'tutorial', 'machine-learning', 'python']
 ---
 
 I recently taught a 1-day [machine learning workshop for scientists](http://ljdursi.github.io/ML-for-scientists)  for the good folks at [SciNetHPC](http://www.scinethpc.ca).  There was enough interest (nearly forty people signed up for a day-long session near the end of term) that we had to book a large-ish classroom.

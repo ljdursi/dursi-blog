@@ -1,5 +1,6 @@
 ---
 title:  "In Praise of MPI Collectives and MPI-IO"
+tags: ['hpc', 'MPI', 'MPI-IO']
 ---
 
 While I have a number of posts I want to write on other topics and technologies, there is one last followup I want to make to [my MPI post](http://www.dursi.ca/hpc-is-dying-and-mpi-is-killing-it/).

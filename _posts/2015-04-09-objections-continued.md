@@ -1,5 +1,6 @@
 ---
 title:  "Objections, Continued"
+tags: ['hpc', 'MPI']
 ---
 
 Thanks for all of the comments about [my HPC and MPI post](http://dursi.ca/hpc-is-dying-and-mpi-is-killing-it/), on the post itself, or on twitter, or via email.  While much of the comments and discussions were positive, it won't surprise you to learn that there were objections, too; so I thought I'd keep updating the Objections section in a new post.  I've also posted [one (hopefully last) followup](http://www.dursi.ca/in-praise-of-mpi-collectives-and-mpi-io/).
