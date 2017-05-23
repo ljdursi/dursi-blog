@@ -247,6 +247,8 @@ manager will likely lower the bar to future contributions.
 Chapel also lacks a REPL, which makes experimentation and testing
 somewhat harder --- there's no equivalent of [JuliaBox](https://juliabox.com)
 where one can play with the language at a console or in a notebook.
+There is an effort in that direction now which may be made easier
+by ongoing work on the underlying compiler architecture.
 
 ### Similarties and differences 
 
