@@ -13,8 +13,8 @@ are their strengths and weaknesses, and how do they compare?
 
 Here we walk through a comparison, focusing on distributed-memory
 parallelism. Both have strengths in largely disjoint areas.  If you
-want matlib-like interactivity and plotting, and master-worker
-parallism, Julia is the clear winner; if you want MPI+OpenMPI type
+want matlib-like interactivity and plotting, and need only master-worker
+parallelism, Julia is the clear winner; if you want MPI+OpenMPI type
 scability on rectangular distributed arrays (dense or sparse),
 Chapel is the obvious choice.  Both languages and environments have
 clear untapped potential and room to grow; we'll talk about future
@@ -44,7 +44,7 @@ or Jupyter notebook (both available to try [online](https://juliabox.com)),
 with integrated plotting; also, indexing begins at one, as God
 intended.[^1]
 
-[^1]: Yes, I said it.  Offsets into buffers rightly begin at 0, and indices into mathematical objects rightly begin at 1; anything else is madness.  Also: oxford comma, two spaces after a period, and vi are all the correct answers to their respective questions.
+[^1]: Yes, I said it.  Offsets into buffers can begin at 0, sure, but indices into mathematical objects begin at 1; anything else is madness.  Also: oxford comma, two spaces after a period, and vi are all the correct answers to their respective questions.
 
 <table style="border: 1px solid black;">
 <tbody>
@@ -84,7 +84,7 @@ Julia blurs the distinction between scientific users of Julia and
 developers in two quite powerful ways.  The first is lisp-like
 [metaprogramming](https://docs.julialang.org/en/stable/manual/metaprogramming/),
 where julia code can be generated or modified from within Julia,
-making it possible to build domain-specific langauges inside Julia
+making it possible to build domain-specific langauges (DSLs) inside Julia
 for problems; this allows simple APIs for broad problem sets which
 nonetheless take full advantage of the structure of the particular
 problems being solved; [JuliaStats](https://github.com/JuliaStats),
@@ -116,11 +116,13 @@ less so.
 
 ### Chapel
 
-While Julia is a scientific programming language with parallel computing support,
-Chapel is a programming language for parallel scientific computing. It is a 
-[PGAS](https://en.wikipedia.org/wiki/Partitioned_global_address_space) language,
-with partitioned but globally-accessible variables.  It takes PGAS two steps
-further however than languages like [Coarray Fortran](https://www.dursi.ca/post/coarray-fortran-goes-mainstream-gcc-5-1.html),
+While Julia is a scientific programming language with parallel
+computing support, Chapel is a programming language for parallel
+scientific computing. It is a [PGAS](https://en.wikipedia.org/wiki/Partitioned_global_address_space)
+language, with partitioned but globally-accessible variables, using
+[GASNet](https://gasnet.lbl.gov) for communications.  It takes PGAS
+two steps further however than languages like [Coarray
+Fortran](https://www.dursi.ca/post/coarray-fortran-goes-mainstream-gcc-5-1.html),
 [UPC](http://upc.lbl.gov), or [X10](http://x10-lang.org), however.
 
 The first extension is to define all large data structures (arrays,
@@ -252,7 +254,7 @@ helpful for interactive use[^2], which is a primary use-case of Julia.
 [^2]: "Do the right thing" isn't free, however; as with matlab or numpy, when combining objects of different shapes or sizes, the "right thing" can be a bit suprising unless one is very familiar with the tool's [broadcasting rules](https://docs.julialang.org/en/stable/manual/arrays/?highlight=broadcasting#broadcasting)
 
 On profiling, the Julia support is primariy for serial profiling
-and text based; Chapel has a very nice package called
+and text based; Chapel has a very nice tool called
 [chplvis](http://chapel.cray.com/docs/1.14/tools/chplvis/chplvis.html) 
 for visualizing parallel performance.
 
@@ -264,7 +266,9 @@ of contributed packages.  As with all such package ecosystems,
 the packages themselves are a bit of a mixed bag -- lots are broken or
 abandoned, many are simply wrappers to other tools -- but there
 are also excellent, substantial packages of immediate interest
-to those doing scientific computing, such as [DifferentialEquations.jl](https://github.com/JuliaDiffEq/DifferentialEquations.jl)
+to those doing scientific computing, such as 
+[DifferentialEquations.jl](https://github.com/JuliaDiffEq/DifferentialEquations.jl)
+for ODEs, SDEs, and and FEM for some PDEs,
 [BioJulia](https://github.com/BioJulia) for bioinformatics,
 and [JuliaStats](http://juliastats.github.io) for R-like
 statistical computing.  The julia project would benefit from
@@ -275,32 +279,35 @@ new users.
 On the other hand, there are almost no packages available for Chapel
 outside of the main project.  There are efforts to develop a package
 manager inspired by cargo (Rust) and glide (Go); this would be an
-important and needed development and almost certainly necessary
+important and needed development, almost certainly necessary
 to grow the Chapel community.
 
 ### Language features
 
-As would be expected from modern programming languages, both Julia
-and Chapel have first class functions, lambda functions, type
-inference, iterators, ranges, and JuliaDoc/chpldoc python packages
-for generating online documentation from source code and embedded
-comments.
+The biggest language feature difference is undoubtedly
+Julia's JIT-powered metaprogramming capabilities; Chapel 
+is a more traditional compiled language.  A small downside
+of Julia's JIT approach is that functions are often slow the
+first time they are called, as they must be compiled.
 
-The biggest language feature difference is undoubtedly the distinction
-between Julia's JIT-powered metaprogramming.
+Beyond that, Julia and Chapel are both quite new and have functionality
+one might expect in a modern language: first class functions, lambda
+functions, type inference, iterators, ranges, coroutines, futures,
+and JuliaDoc/chpldoc python packages for generating online documentation
+from source code and embedded comments.
 
-More minor but something that quickly comes up, there's difference
-in command-line argument handling which reflects the intended use
-cases of each language.  Both give access to an argv-like array of
+More minor but something that quickly comes up: there's difference
+in command-line argument handling which reflects the use
+cases each team finds important.  Both give access to an argv-like array of
 strings passed to the command line; in base Julia with its interactive
 nature, that's it (although there's a nice python-argparse inspired
 [contributed package](http://carlobaldassi.github.io/ArgParse.jl/latest/)),
-while Chapel, intended to make compiled long-running executables
-makes it even easier; one can define a constant (`const n = 10;`)
-and make it settable on the command line by changing the `const`
-to `config` and running the program with `-n 20`.
+while in Chapel, intended to make compiled long-running executables
+one can define a constant (`const n = 10;`) and make it settable
+on the command line by changing the `const` to `config` and running
+the program with `-n 20`.
 
-## Not-explicitly parallel computation
+## Simple computational tasks
 
 ### Linear algebra
 
@@ -324,13 +331,35 @@ to `config` and running the program with `-n 20`.
 
 ## Julia v Chapel for distributed Smith-Waterman
 
-## Strengths and Weaknesses
+## Strengths, Weaknesses, and Future Prospects
+
+Both Julia and Chapel are perfectly useable today for problems that
+fall within their current bailiwicks, at least for advanced users.
+They are strong projects and interesting technologies.  In addition,
+both have significant potential and "room to grow" beyond their
+current capabilities; but both face challenges as well.
 
 ### Julia
 
-Many of Julia's disadvantages are inevitable flip sides of the
-advantages.  Because of the dynamic nature of the language and its
-reliance on JIT and type inference, it is [still not
+Julia's great flexibility - the metaprogramming and the type system
+in particular - gives it a very real opportunity to become a platform
+on which many domanin-specific language are written for particular scientific problems.
+We see some of that potential in tools like [DifferentialEquations.jl](https://github.com/JuliaDiffEq/DifferentialEquations.jl),
+where a simple, general API can nonetheless be used to provide efficient
+solutions to a problems that span a wide range of regimes and structures;
+the `solve()` function and the problem definition language essentially
+becomes a DSL for a wide range of differential equation problems.
+And Julia's interactive and dynamic nature makes it a natural for 
+scientists noodling around on problems, performing numerical
+experiments and looking at the results.  While large-scale computing
+--- in an HPC or Spark-style Big-data sense --- is not a forte of
+Julia's right now, the basic pieces are there and it certainly could
+be in the near future.
+
+Many of Julia's disadvantages are inevitable flip sides of some of
+those advantages.  advantages.  Because of the dynamic nature of
+the language and its reliance on JIT and type inference, it is
+[still not
 possible](https://discourse.julialang.org/t/julia-static-compilation/296/27)
 to fully compile a Julia script into a static executable, meaning
 that there will be JIT pauses in initial iterations of running code;
@@ -358,17 +387,8 @@ also makes it difficult to build new functionality on top of base
 Julia; it's hard to build powerful parallel computing tools when
 one can't even depend on the behavour of arrays.
 
-
-### Chapel
-
-## Future prospects
-
-### Julia
-
-Julia's 
-
-If I were on Julia's project team, things that would concern me would
-include:
+So Julia living up to that potential is not a given.  If I were on
+Julia's project team, things that would concern me would include:
 
 **Peak Julia?**
 : Julia grew very quickly early on, but since then seems to have topped out;
@@ -429,14 +449,14 @@ contributors, the core language internals (like the JIT itself)
 has only a handful, and complex issues like performance can take a very long time
 to get solved.
 
-**The 800lb Pythonic Gorilla**
+**The 800lb pythonic gorilla**
 : Python is enormously popular in scientific and data-science type
 applications, has huge installed base and number of packages, and
 with [numpy](http://www.numpy.org) and [numba](http://numba.pydata.org)
-can be quite fast.  With the scientific computing community now
-grudgingly starting to move to Python 3, and Python 3.5+ now
+can be quite fast.  The scientific computing community is now 
+grudgingly starting to move to Python 3, and with Python 3.5+ 
 supporting [type annotations](https://docs.python.org/3/library/typing.html),
-I think there'd be now be a quite real concern that Python would get
+I think there'd start to be a quite real concern that Python would get
 Julia-fast (or close enough) before Julia got Python-big.  The fact
 that some of Julia's nicest features like notebook support and coolest new projects
 like [Dagger](https://github.com/JuliaParallel/Dagger.jl) rely on
@@ -444,14 +464,70 @@ or are ports of work originally done for Python (ipython notebook
 and [Dask](http://dask.pydata.org/en/latest/)) indicate the danger
 if Python gets fast enough.
 
-
 Of those four, only the middle two are completely under the Julia
 team's control; a v1.0 released soon, and with solemn oaths sworn
 to have no more significant breaking changes until v2.0 would help
 developers and users, and onboarding more people into core internals
 development would help the underlying technology.
 
+### Chapel
 
+If I were on the Chapel team, my concerns would be different:
+
+**Adoption**
+: It's hard to escape the fact that Chapel's user base is very
+small.  The good news is that Chapel's niche, unlike Julia's, has
+no serious immediate competitor, which gives it a bit more runway ---
+I'd consider other productive parallel scientific programming
+languages to be more research projects than products.  But the niche
+itself is small, and Chapel's modest adoption rate within that niche
+needs to be addressed in the near future if the language is to
+thrive.  The Chapel team is doing many of the right things ---  the
+package is easy to install (no small feat for a performant parallel
+programming language); the compiler is getting faster and producing
+faster code; there's lots of examples, tutorials and documentation
+available; and the community is extremely friendly and welcoming
+--- but it seems clear that users need to be given more reason to
+start trying the language.
+
+**Small number of external contributors**
+: Admittedly, this is related to the fact that the number of users
+is small, but it's also the case that contributing code is nontrivial
+if you want to contribute it to the main project, and there's no central
+place where other people could look for your work if you wanted to have
+it as an external package.  A package manager would be a real help, 
+and it doens't have to be elaborate (especially in the initial version).
+
+**Not enough packages**
+: In turn, this is caused by the small number of external contributors,
+and helps keep the adoption low.  Chapel already has the fundamentals
+to start building some really nice higher-level packages and solvers
+that would make it easy to start writing some types of scientific
+codes.  A distributed-memory n-dimensional FFT over one of its
+domains; the beginnings of a Chapel-native set of solvers from
+[Scalapack](http://www.netlib.org/scalapack/) or
+[PETSc](http://www.mcs.anl.gov/petsc/index.html) (both of which are
+notoriously hard to get started with, and in PETSc's case, even
+install); simple static-sized R-style dataframes with some analysis
+routines; these are tools which would make it very easy to get
+started writing some non-trivial scientific software in Chapel.
+
+**Too few domain maps and layouts**
+: Being able to, in a few lines of code, write performant, threaded,
+NUMA-aware, and distributed memory operations on statically-decomposed
+rectangular multidimensional arrays, and have that code work on a
+cluster or your desktop is amazing.  But many scientific problems
+do not match neatly onto these domains.  Many require dynamically-sized
+domains (block-adaptive meshes) or load balancing (tree codes,
+dynamic hash tables); others may be static but not quite look like
+CSR-sparse arrays.  Domain maps, layouts, and the parallel iterators
+which loop over them are the "secret sauce" of Chapel, and can be
+written in user code if the underlying capabilities they need are
+supported, so they can be contributed externally, but there is little
+documention/examples (compared to that on using existing domain maps) available.
+
+The good news is that these items are all under the Chapel community's
+control.  
 
 ## My conclusion
 
