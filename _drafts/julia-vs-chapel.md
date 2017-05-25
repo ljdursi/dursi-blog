@@ -15,7 +15,7 @@ Here we walk through a comparison, focusing on distributed-memory
 parallelism. Both have strengths in largely disjoint areas.  If you
 want matlib-like interactivity and plotting, and master-worker
 parallism, Julia is the clear winner; if you want MPI+OpenMPI type
-scability on rectangular distributed arrays (dense or sparese),
+scability on rectangular distributed arrays (dense or sparse),
 Chapel is the obvious choice.  Both languages and environments have
 clear untapped potential and room to grow; we'll talk about future
 prospects of the two languages at the end.
@@ -32,7 +32,7 @@ high-level, high-performance dynamic programming language for
 numerical computing."  It exploits type inference of rich types,
 just-in-time compilation, and [multiple
 dispatch](https://en.wikipedia.org/wiki/Multiple_dispatch) (think
-of R, with say `print()` operating differently on scalars,
+of R, with say `print()` defined to operate differently on scalars,
 data&nbsp;frames, or linear regression fits) to provide a dynamic,
 interactive, "scripting language"-type high level numerical programming
 language that gives performance less than than but competitive with
@@ -43,6 +43,8 @@ so focusses on that sort of interface; interactive, through a REPL
 or Jupyter notebook (both available to try [online](https://juliabox.com)),
 with integrated plotting; also, indexing begins at one, as God
 intended.[^1]
+
+[^1]: Yes, I said it.  Offsets into buffers rightly begin at 0, and indices into mathematical objects rightly begin at 1; anything else is madness.  Also: oxford comma, two spaces after a period, and vi are all the correct answers to their respective questions.
 
 <table style="border: 1px solid black;">
 <tbody>
@@ -78,7 +80,6 @@ imshow(jset, cmap="RdGy", extent=[-1.5,1.5,-1,1])
 </tbody>
 </table>
 
-
 Julia blurs the distinction between scientific users of Julia and
 developers in two quite powerful ways.  The first is lisp-like
 [metaprogramming](https://docs.julialang.org/en/stable/manual/metaprogramming/),
@@ -113,38 +114,6 @@ packages), and distributed rectangular arrays; thread support
 is still experimental, and shared-memory on-node arrays somewhat
 less so.
 
-Many of Julia's disadvantages are inevitable flip sides of the
-advantages.  Because of the dynamic nature of the language and its
-reliance on JIT and type inference, it is [still not
-possible](https://discourse.julialang.org/t/julia-static-compilation/296/27)
-to fully compile a Julia script into a static executable, meaning
-that there will be JIT pauses in initial iterations of running code;
-too, the dynamic nature of the language relies on garbage collection,
-which can cause either GC pauses (and thus jitter at scale) or
-unexpected memory pressure throughout execution.  Similarly, the
-fact that it's so easy to contribute a package to the Julia package
-ecosystem means that the package listing is littered with abandoned
-and broken packages.
-
-But some of the disadvantages seem more self-inflicted.  While the
-language has been public and actively developed for [over five
-years](https://julialang.org/blog/2012/02/why-we-created-julia),
-the language is still at v0.6.  While any language will evolve over
-time, the Julia community has spent the past five years contininually
-re-litigating fairly fundamental decisions of syntax in the interests
-of purity -- v0.4 in late 2015 changed the capitalization of unsigned
-integer types and radically changed the dictionary syntax, while
-0.5 in late 2016 dramatically (although less dramatically than
-originally proposed after community pushback) changed the behaviour
-of arrays (!!) in an event termed the Arraypocolypse.  As a result,
-much example code online simply doesn't work; thus the 
-accelerated bitrot of software in the Julia package listing.  This
-also makes it difficult to build new functionality on top of base
-Julia; it's hard to build powerful parallel computing tools when
-one can't even depend on the behavour of arrays.
-
-[^1]: Yes, I said it.  Offsets into buffers rightly begin at 0, and indices into mathematical objects rightly begin at 1; anything else is madness.  Also: oxford comma, two spaces after a period, and vi are all the correct answers to their respective questions.
-
 ### Chapel
 
 While Julia is a scientific programming language with parallel computing support,
@@ -158,11 +127,12 @@ The first extension is to define all large data structures (arrays,
 associative arrays, graphs) as being defined over _domains_, and
 then definining a library of _domain maps_ for distributing these
 domains over different locality regions ("locales") (nodes, or NUMA
-nodes) and _layouts_ for describing their layout within a locale.  By
-far the best tested and optimized domain maps are for the cases of
-dense (and to a lesser extent, CSR-layout sparse) rectangular arrays,
-as below, although there support for associative arrays (dictionaries)
-and unstructured meshes/graphs as well.
+nodes, or KNL accellerators) and _layouts_ for describing their layout
+within a locale.  By far the best tested and optimized domain maps
+are for the cases of dense (and to a lesser extent, CSR-layout
+sparse) rectangular arrays, as below, although there support for
+associative arrays (dictionaries) and unstructured meshes/graphs
+as well.
 
 The second is to couple those domain maps with parallel iterators
 over the domains, meaning that one can loop over the data in parallel
@@ -234,15 +204,16 @@ coforall loc in Locales do
 At roughly eight years old as a publically available project, Chapel
 is a slightly older and more mature language than Julia. However,
 the language continues to evolve and there are breaking changes
-between versions; these are much smaller breaking changes than with
-Julia, so that most recent example code online works readily.  As
-its focus has always been on large-scale parallelism rather than
-desktop computing, it is more of a niche project and so has attracted
-much less interest and many fewer users than Juli (however, if you
-read this blog, Chapel's niche is one you are almost certainly very
-interested in.)  The relative paucity of users is reflected in the
-smaller number of contributed packages, although an upcoming package
-manager will likely lower the bar to future contributions.
+between versions; these are much smaller and more localized breaking
+changes than with Julia, so that most recent example code online
+works readily.  As its focus has always been on large-scale parallelism
+rather than desktop computing, it is more of a niche project and
+so has attracted much less interest and many fewer users than Julia
+(however, if you read this blog, Chapel's niche is one you are
+almost certainly very interested in.)  The relative paucity of users
+is reflected in the smaller number of contributed packages, although
+an upcoming package manager will likely lower the bar to future
+contributions.
 
 Chapel also lacks a REPL, which makes experimentation and testing
 somewhat harder --- there's no equivalent of [JuliaBox](https://juliabox.com)
@@ -250,7 +221,84 @@ where one can play with the language at a console or in a notebook.
 There is an effort in that direction now which may be made easier
 by ongoing work on the underlying compiler architecture.
 
-### Similarties and differences 
+## Similarities and differences
+
+### Standard library
+
+Both [Julia](https://docs.julialang.org/en/stable) and [Chapel](http://chapel.cray.com/docs/latest/)
+have good documentation, and the basic modules or capabilities one would expect from languages 
+aimed at technical computing:
+
+- Complex numbers 
+- Mathematical function libraries
+- Random numbers
+- Linear algebra
+- FFTs
+- C, Python interoperability
+- Multi-precision floats / BigInts
+- MPI interoperability
+- Profiling
+
+although there are differences - in Julia, Python interoperability
+is much more complete (the Julia set example above used matplotlib
+plotting, while [pychapel](https://pychapel.readthedocs.io) focuses
+on calling Chapel from within python).  Also, Julia's linear algebra
+support is much slicker, styled after Matlab syntax and with a rich
+set of matrix types (symmetric, tridiagonal, _etc._), so that for
+linear solves, say, a sensible method is chosen automatically; the
+consise syntax and "do the right thing" approach are particularly
+helpful for interactive use[^2], which is a primary use-case of Julia.
+
+[^2]: "Do the right thing" isn't free, however; as with matlab or numpy, when combining objects of different shapes or sizes, the "right thing" can be a bit suprising unless one is very familiar with the tool's [broadcasting rules](https://docs.julialang.org/en/stable/manual/arrays/?highlight=broadcasting#broadcasting)
+
+On profiling, the Julia support is primariy for serial profiling
+and text based; Chapel has a very nice package called
+[chplvis](http://chapel.cray.com/docs/1.14/tools/chplvis/chplvis.html) 
+for visualizing parallel performance.
+
+### Other packages
+
+Julia's early adoption of a package management framework and very
+large initial userbase has lead to a [very large ecosystem](http://pkg.julialang.org)
+of contributed packages.  As with all such package ecosystems, 
+the packages themselves are a bit of a mixed bag -- lots are broken or
+abandoned, many are simply wrappers to other tools -- but there
+are also excellent, substantial packages of immediate interest
+to those doing scientific computing, such as [DifferentialEquations.jl](https://github.com/JuliaDiffEq/DifferentialEquations.jl)
+[BioJulia](https://github.com/BioJulia) for bioinformatics,
+and [JuliaStats](http://juliastats.github.io) for R-like
+statistical computing.  The julia project would benefit from
+having a more curated view of the package listings easily available
+so that these high-quality tools were more readily visible to
+new users.
+
+On the other hand, there are almost no packages available for Chapel
+outside of the main project.  There are efforts to develop a package
+manager inspired by cargo (Rust) and glide (Go); this would be an
+important and needed development and almost certainly necessary
+to grow the Chapel community.
+
+### Language features
+
+As would be expected from modern programming languages, both Julia
+and Chapel have first class functions, lambda functions, type
+inference, iterators, ranges, and JuliaDoc/chpldoc python packages
+for generating online documentation from source code and embedded
+comments.
+
+The biggest language feature difference is undoubtedly the distinction
+between Julia's JIT-powered metaprogramming.
+
+More minor but something that quickly comes up, there's difference
+in command-line argument handling which reflects the intended use
+cases of each language.  Both give access to an argv-like array of
+strings passed to the command line; in base Julia with its interactive
+nature, that's it (although there's a nice python-argparse inspired
+[contributed package](http://carlobaldassi.github.io/ArgParse.jl/latest/)),
+while Chapel, intended to make compiled long-running executables
+makes it even easier; one can define a constant (`const n = 10;`)
+and make it settable on the command line by changing the `const`
+to `config` and running the program with `-n 20`.
 
 ## Not-explicitly parallel computation
 
@@ -266,40 +314,9 @@ by ongoing work on the underlying compiler architecture.
 
 ### Remote function execution
 
+### Master-worker parallelism
+
 ### Distributed data
-
-
-<table>
-<thead>
-<tr class="header">
-<th>Julia</th>
-<th>Chapel</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-{% highlight c %}
-for (i=0; i<10; i++) {
-    j += i
-}
-{% endhighlight %}
-</td>
-<td>
-{% highlight c %}
-for (i=0; i<10; i++) {
-    j += i
-}
-{% endhighlight %}
-</td></tr>
-<tr>
-<td markdown="span">Second column **fields**</td>
-<td markdown="span">Some more descriptive text.
-</td>
-</tr>
-</tbody>
-</table>
-
 
 ## Julia v Chapel for a 2d diffusion problem
 
@@ -309,6 +326,133 @@ for (i=0; i<10; i++) {
 
 ## Strengths and Weaknesses
 
+### Julia
+
+Many of Julia's disadvantages are inevitable flip sides of the
+advantages.  Because of the dynamic nature of the language and its
+reliance on JIT and type inference, it is [still not
+possible](https://discourse.julialang.org/t/julia-static-compilation/296/27)
+to fully compile a Julia script into a static executable, meaning
+that there will be JIT pauses in initial iterations of running code;
+too, the dynamic nature of the language relies on garbage collection,
+which can cause either GC pauses (and thus jitter at scale) or
+unexpected memory pressure throughout execution.  Similarly, the
+fact that it's so easy to contribute a package to the Julia package
+ecosystem means that the package listing is littered with abandoned
+and broken packages.
+
+But some of the disadvantages seem more self-inflicted.  While the
+language has been public and actively developed for [over five
+years](https://julialang.org/blog/2012/02/why-we-created-julia),
+the language is still at v0.6.  While any language will evolve over
+time, the Julia community has spent the past five years contininually
+re-litigating fairly fundamental decisions of syntax in the interests
+of purity -- v0.4 in late 2015 changed the capitalization of unsigned
+integer types and radically changed the dictionary syntax, while
+0.5 in late 2016 dramatically (although less dramatically than
+originally proposed after community pushback) changed the behaviour
+of arrays (!!) in an event termed the Arraypocolypse.  As a result,
+much example code online simply doesn't work; thus the 
+accelerated bitrot of software in the Julia package listing.  This
+also makes it difficult to build new functionality on top of base
+Julia; it's hard to build powerful parallel computing tools when
+one can't even depend on the behavour of arrays.
+
+
+### Chapel
+
 ## Future prospects
 
+### Julia
 
+Julia's 
+
+If I were on Julia's project team, things that would concern me would
+include:
+
+**Peak Julia?**
+: Julia grew very quickly early on, but since then seems to have topped out;
+for example, [flat google trends interest](https://g.co/trends/qzmA9),
+[declining interest on stack
+overflow](https://insights.stackoverflow.com/trends?tags=julia-lang), and
+falling off the radar of "languages to watch" lists such as the
+[Redmonk language
+rankings](http://redmonk.com/sogrady/2017/03/17/language-rankings-1-17/). 
+This may be unfair. These trends may say more about the large initial
+surge of interest than stagnation or decline; "a hugely popular
+scientific programing language" almost seems like an oxymoron, after all.
+A five-year old language for numerical computing that still hasn't
+reached 1.0 but has popularity comparable to Rust (which started
+at the same time but is a more general systems-programming language)
+or Fortran (which has an enormous installed base) is pretty remarkable;
+further growth may simply be more modest simply because of the small
+size of the number of scientific programmers out there.  Still, I
+think one would want to see interest growing ahead of a 1.0 release,
+rather than flat or declining.
+
+**Instability driving off users, developers**
+: Very early on, community members who used Julia started building
+what became [JuliaStats](http://juliastats.github.io), with R-like
+data frames, data tables, random distributions, and a growing number
+of statistics and machine-learning tools built atop.  This took
+significant developer effort, as fundamental to statistical use
+cases is "Not Available" or "NA" values, with semantics different
+from the NaNs that we in the simulation computing community are so
+frequently (if usually unintentionally) familar with.  Thus dataframes
+and tables couldn't simply be built directly on top of numerical
+arrays of basic numerical types, but took some effort to build
+efficient "nullable" types atop of.  But partly because of instability
+in the underlying language, Julia DataFrames and DataArrays have
+themselves been under flux, which is show-stopping to R users
+considering Julia, and demoralizing to developers.  Many other similar
+examples exist in other domains.  If it is true that there is
+declining or stagnant interest in Julia, this would certainly be a
+contributing factor.
+
+**The JIT often needs help, even for basic numerical computing tasks**
+: Julia is designed around its JIT compiler, which enables some
+of the language's very cool features - the metaprogramming, the
+dynamic nature of the language, the interactivity.  But the JIT
+compiler often needs a lot of help to get reasonable performance.
+For instance, writing numerical operations in the more readable
+vectorized form (like for the stream example in Chapel, `C = A + B`
+rather than looping over the indices) [has long been slow in Julia](http://www.johnmyleswhite.com/notebook/2013/12/22/the-relationship-between-vectorized-and-devectorized-code/)
+and still is [unless special meaures are taken](https://julialang.org/blog/2017/01/moredots).
+[A third party package](http://parallelacceleratorjl.readthedocs.io/en/latest/index.html)
+exists which helps many of the common cases (speeding up stencil
+operations on rectangular arrays), which on one hand indicates the
+power of Julia metaprogramming capabilities.  But on the other, one
+might naturally think that fast numerical operations on arrays would
+be something that the core language came with.  Part of the problem here
+is that while the Julia ecosystem broadly has a very large number of
+contributors, the core language internals (like the JIT itself) 
+has only a handful, and complex issues like performance can take a very long time
+to get solved.
+
+**The 800lb Pythonic Gorilla**
+: Python is enormously popular in scientific and data-science type
+applications, has huge installed base and number of packages, and
+with [numpy](http://www.numpy.org) and [numba](http://numba.pydata.org)
+can be quite fast.  With the scientific computing community now
+grudgingly starting to move to Python 3, and Python 3.5+ now
+supporting [type annotations](https://docs.python.org/3/library/typing.html),
+I think there'd be now be a quite real concern that Python would get
+Julia-fast (or close enough) before Julia got Python-big.  The fact
+that some of Julia's nicest features like notebook support and coolest new projects
+like [Dagger](https://github.com/JuliaParallel/Dagger.jl) rely on
+or are ports of work originally done for Python (ipython notebook
+and [Dask](http://dask.pydata.org/en/latest/)) indicate the danger
+if Python gets fast enough.
+
+
+Of those four, only the middle two are completely under the Julia
+team's control; a v1.0 released soon, and with solemn oaths sworn
+to have no more significant breaking changes until v2.0 would help
+developers and users, and onboarding more people into core internals
+development would help the underlying technology.
+
+
+
+## My conclusion
+
+---
