@@ -294,9 +294,9 @@ first time they are called, as they must be compiled.
 
 Beyond that, Julia and Chapel are both quite new and have functionality
 one might expect in a modern language: first class functions, lambda
-functions, type inference, iterators, ranges, coroutines, futures,
-and JuliaDoc/chpldoc python packages for generating online documentation
-from source code and embedded comments.
+functions, type inference, iterators, ranges, coroutines and green
+threads, futures, and JuliaDoc/chpldoc python packages for generating
+online documentation from source code and embedded comments.
 
 More minor but something that quickly comes up: there's difference
 in command-line argument handling which reflects the use
@@ -320,37 +320,142 @@ available [on GitHub](http://www.github.com/ljdursi/julia_v_chapel).
 
 ### Stencil calculation
 
+<table style="border: 1px solid black;">
+<tbody>
+<tr><td markdown="span">**Julia**</td>
+<td>
+{% highlight julia %}
+# ...
+for i in 2:ngrid+1
+  temp[i] = 0.
+end
+
+temp[1] = tleft
+temp[ngrid+2] = tright
+
+for iteration in 1:ntimesteps
+  for i in 2:ngrid+1
+      temp_new[i] = temp[i] + kappa*dt/(dx*dx)*
+                      (temp[i-1] - 2*temp[i] + temp[i+1])
+  end
+  for i in 2:ngrid+1
+      temp[i] = temp_new[i]
+  end
+end
+# ...
+{% endhighlight %}
+</td></tr>
+<tr><td markdown="span">**Chapel**</td>
+<td>
+{% highlight C %}
+// ...
+const ProblemSpace = {1..ngrid},
+      BigDomain = {0..ngrid+1};
+var T, TNew: [BigDomain] real(64) = 0.0;
+
+var iteration = 0;
+T[0] = tleft;
+T[ngrid+1] = tright;
+
+const left = -1, right = 1;
+
+for iteration in 1..ntimesteps {
+  forall i in ProblemSpace {
+    TNew(i) = T(i) + kappa*dt/(dx*dx) *
+          (T(i+left) - 2*T(i) + T(i+right));
+  }
+  T[ProblemSpace] = TNew[ProblemSpace];
+}
+// ...
+{% endhighlight %}
+</td></tr>
+<tr><td markdown="span">**Python**</td>
+<td>
+{% highlight python %}
+# ...
+@jit('f8[:](i4, i4, f8, f8, f8, f8, f8)', nopython=True)
+def onedheat(ngrid, ntimesteps, kappa, xleft, xright, tleft, tright):
+    dx = (xright-xleft)/(ngrid-1)
+    dt = 0.25*dx*dx/kappa
+
+    temp = np.zeros(ngrid+2, dtype=np.double)
+    temp_new = np.zeros(ngrid+2, dtype=np.double)
+    temp[0], temp[ngrid+1] = tleft, tright
+
+    for iteration in range(ntimesteps):
+        temp_new[1:ngrid] = temp[1:ngrid] + kappa*dt/(dx*dx) * \
+            (temp[2:ngrid+1] - 2.*temp[1:ngrid] + temp[0:ngrid-1])
+
+        temp[1:ngrid] = temp_new[1:ngrid]
+
+    return temp[1:ngrid]
+# ...
+{% endhighlight %}
+</td></tr>
+</tbody>
+</table>
+
+The main difference above is that the easiest way to get fast array operations out of
+Julia is to explicitly write out the loops as vs. numpy, and of
+explicitly declaring domains in Chapel.  Timings are below, for
+10,000 timesteps of a domain of size 1,001: note that we ran the
+Chapel program with `CHPL_RT_NUM_THREADS_PER_LOCALE=1` or else the
+`forall` loop would have been automatically run with multiple
+threads.  The julia script included a "dummy" call to the main
+program to "warm up" the JIT, and then called on the routine.  Here
+we include compile times for both the Julia and Python JITs (naively
+calculated as total run time minus the final time spent running the
+calculation)
+
+<table style="border: 1px solid black; margin: 0 auto; border-collapse:collapse;">
+<thead>
+<th>time</th> <th>Julia</th> <th>Chapel</th> <th>Python</th>
+</thead>
+<tbody style="border: 1px solid black;">
+<tr><td style="border: 1px solid black;">run</td><td style="border: 1px solid black;">0.027 s</td><td style="border: 1px solid black;">0.024 s</td><td style="border: 1px solid black;">0.019 s</td></tr>
+<tr><td style="border: 1px solid black;">compile</td><td style="border: 1px solid black;">0.55 s</td><td style="border: 1px solid black;">4.8s</td><td style="border: 1px solid black;">0.73 s</td></tr>
+</tbody>
+</table>
+
+All run times are essentially equal (measurement error is certianly more than a few milliseconds).
+Note how well Numba does; but even without the Numba JIT, the python+numpy version runs in 0.06 seconds,
+within roughly a factor of two of Julia or Chapel.
+
 ### Kmer counting
+
+Fields like bioinformatics or digital humanities push research
+computing beyond matrix-slinging and array manipulations into the
+more difficult areas of text handling, string manipulation, and
+indexing.  Here we mock up a trivial kmer-counter, reading in 
+genomic sequence data and counting the distribution of k-length
+substrings.  A real implementation (such as in BioJulia or BioPython)
+would optimize for the special case we're in -- a small fixed known
+alphabet, and a hash function which took advantage of the fact that
+two neighbouring kmers overlapped in k-1 characters -- but
+but here we're just interested in the dictionary/associative array
+handling and simple string slicing.  Here we're using pure Python for
+the Python implementation:
 
 <table style="border: 1px solid black;">
 <tbody>
-<tr><td markdown="span">**Julia**</td></tr>
-<tr><td>
+<tr><td markdown="span">**Julia**</td>
+<td>
 {% highlight julia %}
-iter kmers_from_seq(sequence: string, int: k) {
-  for i in 1..(sequence.length-k+1) {
-      yield sequence[i..(i+k-1)];
-  }
-}
-
 # ...
 sequences = read_sequences(infile)
 
-counts = Dict{String, Int8}()
+counts = DefaultDict{String, Int8}(0)
 for seq in sequences
-    for kmer in kmers_from_seq(seq, k)
-        if haskey(counts, kmer)
-            counts[kmer] += 1
-        else
-            counts[kmer] = 1
-        end
+    for i = 1:length(seq)-k+1
+        kmer = seq[i : i+k-1]
+        counts[kmer] += 1
     end
 end 
 # ...
 {% endhighlight %}
 </td></tr>
-<tr><td markdown="span">**Chapel**</td></tr>
-<tr><td>
+<tr><td markdown="span">**Chapel**</td>
+<td>
 {% highlight C %}
 // ...
 var sequences = readfasta(input_filename);
@@ -358,20 +463,20 @@ var sequences = readfasta(input_filename);
 var kmers : domain(string);
 var kmer_counts: [kmers] int;
 
-for seq in sequences {
-for i in 1..(seq.length-k+1) {
-  var kmer = seq[i..(i+k-1)];
-  if !kmers.member(kmer) {
-    kmers += kmer;
-    kmer_counts[kmer] = 0;
-  } 
-  kmer_counts[kmer] += 1;
-} 
+for sequence in sequences {
+  for i in 1..(sequence.length-k+1) {
+    var kmer: string = sequence[i..(i+k-1)];
+    if !kmers.member(kmer) {
+      kmer_counts[kmer] = 0;
+    }
+    kmer_counts[kmer] += 1;
+  }
+}
 // ...
 {% endhighlight %}
 </td></tr>
-<tr><td markdown="span">**Python**</td></tr>
-<tr><td>
+<tr><td markdown="span">**Python**</td>
+<td>
 {% highlight python %}
 # ...
 
@@ -391,11 +496,37 @@ def kmer_counts(filename, k):
 
 # ...
 {% endhighlight %}
-</td>
-</tr>
+</td></tr>
 </tbody>
 </table>
 
+Other than the syntax differences, the main difference here is
+Python and Chapel have convenience functions in their `defaultdict`s
+which mean you don't have to handle the key-not-yet-found case
+separately, and Chapel has the user explicitly declare the domain
+of keys.  All perform quite well, particularly Julia; on a 4.5Mb
+FASTA file for the reference genome of a strain of E.&nbsp;coli,
+we get timings as below
+
+<table style="border: 1px solid black; margin: 0 auto; border-collapse:collapse;">
+<thead>
+<th>time</th> <th>Julia</th> <th>Chapel</th> <th>Python</th>
+</thead>
+<tbody style="border: 1px solid black;">
+<tr><td style="border: 1px solid black;">run</td><td style="border: 1px solid black;">4.9s</td><td style="border: 1px solid black;">6.3s</td><td style="border: 1px solid black;">8.3s</td></tr>
+<tr><td style="border: 1px solid black;">compile</td><td style="border: 1px solid black;">-</td><td style="border: 1px solid black;">6.3s</td><td style="border: 1px solid black;">-</td></tr>
+</tbody>
+</table>
+
+Beating pure Python on dictionary and string operations isn't
+actually a given, even for a compiled language, as those features
+are heavily optimized in Python implementations.
+
+(One caveat about the timings; pairwise string concatenation in Julia is _slow_; 
+in reading in the file, concatenating the sequence data in Julia
+as it was done in the other languages resulted in a runtime of 54 seconds!
+Instead, all sequence fragments were read in and the result put together
+at once with `join()`.)
 
 ## Parallel primitives
 
