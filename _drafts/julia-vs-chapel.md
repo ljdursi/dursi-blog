@@ -211,8 +211,8 @@ changes than with Julia, so that most recent example code online
 works readily.  As its focus has always been on large-scale parallelism
 rather than desktop computing, it is more of a niche project and
 so has attracted much less interest and many fewer users than Julia
-(however, if you read this blog, Chapel's niche is one you are
-almost certainly very interested in.)  The relative paucity of users
+--- however, if you read this blog, Chapel's niche is one you are
+almost certainly very interested in.  The relative paucity of users
 is reflected in the smaller number of contributed packages, although
 an upcoming package manager will likely lower the bar to future
 contributions.
@@ -417,8 +417,9 @@ calculation)
 </tbody>
 </table>
 
-All run times are essentially equal (measurement error is certianly more than a few milliseconds).
-Note how well Numba does; but even without the Numba JIT, the python+numpy version runs in 0.06 seconds,
+All run times are essentially equal (measurement error is certainly
+more than a few milliseconds).  Note how well Numba does; but even
+without the Numba JIT, the python+numpy version runs in 0.06 seconds,
 within roughly a factor of two of Julia or Chapel.
 
 ### Kmer counting
@@ -603,6 +604,10 @@ work; thus also the accelerated bitrot of software in the Julia
 package listing.  It has been difficult to implement new functionality
 on top of base Julia; it's hard to build powerful parallel computing
 tools when one can't even depend on the behavour of arrays.
+I would have liked to use Intel's ParallelAccelerator for Julia to
+see how it worked on the Jacobi problem above, for instance, but Julia 0.6
+breaks the ParallelAccelerator, and Julia 0.6 is needed for the `@simd`
+feature with DistributedArrays.
 
 So Julia living up to its potential is not a given.  If I were on
 Julia's project team, things that would concern me would include:
@@ -744,8 +749,50 @@ supported, so they can be contributed externally, but there is little
 documention/examples (compared to that on using existing domain maps) available.
 
 The good news is that these items are all under the Chapel community's
-control.  
+control.
 
-## My conclusion
+## My conclusions
+
+This is entitled "_My_ conclusions" because my takeaways might reasonably be
+different than yours.  Here's my take.
+
+### Both projects are strong and useable, right now, at different things
+
+I'd have no qualms about recommending Chapel to someone who wanted
+to tackle computations on large distributed rectangular arrays,
+dense or sparse, or Julia for someone who had a short-lived project
+and wanted something interactive and requiring only single-node or
+master-worker computations.  Julia also seems like a good choice for
+prototyping a DSL for specific scientific problems.
+
+Neither project is really a competitor for the other; for Julia the
+nearest competitor is likely the Python ecosystem, and for Chapel
+it would be status quo (X + MPI + OpenMP/OpenACC) or that people
+might try investigating a research project or start playing with Spark (which 
+is good at a lot of things, but not really scientific
+simulation work.)
+
+Scientific computing communities are very wary of new technologies
+(it took 10+ years for Python to start getting any traction), with
+the usual, self-fulfulling, fear being "what if it goes away".  I
+don't think there's any concern about dead code here for projects
+that are started with either.  Chapel will be actively supported
+for another couple of years at least, and the underlying tools (like
+GASNet) are underpin many projects.  One's code wouldn't be "locked
+into" Chapel at any rate, as there are MPI bindings, so that there's
+always a path to incrementally port your code back to MPI if you
+chose to.  For Julia, the immediate worry is less
+about lack of support and more that the project might be _too_
+actively maintained; that one would have to continually exert effort
+to catch your code up with the current version.  In either case,
+there are clear paths to follow (porting or upgrading) to keep your
+code working.
+
+
+### Both projects have as-yet untapped potential
+
+### Both projects have some challenges if they want to succeed longer term
+
+
 
 ---
