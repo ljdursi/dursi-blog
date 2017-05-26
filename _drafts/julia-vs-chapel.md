@@ -265,11 +265,13 @@ large initial userbase has lead to a [very large ecosystem](http://pkg.julialang
 of contributed packages.  As with all such package ecosystems, 
 the packages themselves are a bit of a mixed bag -- lots are broken or
 abandoned, many are simply wrappers to other tools -- but there
-are also excellent, substantial packages of immediate interest
+are also excellent, substantial packages taking full advantage of
+Julia's capabalities that are of immediate interest
 to those doing scientific computing, such as 
 [DifferentialEquations.jl](https://github.com/JuliaDiffEq/DifferentialEquations.jl)
 for ODEs, SDEs, and and FEM for some PDEs,
 [BioJulia](https://github.com/BioJulia) for bioinformatics,
+[JuliaDiff](http://www.juliadiff.org) for automatic differentiation,
 and [JuliaStats](http://juliastats.github.io) for R-like
 statistical computing.  The julia project would benefit from
 having a more curated view of the package listings easily available
@@ -309,11 +311,91 @@ the program with `-n 20`.
 
 ## Simple computational tasks
 
+Here we take a look at a couple common single-node scientific
+computation primitives in each framework (with Python for comparison)
+to compare the language features.  Full code for the examples are
+available [on GitHub](http://www.github.com/ljdursi/julia_v_chapel).
+
 ### Linear algebra
 
 ### Stencil calculation
 
 ### Kmer counting
+
+<table style="border: 1px solid black;">
+<tbody>
+<tr><td markdown="span">**Julia**</td></tr>
+<tr><td>
+{% highlight julia %}
+iter kmers_from_seq(sequence: string, int: k) {
+  for i in 1..(sequence.length-k+1) {
+      yield sequence[i..(i+k-1)];
+  }
+}
+
+# ...
+sequences = read_sequences(infile)
+
+counts = Dict{String, Int8}()
+for seq in sequences
+    for kmer in kmers_from_seq(seq, k)
+        if haskey(counts, kmer)
+            counts[kmer] += 1
+        else
+            counts[kmer] = 1
+        end
+    end
+end 
+# ...
+{% endhighlight %}
+</td></tr>
+<tr><td markdown="span">**Chapel**</td></tr>
+<tr><td>
+{% highlight C %}
+// ...
+var sequences = readfasta(input_filename);
+
+var kmers : domain(string);
+var kmer_counts: [kmers] int;
+
+for seq in sequences {
+for i in 1..(seq.length-k+1) {
+  var kmer = seq[i..(i+k-1)];
+  if !kmers.member(kmer) {
+    kmers += kmer;
+    kmer_counts[kmer] = 0;
+  } 
+  kmer_counts[kmer] += 1;
+} 
+// ...
+{% endhighlight %}
+</td></tr>
+<tr><td markdown="span">**Python**</td></tr>
+<tr><td>
+{% highlight python %}
+# ...
+
+def kmers_from_sequence(sequence, k):
+    kmers = []
+    for i in range(len(sequence)-k+1):
+        kmers.append(sequence[i:i+k])
+    return kmers
+
+def kmer_counts(filename, k):
+    sequences = readfasta(filename)
+    counts = collections.defaultdict(int)
+    for sequence in sequences:
+        for kmer in kmers_from_sequence(sequence, k):
+            counts[kmer] += 1
+    return counts
+
+# ...
+{% endhighlight %}
+</td>
+</tr>
+</tbody>
+</table>
+
 
 ## Parallel primitives
 
@@ -354,10 +436,10 @@ scientists noodling around on problems, performing numerical
 experiments and looking at the results.  While large-scale computing
 --- in an HPC or Spark-style Big-data sense --- is not a forte of
 Julia's right now, the basic pieces are there and it certainly could
-be in the near future.
+be in the future.
 
 Many of Julia's disadvantages are inevitable flip sides of some of
-those advantages.  advantages.  Because of the dynamic nature of
+those advantages.  Because of the dynamic nature of
 the language and its reliance on JIT and type inference, it is
 [still not
 possible](https://discourse.julialang.org/t/julia-static-compilation/296/27)
@@ -375,19 +457,23 @@ language has been public and actively developed for [over five
 years](https://julialang.org/blog/2012/02/why-we-created-julia),
 the language is still at v0.6.  While any language will evolve over
 time, the Julia community has spent the past five years contininually
-re-litigating fairly fundamental decisions of syntax in the interests
-of purity -- v0.4 in late 2015 changed the capitalization of unsigned
-integer types and radically changed the dictionary syntax, while
-0.5 in late 2016 dramatically (although less dramatically than
-originally proposed after community pushback) changed the behaviour
-of arrays (!!) in an event termed the Arraypocolypse.  As a result,
-much example code online simply doesn't work; thus the 
-accelerated bitrot of software in the Julia package listing.  This
-also makes it difficult to build new functionality on top of base
-Julia; it's hard to build powerful parallel computing tools when
-one can't even depend on the behavour of arrays.
+re-litigating minor but foundational decisions of syntax and behaviour
+in the interests of conceptual purity -- v0.4 in late 2015 changed
+the capitalization of unsigned integer types and radically changed
+the dictionary syntax, while 0.5 in late 2016 dramatically (although
+less dramatically than originally proposed after community pushback)
+changed the behaviour of arrays (!!) in an event termed the
+Arraypocolypse.  Discussions on the correct choice for string
+concatenation operator span enormous and non-stop github issue
+discussions from late 2012 to mid 2015.  At least one more round
+of significant breaking changes are planned before a 1.0 release.
+As a result, most non-trivial example code online simply doesn't
+work; thus also the accelerated bitrot of software in the Julia
+package listing.  It has been difficult to implement new functionality
+on top of base Julia; it's hard to build powerful parallel computing
+tools when one can't even depend on the behavour of arrays.
 
-So Julia living up to that potential is not a given.  If I were on
+So Julia living up to its potential is not a given.  If I were on
 Julia's project team, things that would concern me would include:
 
 **Peak Julia?**
@@ -405,9 +491,9 @@ A five-year old language for numerical computing that still hasn't
 reached 1.0 but has popularity comparable to Rust (which started
 at the same time but is a more general systems-programming language)
 or Fortran (which has an enormous installed base) is pretty remarkable;
-further growth may simply be more modest simply because of the small
-size of the number of scientific programmers out there.  Still, I
-think one would want to see interest growing ahead of a 1.0 release,
+further growth may inevitably be more modest simply because of the
+small number of scientific programmers out there.  Still, I think
+one would want to see interest growing ahead of a 1.0 release,
 rather than flat or declining.
 
 **Instability driving off users, developers**
@@ -446,8 +532,8 @@ might naturally think that fast numerical operations on arrays would
 be something that the core language came with.  Part of the problem here
 is that while the Julia ecosystem broadly has a very large number of
 contributors, the core language internals (like the JIT itself) 
-has only a handful, and complex issues like performance can take a very long time
-to get solved.
+has only a handful, and complex issues like performance problems
+can take a very long time to get solved.
 
 **The 800lb pythonic gorilla**
 : Python is enormously popular in scientific and data-science type
@@ -477,18 +563,18 @@ If I were on the Chapel team, my concerns would be different:
 **Adoption**
 : It's hard to escape the fact that Chapel's user base is very
 small.  The good news is that Chapel's niche, unlike Julia's, has
-no serious immediate competitor, which gives it a bit more runway ---
-I'd consider other productive parallel scientific programming
-languages to be more research projects than products.  But the niche
-itself is small, and Chapel's modest adoption rate within that niche
-needs to be addressed in the near future if the language is to
-thrive.  The Chapel team is doing many of the right things ---  the
-package is easy to install (no small feat for a performant parallel
-programming language); the compiler is getting faster and producing
-faster code; there's lots of examples, tutorials and documentation
-available; and the community is extremely friendly and welcoming
---- but it seems clear that users need to be given more reason to
-start trying the language.
+no serious immediate competitor --- I'd consider other productive
+parallel scientific programming languages to be more research
+projects than products --- which gives it a bit more runway.  But
+the niche itself is small, and Chapel's modest adoption rate within
+that niche needs to be addressed in the near future if the language
+is to thrive.  The Chapel team is doing many of the right things
+---  the package is easy to install (no small feat for a performant
+parallel programming language); the compiler is getting faster and
+producing faster code; there's lots of examples, tutorials and
+documentation available; and the community is extremely friendly
+and welcoming --- but it seems clear that users need to be given
+more reason to start trying the language.
 
 **Small number of external contributors**
 : Admittedly, this is related to the fact that the number of users
