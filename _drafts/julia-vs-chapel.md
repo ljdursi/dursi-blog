@@ -286,17 +286,20 @@ to grow the Chapel community.
 
 ### Language features
 
-The biggest language feature difference is undoubtedly
-Julia's JIT-powered metaprogramming capabilities; Chapel 
-is a more traditional compiled language.  A small downside
-of Julia's JIT approach is that functions are often slow the
-first time they are called, as they must be compiled.
+The biggest language feature difference is undoubtedly Julia's
+JIT-powered metaprogramming capabilities; Chapel is a more traditional
+compiled language.  A small downside of Julia's JIT approach is
+that functions are often slow the first time they are called, as
+they must be compiled.  Relatedly, Julia is garbage-collected, which
+can lead to pauses and memory pressure at unexpected times.
+
 
 Beyond that, Julia and Chapel are both quite new and have functionality
 one might expect in a modern language: first class functions, lambda
-functions, type inference, iterators, ranges, coroutines and green
-threads, futures, and JuliaDoc/chpldoc python packages for generating
-online documentation from source code and embedded comments.
+functions, comprehensions, keyword/optional parameters, type
+inference, iterators, ranges, coroutines and green threads, futures,
+and JuliaDoc/chpldoc python packages for generating online documentation
+from source code and embedded comments.
 
 More minor but something that quickly comes up: there's difference
 in command-line argument handling which reflects the use
@@ -480,18 +483,12 @@ for sequence in sequences {
 <td>
 {% highlight python %}
 # ...
-
-def kmers_from_sequence(sequence, k):
-    kmers = []
-    for i in range(len(sequence)-k+1):
-        kmers.append(sequence[i:i+k])
-    return kmers
-
 def kmer_counts(filename, k):
     sequences = readfasta(filename)
     counts = collections.defaultdict(int)
     for sequence in sequences:
-        for kmer in kmers_from_sequence(sequence, k):
+        for i in range(len(sequence)-k+1):
+            kmer = sequence[i:i+k]
             counts[kmer] += 1
     return counts
 
@@ -531,11 +528,48 @@ at once with `join()`.)
 
 ## Parallel primitives
 
-### Threading
-
 ### Remote function execution
 
+<table style="border: 1px solid black;">
+<tbody>
+<tr><td markdown="span">**Julia**</td></tr>
+<tr><td>
+{% highlight julia %}
+@everywhere function whoami()
+    println(myid(), gethostname())
+end
+
+remotecall_fetch(whoami, 2)
+remotecall_fetch(whoami, 4)
+{% endhighlight %}
+</td></tr>
+<tr><td markdown="span">**Chapel**</td></tr>
+<tr><td>
+{% highlight C %}
+proc main() {
+  const numTasks = here.numPUs();
+  coforall tid in 0..#numTasks {
+      writeln(here.id, " ", here.name, " ", tid);
+  }
+
+  coforall loc in Locales {
+    on loc {
+      writeln(loc.id, " ", loc.name);
+    }
+  }
+}
+{% endhighlight %}
+</td></tr>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
 ### Master-worker parallelism
+
+### Threading
 
 ### Distributed data
 
