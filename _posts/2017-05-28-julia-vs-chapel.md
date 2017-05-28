@@ -732,7 +732,59 @@ within them vefore proceeding.
 
 ### Parallel loops, reductions, and maps
 
+Both languages make parallel looping, and reduction
+over those parallel loops straightforward:
+
+<table style="border: 1px solid black;">
+<tbody>
+<tr><td markdown="span">**Julia**</td>
+<td>
+{% highlight julia %}
+# parallel loop
+@parallel for i=1:10000
+  a[i] = b[i] + alpha*c[i]
+end
+
+# parallel reduction
+asum = @parallel (+) for i=1:10000
+  a[i]
+end
+
+function twox(x)
+    2x
+end
+
+pmap(twox, a)
+
+{% endhighlight %}
+</td></tr>
+<tr><td markdown="span">**Chapel**</td>
+<td>
+{% highlight C %}
+vecspace = 1..10000;
+
+forall i in 1..10000 {
+// or forall i in vecspace {
+    a[i] = b[i] + alpha*c[i]
+}
+
+var asum = + reduce a
+
+var b[vecspace] = 0.0;
+
+b[vecspace] = 2*a[vecspace]
+{% endhighlight %}
+</td></tr>
+</tbody>
+</table>
+
 ### Threading
+
+In Chapel, parallel for loops are automatically assigned hierarchically
+according to what the runtime knows about the architecture; threading is
+used on-node if multiple cores are available.  Threading is an
+[experimental feature](https://docs.julialang.org/en/stable/manual/parallel-computing/#multi-threading-experimental) 
+in Julia, not quite ready to use for production work yet.
 
 ### Distributed data
 
