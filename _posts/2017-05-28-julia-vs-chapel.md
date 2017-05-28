@@ -913,7 +913,7 @@ Chapel, and Python using [Dask](http://dask.pydata.org/en/latest/)
 on a simple distributed-memory stencil problem, two dimensional
 upwinded advection.  A Gaussian blob is advected by a constant
 velocity field; shown below is the initial condition, the blob moved
-slightly after a few timesetps, and the difference.
+slightly after a few timesteps, and the difference.
 
 ![2D Advection Plot](../assets/julia_v_chapel/twod_advection.png)
 
