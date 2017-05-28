@@ -12,13 +12,14 @@ and are willing to try something new, which should you choose?  What
 are their strengths and weaknesses, and how do they compare?
 
 Here we walk through a comparison, focusing on distributed-memory
-parallelism. Both have strengths in largely disjoint areas.  If you
-want matlib-like interactivity and plotting, and need only master-worker
-parallelism, Julia is the clear winner; if you want MPI+OpenMPI type
-scability on rectangular distributed arrays (dense or sparse),
-Chapel is the obvious choice.  Both languages and environments have
-clear untapped potential and room to grow; we'll talk about future
-prospects of the two languages at the end.
+parallelism of the sort one would want for HPC-style simulation.
+Both have strengths in largely disjoint areas.  If you want matlib-like
+interactivity and plotting, and need only master-worker parallelism,
+Julia is the clear winner; if you want MPI+OpenMPI type scability
+on rectangular distributed arrays (dense or sparse), Chapel wins
+handily.  Both languages and environments have clear untapped
+potential and room to grow; we'll talk about future prospects of
+the two languages at the end.
 
 * TOC
 {:toc}
@@ -95,8 +96,8 @@ that could look like.  Another sort of functionality this enables
 is [Parallel Accellerator](https://julialang.org/blog/2016/03/parallelaccelerator), an
 intel package that can rewrite some regular array operations into
 fast, vectorized native code.  This code-is-data aspect of Julia,
-combined with the fact that Julia itself is mostly written in Julia,
-puts user-written code on an equal footing with almost all "official"
+combined with the fact that much of Julia itself is written in Julia,
+puts user-written code on an equal footing with much "official"
 julia code.
 
 The second way Julia blurs the line between user and developer is
@@ -111,8 +112,7 @@ package.
 Julia has support for remote function execution ("out of the box"
 using SSH + TCP/IP, but other transports are available through
 packages), and distributed rectangular arrays; thread support
-is still experimental, and shared-memory on-node arrays somewhat
-less so.
+is still experimental, as is shared-memory on-node arrays.
 
 ### Chapel
 
@@ -209,8 +209,8 @@ the language continues to evolve and there are breaking changes
 between versions; these are much smaller and more localized breaking
 changes than with Julia, so that most recent example code online
 works readily.  As its focus has always been on large-scale parallelism
-rather than desktop computing, it is more of a niche project and
-so has attracted much less interest and many fewer users than Julia
+rather than desktop computing, its potential market is smaller
+so has attracted less interest and fewer users than Julia
 --- however, if you read this blog, Chapel's niche is one you are
 almost certainly very interested in.  The relative paucity of users
 is reflected in the smaller number of contributed packages, although
@@ -291,8 +291,10 @@ JIT-powered metaprogramming capabilities; Chapel is a more traditional
 compiled language.  A small downside of Julia's JIT approach is
 that functions are often slow the first time they are called, as
 they must be compiled.  Relatedly, Julia is garbage-collected, which
-can lead to pauses and memory pressure at unexpected times.
-
+can lead to pauses and memory pressure at unexpected times.  On
+the other hand, Chapel's compile time, which is still quite long 
+even compared to other compilers, makes the development cycle much 
+slower than it would be with Julia or Python.
 
 Beyond that, Julia and Chapel are both quite new and have functionality
 one might expect in a modern language: first class functions, lambda
@@ -321,7 +323,103 @@ available [on GitHub](http://www.github.com/ljdursi/julia_v_chapel).
 
 ### Linear algebra
 
+For linear algebra operations, Julia's matlab lineage and
+interactive really shine:
+
+<table style="border: 1px solid black;">
+<tbody>
+<tr><td markdown="span">**Julia**</td>
+<td>
+{% highlight julia %}
+# ...
+n = 500
+B = rand(n, n)
+x = rand(n)
+
+A = x*x'
+y = B*x
+
+println(A[1,1])
+
+A = eye(n)
+y = A\x
+
+println(sum(abs.(x-y)))
+# ...
+{% endhighlight %}
+</td></tr>
+<tr><td markdown="span">**Chapel**</td>
+<td>
+{% highlight C %}
+use LinearAlgebra;
+use LAPACK;
+use Random;
+
+config const n=500;
+
+var A = Matrix(n, n),
+    B = Matrix(n, n),
+    x, y = Vector(n);
+
+fillRandom(B);
+fillRandom(x);
+
+y = dot(B, x);
+A = outer(x, y);
+
+writeln(A[1,1]);
+
+var X = Matrix(n,1);
+var Y = Matrix(n,1);
+X({1..n},1) = x({1..n});
+
+A = eye(n);
+var ipiv : [1..n] c_int;
+Y = X;
+var info = gesv(lapack_memory_order.row_major, A, ipiv, Y);
+
+var res = + reduce abs(x-y);
+
+writeln(res);
+{% endhighlight %}
+</td></tr>
+<tr><td markdown="span">**Python**</td>
+<td>
+{% highlight python %}
+from __future__ import print_function
+import numpy as np
+
+n = 500
+B = np.random.rand(500, 500)
+x = np.random.rand(500)
+
+A = np.outer(x, np.transpose(x))
+y = np.dot(B, x)
+
+print(A[0,0])
+
+A = np.eye(n)
+y = np.linalg.solve(A, x)
+
+print(np.sum(np.abs(x-y)))
+{% endhighlight %}
+</td></tr>
+</tbody>
+</table>
+
+The new Chapel `LinearAlgebra` and `LAPACK` modules don't really 
+work well together yet, so one has to awkwardly switch between
+the two idioms, but that's readily easily fixed.  Julia's nice
+matrix type system allows "do the right-thing" type linear solves,
+which is incredibly handy for interactive work, although for a 
+compiled program that will be used repeatedly, the clarity of
+specifying a specific solver (which Julia also allows) is probably
+advantageous.
+
 ### Stencil calculation
+
+Below we take a look at a simple 1-d explicit heat diffusion equation,
+requiring a small stencil, and see how it compares across the languges.
 
 <table style="border: 1px solid black;">
 <tbody>
@@ -434,8 +532,8 @@ indexing.  Here we mock up a trivial kmer-counter, reading in
 genomic sequence data and counting the distribution of k-length
 substrings.  A real implementation (such as in BioJulia or BioPython)
 would optimize for the special case we're in -- a small fixed known
-alphabet, and a hash function which took advantage of the fact that
-two neighbouring kmers overlapped in k-1 characters -- but
+alphabet, and a hash function which takes advantage of the fact that
+two neighbouring kmers overlap in k-1 characters -- but
 but here we're just interested in the dictionary/associative array
 handling and simple string slicing.  Here we're using pure Python for
 the Python implementation:
@@ -528,12 +626,19 @@ at once with `join()`.)
 
 ## Parallel primitives
 
+Since we're interested in large-scale computation, parallel features are of
+particular interest to us; here we walk through the parallel primitives 
+available to the languages and compare them.
+
 ### Remote function execution
+
+Both Julia and Chapel make it easy to explicitly launch tasks on other 
+processors:
 
 <table style="border: 1px solid black;">
 <tbody>
-<tr><td markdown="span">**Julia**</td></tr>
-<tr><td>
+<tr><td markdown="span">**Julia**</td>
+<td>
 {% highlight julia %}
 @everywhere function whoami()
     println(myid(), gethostname())
@@ -543,13 +648,15 @@ remotecall_fetch(whoami, 2)
 remotecall_fetch(whoami, 4)
 {% endhighlight %}
 </td></tr>
-<tr><td markdown="span">**Chapel**</td></tr>
-<tr><td>
+<tr><td markdown="span">**Chapel**</td>
+<td>
 {% highlight C %}
 proc main() {
   const numTasks = here.numPUs();
-  coforall tid in 0..#numTasks {
-      writeln(here.id, " ", here.name, " ", tid);
+  for taskid in 0..#numTasks {
+      begin {
+          writeln(here.id, " ", here.name, " ", taskid);
+      }
   }
 
   coforall loc in Locales {
@@ -560,24 +667,360 @@ proc main() {
 }
 {% endhighlight %}
 </td></tr>
-</td>
-</tr>
 </tbody>
 </table>
 
+In Julia, starting julia with `juila -p 4` will launch julia with
+4 worker tasks (and one master task) on the local host; a `--machinefile`
+option can be set to launch the tasks on remote hosts (over ssh,
+by default, although other "ClusterManager"s are available, for
+instance launching tasks on SGE clusters).  In Chapel, launching a
+chapel program with `--nl 4` will run a program distributed over 4
+locales, with options for those hosts set by environment variables.
+Within each locale, Chapel will by default run as many threads as
+possible (as determined by the extremely useful
+[hwloc](https://www.open-mpi.org/projects/hwloc/) library).
 
+As seen above, Chapel distinuishes between starting up local and 
+remote tasks; this is intrinsic to its "multiresolution" approach
+to parallelism, so that it can take advantage of within-NUMA-node,
+across-NUMA-node, and across-the-network parallism in different
+ways.
 
-### Master-worker parallelism
+### Futures, atomics and synchronization
+
+Once one can have tasks running asynchronously, synchronization
+becomes an issue.  Julia and Chapel both have "futures" for 
+asynchronous (non-blocking) function calls; futures can be
+tested on, waited on or fetched from, with a fetch generally
+blocking until the future has been "filled".  Futures can only
+be filled once.
+
+In fact, in the above, Julia's `remotecall_fetch` performs
+the remote call and then fetches, mimicing a blocking call; the
+`begin` blocks in Chapel do not block.
+
+Futures work the following way in Julia and Chapel:
+
+<table style="border: 1px solid black;">
+<tbody>
+<tr><td markdown="span">**Julia**</td>
+<td>
+{% highlight julia %}
+A = @async 2*42
+
+println(fetch(A))
+{% endhighlight %}
+</td></tr>
+<tr><td markdown="span">**Chapel**</td>
+<td>
+{% highlight C %}
+use Futures;
+config const X = 42;
+
+const A = async(lambda(x: int) { return 2 * x; }, X);
+
+writeln(A.get());
+{% endhighlight %}
+</td></tr>
+</tbody>
+</table>
+
+Both Julia and Chapel have thread-safe atomic primitive
+variables, and `sync` blocks for joining tasks launched
+within them vefore proceeding.
+
+### Parallel loops, reductions, and maps
 
 ### Threading
 
 ### Distributed data
 
-## Julia v Chapel for a 2d diffusion problem
+Julia has a
+[DistributedArrays](https://github.com/JuliaParallel/DistributedArrays.jl)
+package which are sort of half-PGAS arrays: they can be read from
+at any index, but only the local part can be written to.  Chapel
+is built around its PGAS distributions and iterators atop them.
 
-## Julia v Chapel for a distributed bloom filter
+Julia's DistributedArrays are known not to perform particularly well,
+and have been taken out of the base language since 0.4.  They have
+been worked on since in preparation for the 0.6 release; however,
+the branch in master does not appear to be working with 0.6-rc2, or
+at least I couldn't get it working.  This section then mostly covers the
+previous version of DistributedArrays.
 
-## Julia v Chapel for distributed Smith-Waterman
+Accessing remote values over DistributedArrays is quite slow.  As
+such, DistributedArrays performs quite badly for the sort of thing
+one might want to use Chapel distributed arrays for; they're really
+more for Monte-Carlo or other mostly-embarrasingly-parallel
+calculations, where read access is only needed at the end of the
+comptuation or a small number of other times.  Programming for a
+stencil-type case or other iterative non-local computations is also
+a little awkard; currently one has to remotely spawn tasks where
+on the remote array fragments repeatedly to usher along each element
+of the computation.  The new version of the arrays will have a
+`simd()` function which makes doing that nicer;  it also allows for
+MPI-style communications, which seems like it is faster than accessing
+the data through the distributed array, but for use cases where
+that is handy, it's not clear what one would use the distributed
+array for rather than just having each task have its own local
+array.
+
+However, for largely local computation (such as master-worker type
+operations), the distributed arrays work well.  Here
+we have a STREAM calculation:
+
+<table style="border: 1px solid black;">
+<tbody>
+<tr><td markdown="span">**Julia**</td>
+<td>
+{% highlight julia %}
+using DistributedArrays
+@everywhere importall DistributedArrays
+
+@everywhere function dostreamcalc(alpha, bval, cval, A, B, C)
+    for i in 1:length(localindexes(B)[1])
+        localpart(B)[i] = bval
+    end
+    for i in 1:length(localindexes(C)[1])
+        localpart(C)[i] = cval
+    end
+
+    for i in 1:length(localindexes(A)[1])
+        localpart(A)[i] = localpart(B)[i] + alpha*localpart(C)[i]
+    end
+end
+
+#...
+
+A = dzeros(problem_size)
+B = copy(A)
+C = copy(A)
+
+ps = procs(A)
+refs = [(@spawnat p dostreamcalc(alpha, bval, cval, A, B, C)) for p in ps]
+pmap(fetch, refs)
+# ...
+{% endhighlight %}
+</td></tr>
+<tr><td markdown="span">**Chapel**</td>
+<td>
+{% highlight C %}
+// ...
+  const ProblemSpace: domain(1) dmapped Block(boundingBox={1..problem_size}) = {1..problem_size};
+
+  var A, B, C: [ProblemSpace] real;
+
+  A = 0.0;
+  B = bval;
+  C = cval;
+
+  forall (a, b, c) in zip(A, B, C) do
+     a = b + alpha * c;
+
+// ...
+{% endhighlight %}
+</td></tr>
+</tbody>
+</table>
+
+### Communications
+
+Julia has explicit support for [CSP-style](https://en.wikipedia.org/wiki/Communicating_sequential_processes)
+channels, like `go`, which are something like a cross between queues and futures; they can keep being written to from multiple
+tasks:
+
+{% highlight julia %}
+@everywhere function putmsg(pid)
+    mypid = myid()
+    msg = "Hi from $mypid"
+    rr = RemoteChannel(pid)
+    put!(rr, msg)
+    println(myid(), " sent ", msg, " to ", pid)
+    return rr
+end
+
+@everywhere function getmsg(rr)
+    msg  = fetch(rr)
+    println(myid(), " got: ", msg)
+end
+
+rr = remotecall_fetch(putmsg, 2, 3)
+remotecall_wait(getmsg, 3, rr)
+{% endhighlight %}
+
+Chapel, by contrast, doesn't expose these methods; communications
+is done implicitly through remote data access or remote code
+invocation.
+
+## A 2d advection problem
+
+Having seen the parallel computing tools available in each language,
+we try here a simple distributed computation.  Here we try Julia,
+Chapel, and Python using [Dask](http://dask.pydata.org/en/latest/)
+on a simple distributed-memory stencil problem, two dimensional
+upwinded advection.  A Gaussian blob is advected by a constant
+velocity field; shown below is the initial condition, the blob moved
+slightly after a few timesetps, and the difference.
+
+![2D Advection Plot](../assets/julia_v_chapel/twod_advection.png)
+
+We do this in Julia using DistributedArrays, in Chapel using Stencil-distributed
+arrays, and in Python using Dask arrays.  The relevant code snippets follow below.
+
+<table style="border: 1px solid black;">
+<tbody>
+<tr><td markdown="span">**Julia**</td>
+<td>
+{% highlight julia %}
+@everywhere function get_data_plus_gc(domain, nguard, ngrid)
+    if myid() in procs(domain)
+        li = localindexes(domain)        
+        lp = localpart(domain)        
+
+        s = size(lp)
+        data_plus_gc = zeros(s[1]+2*nguard, s[2]+2*nguard)
+        for j in 1:s[2]
+            for i in 1:s[1]
+                data_plus_gc[i+nguard, j+nguard] = lp[i,j]
+            end
+        end
+
+        xstart = li[1][1]
+        xend   = li[1][end]
+        ystart = li[2][1]
+        yend   = li[2][end]
+
+        for g in 1:nguard
+            xsg = (xstart-1-g + ngrid) % ngrid + 1
+            xeg = (xend-1+g) % ngrid + 1
+
+            for j in 1+nguard:s[2]+nguard
+                data_plus_gc[nguard+1-g, j] = domain[xsg, j-nguard+ystart-1]
+                data_plus_gc[s[1]+nguard+g, j] = domain[xeg, j-nguard+ystart-1]
+            end
+
+            #...
+        end
+    end
+    return data_plus_gc
+end
+
+@everywhere function advect_data(dens, nguard, ngrid, velx, vely, dx, dy, dt)
+    locdens = get_data_plus_gc(dens, nguard, ngrid)
+
+    #...calculate gradients on locdens
+
+    for j in 1+nguard:ny+nguard
+        for i in 1+nguard:nx+nguard
+            localpart(dens)[i-nguard, j-nguard] -= dt*(velx*gradx[i,j] + vely*grady[i,j])
+        end
+    end
+end
+
+#...
+
+function timestep(dens, nguard, ngrid, velx, vely, dx, dy, dt)
+    ps = procs(dens)
+    refs = [(@spawnat p advect_data(dens, nguard, ngrid, velx, vely, dx, dy, dt)) for p in ps]
+    pmap(fetch, refs)
+end
+
+#...
+{% endhighlight %}
+</td></tr>
+<tr><td markdown="span">**Chapel**</td>
+<td>
+{% highlight C %}
+//...
+
+  const ProblemSpace = {1..ngrid, 1..ngrid},
+        ProblemDomain : domain(2) dmapped Stencil(boundingBox=ProblemSpace, fluff=(nguard,nguard), periodic=true) = ProblemSpace;
+
+  //...
+  var dens: [ProblemDomain] real = 0.0;
+
+  // density a gaussian of width sigma centred on (initialposx, initialposy)
+  forall ij in ProblemSpace {
+    var x = (ij(1)-1.0)/ngrid;
+    var y = (ij(2)-1.0)/ngrid;
+    dens(ij) = exp(-((x-initialposx)**2 + (y-initialposy)**2)/(sigma**2));
+  }
+
+  for iteration in 1..ntimesteps  {
+    // update the boundary conditions - periodic
+    dens.updateFluff();
+
+    // calculate the upwinded gradient
+    // ...
+
+    dens(ProblemSpace) = dens(ProblemSpace) - dt*(velx*gradx(ProblemSpace) + vely*grady(ProblemSpace));
+//...
+}
+
+{% endhighlight %}
+</td></tr>
+<tr><td markdown="span">**Python + Dask**</td>
+<td>
+{% highlight python %}
+#...
+
+def dask_step(subdomain, nguard, dx, dy, dt, u):
+    """
+    map_overlap applies a function to a subdomain of a dask array,
+    filling the guardcells in first
+    """
+    return subdomain.map_overlap(advect, depth=nguard, boundary='periodic',
+                                 dx=dx, dy=dy, dt=dt, u=u)
+
+
+def initial_conditions(x, y, initial_posx=0.3, initial_posy=0.3, sigma=0.15):
+    xx, yy = np.meshgrid(x, y)
+    density = np.exp(-((xx-initial_posx)**2 + (yy-initial_posy)**2)/(sigma**2))
+    return density
+
+
+if __name__ == "__main__":
+    #...
+
+    dens = initial_conditions(x, y)
+    subdomain_init = da.from_array(dens, chunks=((npts+1)//2, (npts+1)//2))
+
+    # These create the steps, but they don't actually perform the execution...
+    subdomain = dask_step(subdomain_init, 2, dx, dy, dt, u)
+    for step in range(1, nsteps):
+        subdomain = dask_step(subdomain, 2, dx, dy, dt, u)
+
+    # _this_ performs the execution
+    start = time.clock()
+{% endhighlight %}
+</td></tr>
+</tbody>
+</table>
+
+As with the stream benchmark, we see that the Julia DistributedArrays
+require a lot of bookkeeping to use; both Chapel and Dask are much
+more straightforward.
+
+While I was a little disappointed to see how much time the communications
+took in Chapel - not that different from Julia (I'll update this post
+soon with some scaling tests), Chapel benefits dramatically from being
+able to use multiple levels of parallelism, and with no extra work;
+one a single 8-processor node, running a 1000x1000 grid with all cores
+takes the following amount of time:
+
+<table style="border: 1px solid black; margin: 0 auto; border-collapse:collapse;">
+<thead>
+<th>Julia</th> <th>Chapel</th> <th>Python</th>
+</thead>
+<tbody style="border: 1px solid black;">
+<tr><td style="border: 1px solid black;">270s s</td><td style="border: 1px solid black;">160 s</td><td style="border: 1px solid black;">193 s</td></tr>
+</tbody>
+</table>
+
+What's interesting here is that Python+Numpy+Dask (numba didn't help here) is
+competitive even with Chapel, and either made it much easier to write the
+program than Julia.
 
 ## Strengths, Weaknesses, and Future Prospects
 
@@ -639,7 +1082,7 @@ package listing.  It has been difficult to implement new functionality
 on top of base Julia; it's hard to build powerful parallel computing
 tools when one can't even depend on the behavour of arrays.
 I would have liked to use Intel's ParallelAccelerator for Julia to
-see how it worked on the Jacobi problem above, for instance, but Julia 0.6
+see how it worked on the advection problem above, for instance, but Julia 0.6
 breaks the ParallelAccelerator, and Julia 0.6 is needed for the `@simd`
 feature with DistributedArrays.
 
@@ -654,8 +1097,8 @@ overflow](https://insights.stackoverflow.com/trends?tags=julia-lang), and
 falling off the radar of "languages to watch" lists such as the
 [Redmonk language
 rankings](http://redmonk.com/sogrady/2017/03/17/language-rankings-1-17/). 
-This may be unfair. These trends may say more about the large initial
-surge of interest than stagnation or decline; "a hugely popular
+This may be unfair; these trends may say more about the large initial
+surge of interest than stagnation or decline. "A hugely popular
 scientific programing language" almost seems like an oxymoron, after all.
 A five-year old language for numerical computing that still hasn't
 reached 1.0 but has popularity comparable to Rust (which started
@@ -783,7 +1226,10 @@ supported, so they can be contributed externally, but there is little
 documention/examples (compared to that on using existing domain maps) available.
 
 The good news is that these items are all under the Chapel community's
-control.
+control.  Programs that are natural to write in Chapel currently are
+easy to write and can perform quite well; the goal then is to expand
+the space of those programs by leveraging early adopters into writing
+packages.
 
 ## My conclusions
 
@@ -796,7 +1242,8 @@ I'd have no qualms about recommending Chapel to someone who wanted
 to tackle computations on large distributed rectangular arrays,
 dense or sparse, or Julia for someone who had a short-lived project
 and wanted something interactive and requiring only single-node or
-master-worker computations.  Julia also seems like a good choice for
+master-worker computations (or patterns that were more about
+concurrency than parallelism).  Julia also seems like a good choice for
 prototyping a DSL for specific scientific problems.
 
 Neither project is really a competitor for the other; for Julia the
@@ -822,11 +1269,22 @@ to catch your code up with the current version.  In either case,
 there are clear paths to follow (porting or upgrading) to keep your
 code working.
 
-
 ### Both projects have as-yet untapped potential
 
-### Both projects have some challenges if they want to succeed longer term
+What's exciting about both of these projects is how far they could
+go.  Chapel already makes certian class of MPI+OpenMP type programs
+extremely simple to write with fairly good performance; if that
+class of programs expands (either through packages built atop of
+current functionality, or expanded functionality through additional
+well-supported domain maps) and performance improves, it could make
+large-scale scientific computation accessible to a much broader
+community of scientists (and thus science).
 
-
+Julia has the same potential to broaden computational science on
+the desktop, and (at least in the near term) for computations
+requiring only minimal computation like master-worker computations.
+But Python is already doing this, and making suprising inroads on
+the distributed-memory computing front, and there will be something of a
+race to see which gets there first.
 
 ---
