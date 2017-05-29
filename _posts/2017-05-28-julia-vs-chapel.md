@@ -467,7 +467,7 @@ for iteration in 1..ntimesteps {
     TNew(i) = T(i) + kappa*dt/(dx*dx) *
           (T(i+left) - 2*T(i) + T(i+right));
   }
-  T[ProblemSpace] = TNew[ProblemSpace];
+  T <=> TNew;
 }
 // ...
 {% endhighlight %}
@@ -476,7 +476,7 @@ for iteration in 1..ntimesteps {
 <td>
 {% highlight python %}
 # ...
-@jit('f8[:](i4, i4, f8, f8, f8, f8, f8)', nopython=True)
+@jit('f8[:](i4, i4, f8, f8, f8, f8, f8)', nopython=True, nogil=True)
 def onedheat(ngrid, ntimesteps, kappa, xleft, xright, tleft, tright):
     dx = (xright-xleft)/(ngrid-1)
     dt = 0.25*dx*dx/kappa
@@ -516,13 +516,12 @@ calculation)
 <th>time</th> <th>Julia</th> <th>Chapel</th> <th>Python + Numpy + Numba</th><th>Python + Numpy</th>
 </thead>
 <tbody style="border: 1px solid black;">
-<tr><td style="border: 1px solid black;">run</td><td style="border: 1px solid black;">0.006 s</td><td style="border: 1px solid black;">0.010 s</td><td style="border: 1px solid black;">0.019 s</td></tr><td style="border: 1px solid black;">0.069 s</td></tr>
+<tr><td style="border: 1px solid black;">run</td><td style="border: 1px solid black;">0.007 s</td><td style="border: 1px solid black;">0.012 s</td><td style="border: 1px solid black;">0.017 s</td></tr><td style="border: 1px solid black;">0.069 s</td></tr>
 <tr><td style="border: 1px solid black;">compile</td><td style="border: 1px solid black;">0.57 s</td><td style="border: 1px solid black;">4.8s</td><td style="border: 1px solid black;">0.73 s</td><td style="border: 1px solid black;"> - </td></tr>
 </tbody>
 </table>
 
-All run times are essentially equal (measurement error is certainly
-more than a few milliseconds). 
+Julia does extremely well in this test, beating Chapel by almost 2x and python by a bit more.
 
 ### Kmer counting
 
