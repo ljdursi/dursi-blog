@@ -430,7 +430,7 @@ requiring a small stencil, and see how it compares across the languges.
 {% highlight julia %}
 # ...
 for i in 2:ngrid+1
-  temp[i] = 0.
+  @inbounds temp[i] = 0.
 end
 
 temp[1] = tleft
@@ -438,11 +438,11 @@ temp[ngrid+2] = tright
 
 for iteration in 1:ntimesteps
   for i in 2:ngrid+1
-      temp_new[i] = temp[i] + kappa*dt/(dx*dx)*
+      @inbounds temp_new[i] = temp[i] + kappa*dt/(dx*dx)*
                       (temp[i-1] - 2*temp[i] + temp[i+1])
   end
   for i in 2:ngrid+1
-      temp[i] = temp_new[i]
+      @inbounds temp[i] = temp_new[i]
   end
 end
 # ...
@@ -501,26 +501,28 @@ def onedheat(ngrid, ntimesteps, kappa, xleft, xright, tleft, tright):
 The main difference above is that the easiest way to get fast array
 operations out of Julia is to explicitly write out the loops as vs.
 numpy, and of explicitly using domains in Chapel.  Timings are
-below, for 10,000 timesteps of a domain of size 1,001.  The julia
+below, for 10,000 timesteps of a domain of size 1,001.  The Julia
 script included a "dummy" call to the main program to "warm up" the
-JIT, and then called on the routine.  Here we include compile times
-for both the Julia and Python JITs (naively calculated as total run
-time minus the final time spent running the calculation)
+JIT, and then called on the routine.  In Julia, for performance we
+have to include the `@inbounds` macro; Julia's JIT doesn't recognize
+that the stencil calculation over fixed bounds is in bounds of the
+array defined with those same fixed bounds a couple of lines before.
+Compile times are included for the Julia and Python JITs (naively
+calculated as total run time minus the final time spent running the
+calculation)
 
 <table style="border: 1px solid black; margin: 0 auto; border-collapse:collapse;">
 <thead>
-<th>time</th> <th>Julia</th> <th>Chapel</th> <th>Python</th>
+<th>time</th> <th>Julia</th> <th>Chapel</th> <th>Python + Numpy + Numba</th><th>Python + Numpy</th>
 </thead>
 <tbody style="border: 1px solid black;">
-<tr><td style="border: 1px solid black;">run</td><td style="border: 1px solid black;">0.027 s</td><td style="border: 1px solid black;">0.024 s</td><td style="border: 1px solid black;">0.019 s</td></tr>
-<tr><td style="border: 1px solid black;">compile</td><td style="border: 1px solid black;">0.55 s</td><td style="border: 1px solid black;">4.8s</td><td style="border: 1px solid black;">0.73 s</td></tr>
+<tr><td style="border: 1px solid black;">run</td><td style="border: 1px solid black;">0.006 s</td><td style="border: 1px solid black;">0.010 s</td><td style="border: 1px solid black;">0.019 s</td></tr><td style="border: 1px solid black;">0.069 s</td></tr>
+<tr><td style="border: 1px solid black;">compile</td><td style="border: 1px solid black;">0.57 s</td><td style="border: 1px solid black;">4.8s</td><td style="border: 1px solid black;">0.73 s</td><td style="border: 1px solid black;"> - </td></tr>
 </tbody>
 </table>
 
 All run times are essentially equal (measurement error is certainly
-more than a few milliseconds).  Note how well Numba does; but even
-without the Numba JIT, the python+numpy version runs in 0.06 seconds,
-within roughly a factor of two of Julia or Chapel.
+more than a few milliseconds). 
 
 ### Kmer counting
 
@@ -1183,12 +1185,13 @@ contributing factor.
 : Julia is designed around its JIT compiler, which enables some
 of the language's very cool features - the metaprogramming, the
 dynamic nature of the language, the interactivity.  But the JIT
-compiler often needs a lot of help to get reasonable performance.
-For instance, writing numerical operations in the more readable
+compiler often needs a lot of help to get reasonable performance,
+such as use of the the `@inbounds` macro in the stencil calculation.
+Writing numerical operations in the more readable
 vectorized form (like for the stream example in Chapel, `C = A + B`
-rather than looping over the indices) [has long been slow in Julia](http://www.johnmyleswhite.com/notebook/2013/12/22/the-relationship-between-vectorized-and-devectorized-code/)
-and still is [unless special meaures are taken](https://julialang.org/blog/2017/01/moredots).
-[A third party package](http://parallelacceleratorjl.readthedocs.io/en/latest/index.html)
+rather than looping over the indices) [has long been slow in Julia](http://www.johnmyleswhite.com/notebook/2013/12/22/the-relationship-between-vectorized-and-devectorized-code/),
+although [a new feature](https://julialang.org/blog/2017/01/moredots)
+may have fixed that.  [A third party package](http://parallelacceleratorjl.readthedocs.io/en/latest/index.html)
 exists which helps many of the common cases (speeding up stencil
 operations on rectangular arrays), which on one hand indicates the
 power of Julia metaprogramming capabilities.  But on the other, one
