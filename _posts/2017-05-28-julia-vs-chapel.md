@@ -36,7 +36,7 @@ dispatch](https://en.wikipedia.org/wiki/Multiple_dispatch) (think
 of R, with say `print()` defined to operate differently on scalars,
 data&nbsp;frames, or linear regression fits) to provide a dynamic,
 interactive, "scripting language"-type high level numerical programming
-language that gives performance less than than but competitive with
+language that gives performance less than but competitive with
 C or Fortran.
 
 The project sees the language as more or less a matlab-killer, and
@@ -123,7 +123,7 @@ language, with partitioned but globally-accessible variables, using
 [GASNet](https://gasnet.lbl.gov) for communications.  It takes PGAS
 two steps further however than languages like [Coarray
 Fortran](https://www.dursi.ca/post/coarray-fortran-goes-mainstream-gcc-5-1.html),
-[UPC](http://upc.lbl.gov), or [X10](http://x10-lang.org), however.
+[UPC](http://upc.lbl.gov), or [X10](http://x10-lang.org).
 
 The first extension is to define all large data structures (arrays,
 associative arrays, graphs) as being defined over _domains_, and
@@ -299,9 +299,10 @@ slower than it would be with Julia or Python.
 Beyond that, Julia and Chapel are both quite new and have functionality
 one might expect in a modern language: first class functions, lambda
 functions, comprehensions, keyword/optional parameters, type
-inference, iterators, ranges, coroutines and green threads, futures,
-and JuliaDoc/chpldoc python packages for generating online documentation
-from source code and embedded comments.
+inference, generics, reflection, iterators, ranges, coroutines and
+green threads, futures, and JuliaDoc/chpldoc python packages for
+generating online documentation from source code and embedded
+comments.
 
 More minor but something that quickly comes up: there's difference
 in command-line argument handling which reflects the use
@@ -311,7 +312,7 @@ nature, that's it (although there's a nice python-argparse inspired
 [contributed package](http://carlobaldassi.github.io/ArgParse.jl/latest/)),
 while in Chapel, intended to make compiled long-running executables
 one can define a constant (`const n = 10;`) and make it settable
-on the command line by changing the `const` to `config` and running
+on the command line by prefixing the `const` with `config` and running
 the program with `-n 20`.
 
 ## Simple computational tasks
@@ -496,9 +497,9 @@ def onedheat(ngrid, ntimesteps, kappa, xleft, xright, tleft, tright):
 </tbody>
 </table>
 
-The main difference above is that the easiest way to get fast array operations out of
-Julia is to explicitly write out the loops as vs. numpy, and of
-explicitly declaring domains in Chapel.  Timings are below, for
+The main difference above is that the easiest way to get fast array
+operations out of Julia is to explicitly write out the loops as vs.
+numpy, and of declaring domains in Chapel.  Timings are below, for
 10,000 timesteps of a domain of size 1,001: note that we ran the
 Chapel program with `CHPL_RT_NUM_THREADS_PER_LOCALE=1` or else the
 `forall` loop would have been automatically run with multiple
@@ -927,8 +928,8 @@ arrays, and in Python using Dask arrays.  The relevant code snippets follow belo
 {% highlight julia %}
 @everywhere function get_data_plus_gc(domain, nguard, ngrid)
     if myid() in procs(domain)
-        li = localindexes(domain)        
-        lp = localpart(domain)        
+        li = localindexes(domain)
+        lp = localpart(domain)
 
         s = size(lp)
         data_plus_gc = zeros(s[1]+2*nguard, s[2]+2*nguard)
@@ -1334,7 +1335,7 @@ community of scientists (and thus science).
 
 Julia has the same potential to broaden computational science on
 the desktop, and (at least in the near term) for computations
-requiring only minimal computation like master-worker computations.
+requiring only minimal communication like master-worker computations.
 But Python is already doing this, and making suprising inroads on
 the distributed-memory computing front, and there will be something of a
 race to see which gets there first.
