@@ -516,7 +516,7 @@ calculation)
 <th>time</th> <th>Julia</th> <th>Chapel</th> <th>Python + Numpy + Numba</th><th>Python + Numpy</th>
 </thead>
 <tbody style="border: 1px solid black;">
-<tr><td style="border: 1px solid black;">run</td><td style="border: 1px solid black;">0.007 s</td><td style="border: 1px solid black;">0.012 s</td><td style="border: 1px solid black;">0.017 s</td></tr><td style="border: 1px solid black;">0.069 s</td></tr>
+<tr><td style="border: 1px solid black;">run</td><td style="border: 1px solid black;">0.007 s</td><td style="border: 1px solid black;">0.012 s</td><td style="border: 1px solid black;">0.017 s</td><td style="border: 1px solid black;">0.069 s</td></tr>
 <tr><td style="border: 1px solid black;">compile</td><td style="border: 1px solid black;">0.57 s</td><td style="border: 1px solid black;">4.8s</td><td style="border: 1px solid black;">0.73 s</td><td style="border: 1px solid black;"> - </td></tr>
 </tbody>
 </table>
@@ -1144,14 +1144,14 @@ Julia's project team, things that would concern me would include:
 **Peak Julia?**
 : Julia grew very quickly early on, but since then seems to have topped out;
 for example, [flat google trends interest](https://g.co/trends/qzmA9),
-[declining interest on stack
-overflow](https://insights.stackoverflow.com/trends?tags=julia-lang), and
-falling off the radar of "languages to watch" lists such as the
-[Redmonk language
-rankings](http://redmonk.com/sogrady/2017/03/17/language-rankings-1-17/). 
+and falling off the radar of "languages to watch" lists such as the
+[Redmonk language rankings](http://redmonk.com/sogrady/2017/03/17/language-rankings-1-17/),
 This may be unfair; these trends may say more about the large initial
-surge of interest than stagnation or decline. "A hugely popular
+surge of interest than stagnation or decline.  "A hugely popular
 scientific programing language" almost seems like an oxymoron, after all.
+[Declining Stack Overflow](https://insights.stackoverflow.com/trends?tags=julia-lang) 
+interest may simply reflect that the community has successfully moved discussion
+to its [discourse](https://discourse.julialang.org) site.
 A five-year old language for numerical computing that still hasn't
 reached 1.0 but has popularity comparable to Rust (which started
 at the same time but is a more general systems-programming language)
