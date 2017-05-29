@@ -287,13 +287,14 @@ to grow the Chapel community.
 ### Language features
 
 The biggest language feature difference is undoubtedly Julia's
-JIT-powered metaprogramming capabilities; Chapel is a more traditional
-compiled language.  A small downside of Julia's JIT approach is
-that functions are often slow the first time they are called, as
-they must be compiled.  Relatedly, Julia is garbage-collected, which
-can lead to pauses and memory pressure at unexpected times.  On
-the other hand, Chapel's compile time, which is still quite long 
-even compared to other compilers, makes the development cycle much 
+JIT-powered lisp-metaprogramming capabilities; Chapel is a more
+statically-compiled language, with generics and reflection but not
+full lisp-like code-is-data.  A small downside of Julia's JIT
+approach is that functions are often slow the first time they are
+called, as they must be compiled.  Relatedly, Julia is garbage-collected,
+which can lead to pauses and memory pressure at unexpected times.
+On the other hand, Chapel's compile time, which is still quite long
+even compared to other compilers, makes the development cycle much
 slower than it would be with Julia or Python.
 
 Beyond that, Julia and Chapel are both quite new and have functionality
