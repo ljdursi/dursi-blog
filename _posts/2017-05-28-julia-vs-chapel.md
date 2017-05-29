@@ -462,7 +462,7 @@ T[ngrid+1] = tright;
 const left = -1, right = 1;
 
 for iteration in 1..ntimesteps {
-  forall i in ProblemSpace {
+  for i in ProblemSpace {
     TNew(i) = T(i) + kappa*dt/(dx*dx) *
           (T(i+left) - 2*T(i) + T(i+right));
   }
@@ -499,15 +499,12 @@ def onedheat(ngrid, ntimesteps, kappa, xleft, xright, tleft, tright):
 
 The main difference above is that the easiest way to get fast array
 operations out of Julia is to explicitly write out the loops as vs.
-numpy, and of declaring domains in Chapel.  Timings are below, for
-10,000 timesteps of a domain of size 1,001: note that we ran the
-Chapel program with `CHPL_RT_NUM_THREADS_PER_LOCALE=1` or else the
-`forall` loop would have been automatically run with multiple
-threads.  The julia script included a "dummy" call to the main
-program to "warm up" the JIT, and then called on the routine.  Here
-we include compile times for both the Julia and Python JITs (naively
-calculated as total run time minus the final time spent running the
-calculation)
+numpy, and of explicitly using domains in Chapel.  Timings are
+below, for 10,000 timesteps of a domain of size 1,001.  The julia
+script included a "dummy" call to the main program to "warm up" the
+JIT, and then called on the routine.  Here we include compile times
+for both the Julia and Python JITs (naively calculated as total run
+time minus the final time spent running the calculation)
 
 <table style="border: 1px solid black; margin: 0 auto; border-collapse:collapse;">
 <thead>
@@ -568,7 +565,7 @@ var kmer_counts: [kmers] int;
 
 for sequence in sequences {
   for i in 1..(sequence.length-k+1) {
-    var kmer: string = sequence[i..(i+k-1)];
+    var kmer: string = sequence[i..#k];
     if !kmers.member(kmer) {
       kmer_counts[kmer] = 0;
     }
@@ -676,10 +673,10 @@ In Julia, starting julia with `juila -p 4` will launch julia with
 option can be set to launch the tasks on remote hosts (over ssh,
 by default, although other "ClusterManager"s are available, for
 instance launching tasks on SGE clusters).  In Chapel, launching a
-chapel program with `--nl 4` will run a program distributed over 4
+chapel program with `-nl 4` will run a program distributed over 4
 locales, with options for those hosts set by environment variables.
-Within each locale, Chapel will by default run as many threads as
-possible (as determined by the extremely useful
+Within each locale, Chapel will by default run across as many threads as
+sensible (as determined by the extremely useful
 [hwloc](https://www.open-mpi.org/projects/hwloc/) library).
 
 As seen above, Chapel distinuishes between starting up local and 
@@ -729,7 +726,7 @@ writeln(A.get());
 
 Both Julia and Chapel have thread-safe atomic primitive
 variables, and `sync` blocks for joining tasks launched
-within them vefore proceeding.
+within them before proceeding.
 
 ### Parallel loops, reductions, and maps
 
@@ -773,7 +770,7 @@ var asum = + reduce a
 
 var b[vecspace] = 0.0;
 
-b[vecspace] = 2*a[vecspace]
+b = 2*a;
 {% endhighlight %}
 </td></tr>
 </tbody>
@@ -1090,7 +1087,7 @@ in particular - gives it a very real opportunity to become a platform
 on which many domanin-specific language are written for particular scientific problems.
 We see some of that potential in tools like [DifferentialEquations.jl](https://github.com/JuliaDiffEq/DifferentialEquations.jl),
 where a simple, general API can nonetheless be used to provide efficient
-solutions to a problems that span a wide range of regimes and structures;
+solutions to problems that span a wide range of regimes and structures;
 the `solve()` function and the problem definition language essentially
 becomes a DSL for a wide range of differential equation problems.
 And Julia's interactive and dynamic nature makes it a natural for 
@@ -1248,7 +1245,7 @@ is small, but it's also the case that contributing code is nontrivial
 if you want to contribute it to the main project, and there's no central
 place where other people could look for your work if you wanted to have
 it as an external package.  A package manager would be a real help, 
-and it doens't have to be elaborate (especially in the initial version).
+and it doesn't have to be elaborate (especially in the initial version).
 
 **Not enough packages**
 : In turn, this is caused by the small number of external contributors,
@@ -1302,8 +1299,8 @@ prototyping a DSL for specific scientific problems.
 Neither project is really a competitor for the other; for Julia the
 nearest competitor is likely the Python ecosystem, and for Chapel
 it would be status quo (X + MPI + OpenMP/OpenACC) or that people
-might try investigating a research project or start playing with Spark (which 
-is good at a lot of things, but not really scientific
+might try investigating a research project or start playing with
+Spark (which is good at a lot of things, but not really scientific
 simulation work.)
 
 Scientific computing communities are very wary of new technologies
@@ -1312,26 +1309,26 @@ the usual, self-fulfulling, fear being "what if it goes away".  I
 don't think there's any concern about dead code here for projects
 that are started with either.  Chapel will be actively supported
 for another couple of years at least, and the underlying tools (like
-GASNet) are underpin many projects.  One's code wouldn't be "locked
-into" Chapel at any rate, as there are MPI bindings, so that there's
-always a path to incrementally port your code back to MPI if you
-chose to.  For Julia, the immediate worry is less
-about lack of support and more that the project might be _too_
-actively maintained; that one would have to continually exert effort
-to catch your code up with the current version.  In either case,
-there are clear paths to follow (porting or upgrading) to keep your
-code working.
+GASNet) underpin many projects and aren't going anywhere.  One's
+code wouldn't be "locked into" Chapel at any rate, as there are MPI
+bindings, so that there's always a path to incrementally port your
+code back to MPI if you chose to.  For Julia, the immediate worry
+is less about lack of support and more that the project might be
+_too_ actively maintained; that one would have to continually exert
+effort to catch your code up with the current version.  In either
+case, there are clear paths to follow (porting or upgrading) to
+keep your code working.
 
 ### Both projects have as-yet untapped potential
 
 What's exciting about both of these projects is how far they could
-go.  Chapel already makes certian class of MPI+OpenMP type programs
+go.  Chapel already makes certain class of MPI+OpenMP type programs
 extremely simple to write with fairly good performance; if that
 class of programs expands (either through packages built atop of
 current functionality, or expanded functionality through additional
-well-supported domain maps) and performance improves, it could make
-large-scale scientific computation accessible to a much broader
-community of scientists (and thus science).
+well-supported domain maps) and as performance continues to improve,
+it could make large-scale scientific computation accessible to a
+much broader community of scientists (and thus science).
 
 Julia has the same potential to broaden computational science on
 the desktop, and (at least in the near term) for computations
