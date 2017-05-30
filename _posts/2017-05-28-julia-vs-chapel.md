@@ -21,6 +21,11 @@ handily.  Both languages and environments have clear untapped
 potential and room to grow; we'll talk about future prospects of
 the two languages at the end.
 
+**Update**: I've updated the timings - I hadn't been using `@inbounds`
+in the Julia code, and I had misconfigured my Chapel install so
+that the compiles weren't optimized; this makes a huge difference on
+the 2d advection problem.  All timings now are on an AWS c4.8x instance.
+
 * TOC
 {:toc}
 
@@ -467,7 +472,9 @@ for iteration in 1..ntimesteps {
     TNew(i) = T(i) + kappa*dt/(dx*dx) *
           (T(i+left) - 2*T(i) + T(i+right));
   }
-  T <=> TNew;
+  for i in ProblemSpace {
+    T(i) = TNew(i)
+  }
 }
 // ...
 {% endhighlight %}
@@ -516,12 +523,13 @@ calculation)
 <th>time</th> <th>Julia</th> <th>Chapel</th> <th>Python + Numpy + Numba</th><th>Python + Numpy</th>
 </thead>
 <tbody style="border: 1px solid black;">
-<tr><td style="border: 1px solid black;">run</td><td style="border: 1px solid black;">0.007 s</td><td style="border: 1px solid black;">0.012 s</td><td style="border: 1px solid black;">0.017 s</td><td style="border: 1px solid black;">0.069 s</td></tr>
+<tr><td style="border: 1px solid black;">run</td><td style="border: 1px solid black;">0.0084</td><td style="border: 1px solid black;">0.0098 s</td><td style="border: 1px solid black;">0.017 s</td><td style="border: 1px solid black;">0.069 s</td></tr>
 <tr><td style="border: 1px solid black;">compile</td><td style="border: 1px solid black;">0.57 s</td><td style="border: 1px solid black;">4.8s</td><td style="border: 1px solid black;">0.73 s</td><td style="border: 1px solid black;"> - </td></tr>
 </tbody>
 </table>
 
-Julia does extremely well in this test, beating Chapel by almost 2x and python by a bit more.
+Julia wins this test, edging out Chapel by 16%; Python with numba is 
+surprisingly (to me) fast, coming within a factor of two.
 
 ### Kmer counting
 
@@ -609,8 +617,8 @@ we get timings as below
 <th>time</th> <th>Julia</th> <th>Chapel</th> <th>Python</th>
 </thead>
 <tbody style="border: 1px solid black;">
-<tr><td style="border: 1px solid black;">run</td><td style="border: 1px solid black;">4.9s</td><td style="border: 1px solid black;">6.3s</td><td style="border: 1px solid black;">8.3s</td></tr>
-<tr><td style="border: 1px solid black;">compile</td><td style="border: 1px solid black;">-</td><td style="border: 1px solid black;">6.3s</td><td style="border: 1px solid black;">-</td></tr>
+<tr><td style="border: 1px solid black;">run</td><td style="border: 1px solid black;">5.3 s</td><td style="border: 1px solid black;">6.6s</td><td style="border: 1px solid black;">7.7s</td></tr>
+<tr><td style="border: 1px solid black;">compile</td><td style="border: 1px solid black;">-</td><td style="border: 1px solid black;">6.2s</td><td style="border: 1px solid black;">-</td></tr>
 </tbody>
 </table>
 
@@ -1054,7 +1062,7 @@ As with the stream benchmark, we see that the Julia DistributedArrays
 require a lot of bookkeeping to use; both Chapel and Dask are much
 more straightforward.
 
-While I was a little disappointed to see how much time the communications
+The on-node timings here aren't even close
 took in Chapel - not that different from Julia (I'll update this post
 soon with some scaling tests), Chapel benefits dramatically from being
 able to use multiple levels of parallelism, and with no extra work;
@@ -1063,16 +1071,28 @@ takes the following amount of time:
 
 <table style="border: 1px solid black; margin: 0 auto; border-collapse:collapse;">
 <thead>
-<th>Julia</th> <th>Chapel</th> <th>Python</th>
+<th>Julia -p=1</th><th>Julia -p=8</th><th>Chapel -nl=1 ParTasksPerLocale=8</th><th>Chapel -nl=8 ParTasksPerLocale=1</th><th>Python</th>
 </thead>
 <tbody style="border: 1px solid black;">
-<tr><td style="border: 1px solid black;">270s s</td><td style="border: 1px solid black;">160 s</td><td style="border: 1px solid black;">193 s</td></tr>
+<tr>
+<td style="border: 1px solid black;">177s s</td>
+<td style="border: 1px solid black;">264 s</td>
+<td style="border: 1px solid black;">**0.4 s**</td>
+<td style="border: 1px solid black;">145 s</td>
+<td style="border: 1px solid black;">193 s</td></tr>
 </tbody>
 </table>
 
-What's interesting here is that Python+Numpy+Dask (numba didn't help here) is
-competitive even with Chapel, and either made it much easier to write the
-program than Julia.
+The 0.4s is not a typo. Threading matters.  Admittedly,
+this is a bit of an extreme case, 1000x1000 isn't a big
+grid to distribute over 8 processes, so communications
+overhead dominates; Julia seems to suffer that overhead even
+with just one process.
+
+Another interesting thing here is that Python+Numpy+Dask (numba didn't
+help here) is competitive even with Chapel _if_ you force Chapel
+to not use threading on-node, and either made it much easier to
+write the program than Julia.
 
 ## Strengths, Weaknesses, and Future Prospects
 
