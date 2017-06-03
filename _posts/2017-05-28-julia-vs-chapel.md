@@ -319,7 +319,7 @@ nature, that's it (although there's a nice python-argparse inspired
 while in Chapel, intended to make compiled long-running executables
 one can define a constant (`const n = 10;`) and make it settable
 on the command line by prefixing the `const` with `config` and running
-the program with `-n 20`.
+the program with `--n 20`.
 
 ## Simple computational tasks
 
@@ -769,16 +769,12 @@ pmap(twox, a)
 <tr><td markdown="span">**Chapel**</td>
 <td>
 {% highlight C %}
-vecspace = 1..10000;
 
 forall i in 1..10000 {
-// or forall i in vecspace {
     a[i] = b[i] + alpha*c[i]
 }
 
 var asum = + reduce a
-
-var b[vecspace] = 0.0;
 
 b = 2*a;
 {% endhighlight %}
@@ -1014,7 +1010,7 @@ end
     // calculate the upwinded gradient
     // ...
 
-    dens(ProblemSpace) = dens(ProblemSpace) - dt*(velx*gradx(ProblemSpace) + vely*grady(ProblemSpace));
+    dens = dens - dt*(velx*gradx + vely*grady);
 //...
 }
 
