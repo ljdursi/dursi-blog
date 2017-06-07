@@ -131,7 +131,7 @@ We have to start using these new tools when they make sense for our users; which
 
 The HPC community can, and should, be much more than just consumers of these external technologies.  Our assertions of relevance don't have to be purely aspirational.  We have real expertise that can be brought to bear on these new problems and technologies.  Excellent work has been done in MPI implementations on important problems like the network-agnostic layer, job launching, and collective algorithms.  The people who wrote those network-agnostic layers are already looking into refactoring them into [new](https://github.com/ofiwg/libfabric) [projects](https://www.olcf.ornl.gov/center-projects/common-communication-interface/) that can be widely used in a variety of contexts, at lower levels of the stack.
 
-But we to give up the idea that there is a one-sized fits all approach to large-scale technical computing, and that it has always been and will always be MPI.  Other groups are using different approaches for a reason; we can borrow from them to the benefit of our users, and contribute to those approaches to make them better.
+But we need to give up the idea that there is a one-sized fits all approach to large-scale technical computing, and that it has always been and will always be MPI.  Other groups are using different approaches for a reason; we can borrow from them to the benefit of our users, and contribute to those approaches to make them better.
 
 ## We can build the future
 
