@@ -5,9 +5,9 @@ tags: ['chapel', 'presentation']
 
 I was invited to speak at this past weekend's fourth annual Chapel Implementers and Users Workshop ([CHIUW 2017](http://chapel.cray.com/CHIUW2017.html)).
 It was a great meeting, with lots of extremely high-quality talks on work being done with and on Chapel.  The slides from the presentations
-will be up shortly, and I recommend them - the libfabric, KNL, use-after-free tracking, and GraphBLAS works (will link to them as soon as they're up)
-were of particular interest to me.  The Code Camp on the next day, working with members the team on individual particular projects, was also a lot
-of fun.
+will be up shortly, and I recommend them - the [libfabric](http://chapel.cray.com/CHIUW/2017/choi-slides.pdf), 
+[KNL](http://chapel.cray.com/CHIUW/2017/kayraklioglu-slides.pdf), [use-after-free tracking](http://chapel.cray.com/CHIUW/2017/krishna-slides.pdf), and [GraphBLAS](http://chapel.cray.com/CHIUW/2017/azad-slides.pdf) works
+were of particular interest to me.  The Code Camp on the next day, working with members the Chapel team on individual particular projects, was also a lot of fun.
 
 The topic of my own talk was &ldquo;Chapel's Home in the Landscape
 of New Scientific Computing Languages (and what it can learn from
