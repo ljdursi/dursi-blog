@@ -72,7 +72,7 @@ Calls to MPI collective operations or MPI-IO describe what should be done, not h
 
 Operations like "All processes sum their results and distribute the result to all processes", or "Each process writes to their slice of the file" are enormously broader than "Send this message to process X".  There's a large number of ways they could be implemented, and in fact there's a huge literature on both [collectives](https://scholar.google.ca/scholar?q=mpi+collectives) and [MPI-IO](https://scholar.google.ca/scholar?q=mpi-io) on various approaches to doing so.
 
-###Application programmers reimplementing them would be worse for performance
+### Application programmers reimplementing them would be worse for performance
 
 If the "low-level application programming is essential for high performance" argument was true, then of course we would be actively dissuading researchers from using these high-level tools.  But we don't, and we're right not to.  
 
@@ -84,9 +84,9 @@ MPI collective operation implementations make run-time decisions behind the rese
 
 Somebody had to do all that challenging low-level work, yes.  But the idea that those optimizations and algorithmic work is properly the job of the researcher/application programmer is absurd.
 
-###Implementations got faster and faster
+### Implementations got faster and faster
 
-These highly optimized implementations of these high-level abstractions did not, of course, spring fully formed from nowhere, any more than the [reference implementation of LAPACK/BLAS](http://www.netlib.org/lapack/) was blazingly fast.  The abstractions were created with an understanding of both what application programmers needed and what was implementable, and then years and years of work went into developing the algorithms and implementations that we make use of today.
+These highly optimized implementations of these high-level abstractions did not, of course, spring fully formed from somewhere, any more than the [reference implementation of LAPACK/BLAS](http://www.netlib.org/lapack/) was blazingly fast.  The abstractions were created with an understanding of both what application programmers needed and what was implementable, and then years and years of work went into developing the algorithms and implementations that we make use of today.
 
 Initial implementations of MPI-1 collectives were (naturally!) not super optimized, and there were certainly developers who scoffed at the performance and who pointed out they could do better writing low-level network code on their own.  They were, in that snapshot in time, narrowly correct; but more broadly and in the longer term, they were flat-out wrong.  The most useful and productive approach to a researcher finding out that early versions of those collective operations (say) were slow in some situations was not to break down and re-implement it themselves at low level; it was to file an issue with the library provider, and help them fix it so that it would be faster for everyone.
 
