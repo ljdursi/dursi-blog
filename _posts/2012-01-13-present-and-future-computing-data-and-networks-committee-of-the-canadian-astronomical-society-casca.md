@@ -3,7 +3,7 @@ title:  "Present and Future Computing, Data, and Networks Committee of the Canad
 tags: ['whitepaper', 'astronomy', 'hpc', 'Canada']
 ---
 
-[This document](http://casca.ca/wp-content/uploads/2013/10/CCI_WhitePaper_2012.pdf) is a whitepaper I wrote for the [CASCA Computing and Data committee](http://casca.ca/?page_id=273) outlining the computing needs for the Canadian astronomy community for the coming several years.  It does a fairly decent job of laying out the diverse range of large-scale R&D computing needs for the national community.
+[This document](../assets/pdfs/CCI_WhitePaper_2012.pdf) is a whitepaper I wrote for the [CASCA Computing and Data committee](http://casca.ca/?page_id=273) outlining the computing needs for the Canadian astronomy community for the coming several years.  It does a fairly decent job of laying out the diverse range of large-scale R&D computing needs for the national community.
 
 
 ## Executive Summary

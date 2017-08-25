@@ -5,7 +5,7 @@ tags: ['whitepaper', 'astronomy', 'Canada', 'software']
 
 It is becoming increasingly problematic that, even as computing and data becomes more and more fundamental to research, and the complexity and diversity of computing technologies out there grows, getting stable funding for developing high-quality research software remains so difficult.
 
-In [this whitepaper](www.casca.ca/lrp2010/Docs/LRPReports/CAI.pdf) for the [CASCA 2010 Long Range Plan](http://www.casca.ca/lrp2010/), my colleague [Falk Herwig](http://www.astro.uvic.ca/~fherwig/) and I lay out the case for increased funding of R&D software development by professional research software developers.  We make a couple points which I genuinely believe to be strong:
+In [this whitepaper](../assets/pdfs/CAI.pdf) for the [CASCA 2010 Long Range Plan](http://www.casca.ca/lrp2010/), my colleague [Falk Herwig](http://www.astro.uvic.ca/~fherwig/) and I lay out the case for increased funding of R&D software development by professional research software developers.  We make a couple points which I genuinely believe to be strong:
 
 First, increased benefits. A successful community code can support an enoormous body of research.  By the (admittedly somewhat crude) count we use in this paper, the top six reseach codes in Astronomy accounted for approximately 50% of the computational astronomy publications over the period of study, and the top three - [Cloudy](http://www.nublado.org/), [Gadget](http://www.mpa-garching.mpg.de/galform/gadget/), and [FLASH](http://www.flash.uchicago.edu/site/), which I was part of - accounted for nearly 40%.  That is an enormous about of R&D effort enabled by those projects.
 
