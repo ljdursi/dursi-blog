@@ -15,7 +15,7 @@ The focus is on productivity and automation; PDF slides are available
 (although I really should translate them into a markdown-based format to
 make them more re-usable).
 
-Covered are a bunch of basics
+Covered are a number of basic shell commands
 
 * echo
 * pwd
@@ -37,6 +37,7 @@ Covered are a bunch of basics
 * grep 
 * for..do..done 
 
-And then then there's some optional material on make (again, for
-automation) and ssh/scp (because that was frequently necessary for
-tutorials at SciNet).
+As well as simple script writing.  There is some optional material
+on make (again, for automation) and ssh/scp (because that was
+frequently necessary for tutorials at SciNet).  There are a number
+of hands-on exercises sprinkled throughout.
