@@ -28,12 +28,12 @@ Computational tools for science and scholarship go through stages of development
 
 These steps can be thought of as a sort of internal-to-the-research-endevour version of 
 the [Technology Readiness Levels](https://en.wikipedia.org/wiki/Technology_readiness_level) 
-that are used to describe the maturity of technologies and tools, now often used when talkingj
+that are used to describe the maturity of technologies and tools, now often used when talking
 about commercialization.
 
 Not every idea has to go through all four stages to be successful; sometimes a tool will be a 'one-off'
 or nearly so, used for one or two projects and never again.  This isn't at all a bad thing, 
-if it serves its one purpose well.  
+if it serves its one purpose well.
 
 But each transition between stages represents a potential barrier for ideas becoming new tools,
 a jump in level of development skills and effort required.  Every tool that stalls at between 
@@ -42,12 +42,14 @@ is unnecessarily lost to researchers who might have made use of it.
 
 ### Training Research Software Developers at all Stages
 
-The set of techniques that people generally mean when they talk about 
-&ldquo;Software Engineering&rdquo; is most useful at step 4 &mdash; they largely assume that 
-there already exists a well-posed problem and an understood, implementable solution.
-It was understood fairly early that this was quite different from scientific software development
-(although perhaps too much was concluded from this, as science spent decades largely 
-ignoring progress in programming techniques tools used in other fields).
+The set of techniques that we mean when we talk about &ldquo;Software
+Engineering&rdquo; is most useful at step 4 &mdash; these techinques largely
+assume that there already exists a well-posed problem and an
+understood, implementable solution.  It was understood fairly early
+that this differed a great deal from scientific software development
+(although perhaps too much was concluded from this, as science then spent
+decades largely ignoring progress in programming techniques tools
+used in other fields).
 
 Realizing that something somewhat different was needed, in the late 90s 
 [Software Carpentry](https://software-carpentry.org), and later [The Carpentries](https://carpentries.org),
@@ -61,7 +63,7 @@ get the students to the point where they can learn additional material themselve
 
 There still isn't a lot of training for researchers to make the next big jump, from
 prototype-for-self to tool-some-others-can-use.  However, authors are beginning to write
-resources for students wanting to learn how to proceed[^1] [^2] [^3].
+resources for students wanting to learn how to proceed[^1] [^2] [^3] [^4].
 
 The second-biggest transition in that list, that from 3 to 4, is the one I spend the least
 time worrying about.  It's at that stage that existing software engineering teaching, tooling,
@@ -90,13 +92,30 @@ Python ecosystem:
 * Compared to languages more commonly used earlier like C and FORTRAN, the exception system lets
 you implement a number of things and still undertand what's happening before you have to start
 implementing boilerplate error handling, making it something that can be added incrementally at later stages.
-* Tools like [Numba](http://numba.pydata.org), [PyPy](https://www.pypy.org), or venerable [Cython](http://cython.org) allow incremental (but often substantial) performance improvement for many kinds of computation
+* Tools like [Numba](http://numba.pydata.org), [PyPy](https://www.pypy.org), or [Cython](http://cython.org) allow incremental (but often substantial) performance improvement for many kinds of computation
 * Tools like [Dask](https://www.pypy.org) offer an incremental path to scale
 * Great tooling exists, including [VSCode](https://code.visualstudio.com) which makes much IDE functionality available for free
 
-Meanwhile, other frameworks, aimed more directly at solving needs particular to research or branches of research,
-have struggled.  Much of this, of course, has to do with the simple math of adoption; but most have not
-made much effort to make tools which ease the development of increasingly mature research software.
+It's useful to consider incrementalism-as-a-feature in the context
+of existing programming environments, each of which have some ideas useful to
+scientific computing.  [Ada](http://www.ada2012.org), a highish-level programming
+language with an emphasis on correctness, has a reputation of being
+a somewhat authoritarian programming enviornment; however, many of its correctness
+features are things you can incrementally add on (things like pre- and post-conditions).
+On the other hand, [Rust](https://www.rust-lang.org/en-US/), a lower level
+language aimed at systems programming where reliability and security in an environment
+where memory bugs continue to cause probems, enables very low-level concurrency
+features but one very quickly has to wrestle with Rust's powerful 
+[borrow checker](https://doc.rust-lang.org/1.8.0/book/references-and-borrowing.html);
+adding non-trivial concurrency in Rust results very much in a non-incremental development
+effort, which is arguably the right choice for a low-level systems programming language.
+
+While Python and other general programming languages have flourished,
+, other frameworks, aimed more directly at solving needs particular
+to research or branches of research, have struggled.  Much of this,
+of course, has to do with the simple math of adoption; but most
+have not made much effort to make tools which ease the development
+of increasingly mature research software.
 
 To their credit, the [Julia](https://julialang.org) community understands some of this, but they are focussed
 on a narrow piece of the issue; the need for a framework for incremental adoption becomes &ldquo;one language
@@ -110,3 +129,4 @@ I'll certainly be watching the progress of their 1.x releases with some interest
 [^1]: [_Ten simple rules for making research software more robust_, Taschuk &amp; Wilson](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005412)
 [^2]: [_Ten Simple Rules for Developing Usable Software in Computational Biology_, List, Ebert, &amp; Albrecht](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005265)
 [^3]: [_Testing and Continuous Integration with Python_, Huff](http://katyhuff.github.io/python-testing)
+[^4]: [_Good Enough Practices in Scientific Computing_, Wilson et al.](https://arxiv.org/pdf/1609.00037.pdf)
