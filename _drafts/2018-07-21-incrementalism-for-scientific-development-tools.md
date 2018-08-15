@@ -6,7 +6,7 @@ tags: ['hpc']
 ### The Stages of Research Software Development
 
 Research software development covers a lot of ground &mdash; it's the development of software for research,
-and research is a broad endevour that covers a lot of use cases.
+and research is a broad endeavour that covers a lot of use cases.
 
 The part of research software development that I find the most interesting is the part that 
 _is a research effort itself_; the creation of new simulation methods, new data analysis techniques,
@@ -17,7 +17,7 @@ scholarship forward along previously unexplored paths.
 But for new methods to live up to their potential and have that impact, they have to be developed
 and disseminated.  As a community, we're still developing the training and tool chains that 
 make this routine; without them, there are still too many bottlenecks in the method development
-pipline that mean good ideas for new tools get delayed, sometimes indefintely, before adoption.
+pipeline that mean good ideas for new tools get delayed, sometimes indefinitely, before adoption.
 
 Computational tools for science and scholarship go through stages of development like any experimental technique:
 
@@ -26,7 +26,7 @@ Computational tools for science and scholarship go through stages of development
 3.  **Is this an interesting question to others?**  Sharing a more robust prototype with friendly collaborators who think it might be useful
 4.  **Becoming Research Infrastructure** The robust, usable, automatable tool becomes something strangers start to use routinely in their own research
 
-These steps can be thought of as a sort of an internal-to-the-research-endevour version of 
+These steps can be thought of as a sort of an internal-to-the-research-endeavour version of 
 the [Technology Readiness Levels](https://en.wikipedia.org/wiki/Technology_readiness_level) 
 that are used to describe the maturity of technologies and tools, now often used when talking
 about commercialization.
@@ -43,7 +43,7 @@ is unnecessarily lost to researchers who might have made use of it.
 ### Training Research Software Developers To Tackle all Stages
 
 The set of techniques that we mean when we talk about &ldquo;Software
-Engineering&rdquo; is most useful at step 4 &mdash; these techinques
+Engineering&rdquo; is most useful at step 4 &mdash; these techniques
 largely assume that there already exists a well-posed problem and
 an understood, implementable solution.  I've argued in the past
 that it's not only unnecessary but actually irresponsible to build
@@ -92,7 +92,7 @@ Python ecosystem:
 * The large standard library and even larger ecosystem lets you quickly implement a lot of functionality (Stages 1/2)
 * Great tooling exists, including [VSCode](https://code.visualstudio.com) which makes much IDE functionality available for free (Stages 2/3)
 * Compared to languages more commonly used earlier like C and FORTRAN, the exception system lets
-you implement a number of things and still undertand what's happening before you have to start
+you implement a number of things and still understand what's happening before you have to start
 implementing boilerplate error handling, making it something that can be added incrementally at later stages. (Stages 2/3/4)
 * Tools like [Numba](http://numba.pydata.org), [PyPy](https://www.pypy.org), or [Cython](http://cython.org) allow incremental (but often substantial) performance improvement for many kinds of computation (Stages 2/3/4)
 * Tools like [Dask](https://www.pypy.org) offer an incremental path to scale (Stages 3/4)
@@ -101,11 +101,11 @@ It's useful to consider incrementalism-as-a-feature in the context
 of existing programming environments, each of which have some ideas useful to
 scientific computing.  [Ada](http://www.ada2012.org), a highish-level programming
 language with an emphasis on correctness, has a reputation of being
-a somewhat authoritarian programming enviornment; however, many of its correctness
+a somewhat authoritarian programming environment; however, many of its correctness
 features are things you can incrementally add on (things like pre- and post-conditions).
 On the other hand, [Rust](https://www.rust-lang.org/en-US/), a lower level
 language aimed at systems programming where reliability and security in an environment
-where memory bugs continue to cause probems, enables very low-level concurrency
+where memory bugs continue to cause problems, enables very low-level concurrency
 features but one very quickly has to wrestle with Rust's powerful 
 [borrow checker](https://doc.rust-lang.org/1.8.0/book/references-and-borrowing.html);
 adding non-trivial sharing semantics to code in Rust results in a
@@ -135,7 +135,7 @@ progress of their 1.x releases with some interest.
 ### The Developing Field of Research Software Engineering
 
 It's been fascinating to watch from the sidelines over the past two decades
-as research software enginnering and RSE as a profession has gone from
+as research software engineering and RSE as a profession has gone from
 basically nothing to [conferences](https://rse.ac.uk/conf2018/), 
 [organizations](https://carpentries.org), and research.  I'm enormously
 heartened by the fact that training now exists to tackle the specific 
@@ -143,12 +143,12 @@ challenges of developing software that itself is research into methods
 development.
 
 I'm still somewhat pessimistic, however, on the state of development frameworks
-for research computing.  My currrent work with web services development
-just drives home the point of how scarse the tooling is for building
+for research computing.  My current work with web services development
+just drives home the point of how scarce the tooling is for building
 research software.
 
 The history of research computing since Fortran's dominance has
-been that research software engineering has graftted itself on to
+been that research software engineering has grafted itself on to
 a set of existing general purpose programming languages like C++
 or Python, each of which has advantages but also gaps for research
 computing.  There are exciting experiments here and there with new
@@ -158,7 +158,7 @@ As Data Science/Data Engineering becomes more and more common in
 commercial enterprises and as a computing use case, we may yet end
 up finding frameworks which, if not actually designed for science,
 are made for similar purposes.  The good news is that people problems
-are hard, while technology problems are (comparitively) tractable.
+are hard, while technology problems are (comparatively) tractable.
 If one or more promising development frameworks appear in the coming
 years, ones that allow a path from &ldquo;basic methods science&rdquo;
 to &ldquo;methods commercialization&rdquo;, other people's hard
