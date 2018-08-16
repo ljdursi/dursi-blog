@@ -37,8 +37,8 @@ if it served its one purpose well.
 
 But each transition between stages represents a potential barrier for ideas becoming new tools,
 a jump in level of development skills and effort required.  Every tool that stalls at between 
-stages there isn't training or tooling to allow incremental progress along the pipeline is a tool that
-is unnecessarily lost to researchers who might have made use of it.
+stages solely because there isn't training or tooling to allow incremental progress along 
+the pipeline is a tool that is unnecessarily lost to researchers who might have made use of it.
 
 ### Training Research Software Developers To Tackle all Stages
 
@@ -94,7 +94,8 @@ Python ecosystem:
 * Compared to languages more commonly used earlier like C and FORTRAN, the exception system lets
 you implement a number of things and still understand what's happening before you have to start
 implementing boilerplate error handling, making it something that can be added incrementally at later stages. (Stages 2/3/4)
-* Tools like [Numba](http://numba.pydata.org), [PyPy](https://www.pypy.org), or [Cython](http://cython.org) allow incremental (but often substantial) performance improvement for many kinds of computation (Stages 2/3/4)
+* Tools like [Numba](http://numba.pydata.org), [PyPy](https://www.pypy.org), or [Cython](http://cython.org) allow 
+substantial but incremental performance improvement for many kinds of computation (Stages 2/3/4)
 * Tools like [Dask](https://www.pypy.org) offer an incremental path to scale (Stages 3/4)
 
 It's useful to consider incrementalism-as-a-feature in the context
@@ -124,8 +125,8 @@ come closest, but they are focussed on a narrow piece of the issue;
 the need for a framework for incremental adoption becomes &ldquo;one
 language for everything&rdquo; with tools like Numba or PyPy as,
 essentially, cheating; and the only maturity metric focused on is
-performance, which can certainly be helpful but is by no means the
-primary development problem of most researchers.
+performance.  It's better to have fast code than not, of course, but it is by no means
+the primary development problem of most researchers.
 
 Having said that, most other programming languages aimed for
 scientific communities have not made nearly as much progress on key
