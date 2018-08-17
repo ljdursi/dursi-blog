@@ -3,6 +3,8 @@ title:  "A Killer Feature for Scientific Development Frameworks: An Incremental 
 tags: ['hpc']
 ---
 
+( **Note**: This is a bit of a work in progress; even more so than usual, comments/criticisms/additions welcome )
+
 ### The Stages of Research Software Development
 
 Research software development covers a lot of ground &mdash; it's the development of software for research,
