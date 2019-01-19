@@ -160,10 +160,10 @@ from somewhere else.
 ### The cloud premium is a price worth paying
 
 The benefits of further efforts in skills development and training
-are fairly clear, and this alone would justify outsourcing some
-of the effort involved in procuring and operating computer hardware.
-But having substantial commercial cloud resources available for
-researchers is worthwhile on its own merits.
+are fairly clear, and this alone would justify redirecting some
+effort from hardware to research services, and using comercial 
+cloud providers to fill the gap. But having substantial commercial
+cloud resources available for researchers is worthwhile on its own merits.
 
 Firstly, cloud provides more flexibility for rapidly changing research.
 The resource mix can be much broader and change much more rapidly 
@@ -240,7 +240,7 @@ appropriate) should be used.
 
 **Make the expertise really count by building a unified national team**
 : Once the right tools are in place, other lessons can be learned
-from successful consultantcies.  The most successful collaborations
+from successful consultancies.  The most successful collaborations
 will combine staff from across the country with the appropriate 
 expertise, and staff that are local to the researcher.  To achieve
 that, the computational experts across the country must be able
