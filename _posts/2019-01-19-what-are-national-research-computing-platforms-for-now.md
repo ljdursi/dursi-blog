@@ -81,7 +81,7 @@ available to directly enable science projects.  The bad news is that
 the priorities of the organization, and thus most of its effort and
 energies, are focussed on procuring and operating on-premises commodity
 computing and storage hardware - to the extent that many of those
-expert analysts spend most of their time answering basic help-desk
+experts spend most of their time answering basic help-desk
 questions or performing routine operational duties for those systems.
 
 ## What should today’s R&D computing support focus on?
