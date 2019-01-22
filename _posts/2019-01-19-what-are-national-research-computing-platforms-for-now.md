@@ -216,10 +216,10 @@ scaled pilot, expanding in response to researcher needs.
 : Many hardware needs are readily outsourceable, whether to commerical
 entities or by &ldquo;buying in&rdquo; with other academic R&D 
 computing partners.  However, some resources will likely stay in-house.
-The way to choose is to ensure that every choice to own
-rapidly-depreciating, expensive-to-operate equipment is directly
-supporting the mission of excellent research support and research skills
-development.  In house equipment should be significantly better
+The way to choose is to ensure that every decision to own
+rapidly-depreciating, expensive-to-operate equipment directly
+supports the mission of excellent research support and research skills
+development.  In-house equipment should be significantly better
 at that mission than what can be procured from elsewhere.  That
 may mean making cutting-edge infrastructure that is
 in itself publication worthy, or buying still-prototype 
