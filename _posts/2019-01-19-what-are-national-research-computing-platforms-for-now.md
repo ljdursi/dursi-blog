@@ -64,6 +64,7 @@ but they represent a minority of computational science needs.
 
 ## The need for higher-level support
 
+<img style="float: right; width: 50%" src="/assets/what_is_ardc_for/shutterstock_clarity.jpg" alt="We advance research more powerfully by providing clarity than clusters" />
 But even while _computers_ for research become ever more accessible,
 research _computing_ &nbsp; for cutting edge research remains a barrier to too many.  Scientists and scholars are trained to be experts in
 their field, not necessarily experts in computer science or the
@@ -107,6 +108,8 @@ providers focus on the lower level procurement and operating of
 most computing and storage hardware.
 
 ### Skills beat hardware
+
+<img style="float: right; width: 50%" src="/assets/what_is_ardc_for/pixabay_mechanics-3310067.png" />
 
 The goal of a research computing support platform is to enable
 research, and to help develop the next generation of research talent.
@@ -158,6 +161,8 @@ are very much not commodity skills, and cannot be purchased or rented
 from somewhere else.
 
 ### The cloud premium is a price worth paying
+
+<img style="float: right; width: 50%;" src="/assets/what_is_ardc_for/pixabay_cloud-computing-2001090.jpg" />
 
 The benefits of further efforts in skills development and training
 are fairly clear, and this alone would justify redirecting some
@@ -252,6 +257,8 @@ counter to supporting national research.
 
 ## Summary
 
+<img style="float: right; width: 50%" src="/assets/what_is_ardc_for/shutterstock_collaboration.jpg" />
+
 The goal of a research computing support platform - any research
 support resource, really - is to enable research, and to help develop
 the next generation of research talent.  With that primary mission
@@ -285,3 +292,5 @@ These changes will not be easy; they will require participation from
 funders, staff, researchers, and all stakeholders.  But the research
 computing world of today is not that of the 1990s, and how we support
 computational research should reflect that.
+
+Images courtesy of [shutterstock](https://www.shutterstock.com/home) and [pixabay](https://pixabay.com), used under license
