@@ -57,8 +57,8 @@ have real value for researchers.  Increasingly, even niche technologies
 like FPGAs, RDMA-enabled networking, and ARM processors are readily
 available on commercial cloud providers, leaving fewer and fewer
 use cases where in house provision of computer resources remains a
-necessity.  Those use cases are important — they include the
-historically significant multi-rack HPC users, and the stewardship
+necessity.  Those use cases are important — they include 
+multi-rack HPC users, and the stewardship and analysis
 of data with the strictest regulatory on-premises requirements —
 but they represent a minority of computational science needs.
 
