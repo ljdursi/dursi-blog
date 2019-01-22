@@ -283,4 +283,4 @@ daunting, but it needn’t be:
 These changes will not be easy; they will require participation from
 funders, staff, researchers, and all stakeholders.  But the research
 computing world of today is not that of the 1990s, and how we support
-computational research should reflect that.
+computational research should take advantage of that.
