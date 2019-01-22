@@ -57,8 +57,8 @@ have real value for researchers.  Increasingly, even niche technologies
 like FPGAs, RDMA-enabled networking, and ARM processors are readily
 available on commercial cloud providers, leaving fewer and fewer
 use cases where in house provision of computer resources remains a
-necessity.  Those use cases are important — they include the
-historically significant multi-rack HPC users, and the stewardship
+necessity.  Those use cases are important — they include 
+multi-rack HPC users, and the stewardship and analysis
 of data with the strictest regulatory on-premises requirements —
 but they represent a minority of computational science needs.
 
@@ -75,14 +75,14 @@ Researchers greatly need assistance from and collaborations with
 experts in research computation itself.  It is the skills, not the
 infrastructure, that is scarcest.
 
-The good news is that Compute Canada has a network of roughly 140
-analysts available to enable science projects, many at the Ph.D.
-level.  The bad news is that the priorities of the organization,
-and thus most of its effort and energies, are focussed on procuring
-and operating on-premises commodity computing and storage hardware -
-to the extent that many of those expert analysts spend most of
-their time answering basic help-desk questions or performing fairly
-basic administrative duties on those systems.
+The good news is that the Compute Canada federation has a network
+of roughly 200 computational experts, many of the Ph.D. level,
+available to directly enable science projects.  The bad news is that
+the priorities of the organization, and thus most of its effort and
+energies, are focussed on procuring and operating on-premises commodity
+computing and storage hardware - to the extent that many of those
+expert analysts spend most of their time answering basic help-desk
+questions or performing routine operational duties for those systems.
 
 ## What should today’s R&D computing support focus on?
 
@@ -171,16 +171,15 @@ cloud providers to fill the gap. But having substantial commercial
 cloud resources available for researchers is worthwhile on its own merits.
 
 Firstly, cloud provides more flexibility for rapidly changing research.
-The resource mix can be much broader and change much more rapidly 
-than traditional procureent cycles would allow; what's more, those
+The resource mix can be much broader and change much more rapidly
+than traditional procurement cycles would allow; what’s more, those
 changes can be in response to demonstrated researcher needs, rather
-than making predictions and assumptions about the next five years.
-In cases when they may be useful, an enormous variety of managed
-services can be quickly tested that will allow researchers and staff
-to spend less time configuring and more time doing research.  And in
-addition to this flexibility, the uptime availability and hardware
-currency of these resources will generally be significantly better
-than what can be provided in house.
+than making predictions and assumptions about the next five years
+based on existing research users.  Like owning systems, dynamically
+taking advantage of this flexibility requires top operational staff.
+And the uptime availability and hardware currency of these resources
+will generally be significantly better than what can be provided in
+house.
 
 Secondly, trainees and staff benefit from gaining extremely relevant 
 commercial cloud expertise.  This goes back to skills development
@@ -291,6 +290,6 @@ daunting, but it needn’t be:
 These changes will not be easy; they will require participation from
 funders, staff, researchers, and all stakeholders.  But the research
 computing world of today is not that of the 1990s, and how we support
-computational research should reflect that.
+computational research should tage advantage of that.
 
 Images courtesy of [shutterstock](https://www.shutterstock.com/home) and [pixabay](https://pixabay.com), used under license
