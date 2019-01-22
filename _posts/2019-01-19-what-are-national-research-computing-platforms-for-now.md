@@ -239,7 +239,7 @@ appropriate) should be used.
 
 **Make the expertise really count by building a unified national team**
 : Once the right tools are in place, other lessons can be learned
-from successful consultantcies.  The most successful collaborations
+from successful consultancies.  The most successful collaborations
 will combine staff from across the country with the appropriate 
 expertise, and staff that are local to the researcher.  To achieve
 that, the computational experts across the country must be able
