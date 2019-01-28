@@ -1,6 +1,6 @@
 ---
 title:  "Canadian Astronomical Computing, Data And Network Facilities: A White Paper for the 2010 Long Range Plan"
-tags: ['whitepaper', 'astronomy', 'Canada', 'software']
+tags: ['white paper', 'astronomy', 'Canada', 'software']
 ---
 
 In [this whitepaper](../assets/pdfs/CDandN_WP.pdf) for the [CASCA 2010 Long Range Plan](http://www.casca.ca/lrp2010/), I and the rest of the Computing, Data, and Network committee of CASCA lay out the state of ecosystem for computation in support of Canadian astronomy, and suggests a path forward for the time period of the 2010-2020 long range plan.

@@ -1,6 +1,6 @@
 ---
 title:  "Compute Canadian: Building a successful and federated computational research enterprise, together"
-tags: ['whitepaper', 'Canada']
+tags: ['white paper', 'Canada']
 ---
 
 Canada is a federated nation, and this is particularly visible in

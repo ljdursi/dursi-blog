@@ -1,6 +1,6 @@
 ---
 title:  "Codes as Instruments: Community Applications and Simulation Software for the Hardware Architectures of the Next Decade"
-tags: ['whitepaper', 'astronomy', 'Canada', 'software']
+tags: ['white paper', 'astronomy', 'Canada', 'software']
 ---
 
 It is becoming increasingly problematic that, even as computing and data becomes more and more fundamental to research, and the complexity and diversity of computing technologies out there grows, getting stable funding for developing high-quality research software remains so difficult.
