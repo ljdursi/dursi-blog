@@ -5,7 +5,7 @@ tags: ['cloud', 'data', 'canada', 'white paper']
 
 # What is a National Research Computing Platform _For_ in 2019?
 
-> _Computers are everywhere now, but computing is still hard.  Canada
+> _Computers are everywhere now, but computing is still hard. Canada
 > should build on its competitive advantage by
 > strengthening existing efforts to provide
 > expertise, skills and training to researchers and
@@ -30,7 +30,7 @@ resources.  Purchasing and operating hardware becomes more
 cost-effective in bulk; and what was even then the most scarce and
 valuable resource - the expertise to operate and make effective use
 of the hardware - actually _grows_, rather than is diminished, by
-supporting different research problems.  So quickly individual
+being involved in different research problems.  So quickly individual
 researcher &ldquo;clusters in a closet&rdquo; gave way to departmental, then
 institutional, and finally regional or national platforms for
 computational research and data science support.  In Canada, the
@@ -76,7 +76,7 @@ experts in research computation itself.  It is the skills, not the
 infrastructure, that is scarcest.
 
 The good news is that the Compute Canada federation has a network
-of roughly 200 computational experts, many of the Ph.D. level,
+of roughly 200 computational experts, many at the Ph.D. level,
 available to directly enable science projects.  The bad news is that
 the priorities of the organization, and thus most of its effort and
 energies, are focussed on procuring and operating on-premises commodity
