@@ -138,9 +138,9 @@ Simulation Science, and the Data Engineering or cloud computing
 tools needed for them - are enabling research technologies which 
 can empower research in many fields.  And there lies the second
 reason for the importance of the skills devevelopment; these
-research-enabling technolgies are areas in which Canada
+research-enabling technologies are areas in which Canada
 currently lags.  A recent report on the 
-[State of Science and Technology and Industrial R&D](http://new-report.scienceadvice.ca/assets/report/Competing_in_a_Global_Innovation_Economy_FullReport_EN.pdf) specifically calls out &ldquo;enabling technologies &rdquo;
+[State of Science and Technology and Industrial R&D](http://new-report.scienceadvice.ca/assets/report/Competing_in_a_Global_Innovation_Economy_FullReport_EN.pdf) specifically calls out &ldquo;enabling technologies&rdquo;
 as a current area of weakness for Canada which is holding high
 impact research in other areas back.  Focussing on such highly
 transferrable skills and talent development in our research computing
