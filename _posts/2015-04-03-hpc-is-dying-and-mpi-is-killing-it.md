@@ -17,13 +17,14 @@ In that environment, one might expect that programmers with HPC experience &ndas
 
 They are not.
 
-![Job Trends](http://www.indeed.com/trendgraph/jobgraph.png?q=hadoop%2Cspark%2Cmpi)
+![Job Trends](/assets/imgs/hpc_jobgraph.png)
+
 
 _[Indeed.com job trends data](http://www.indeed.com/jobtrends?q=hadoop%2Cspark%2Chpc%2Cmpi).  Note that as many MPI jobs plotted above require certifications with "Master Patient Index" or "Meetings Professionals International" as are seeking someone who knows how to call MPI\_Send_.
 
-<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/1845_RC03/embed_loader.js"></script> <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"MPI","geo":"","time":"today 5-y"},{"keyword":"hadoop","geo":"","time":"today 5-y"},{"keyword":"spark","geo":"","time":"today 5-y"}],"category":5,"property":""}, {"exploreQuery":"q=MPI,hadoop,spark&date=today%205-y&cat=5#TIMESERIES","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
+![Google Trends](/assets/imgs/google_trends.png)
 
-_Google trends data for MPI, Hadoop, and Spark_
+_[Google trends data for MPI, Hadoop, and Spark](https://trends.google.com/trends/explore/TIMESERIES/1564090800?hl=en-US&tz=240&cat=5&date=today+5-y&q=MPI,hadoop,spark&sni=3)_
 
 Instead of relying on those with experience in existing HPC technology stacks or problems, people tackling these internet-scale machine learning problems and genomic data analysis tasks have been creating their own parallel computing stacks.  New and rediscovered old ideas are flourishing in new ecosystems, and demand for scalable and accurate computation with these new tools is exploding &mdash; while the HPC community resolutely stays on the sidelines, occasionally cheering itself with hopeful assertions of relevance like [SC14](http://sc14.supercomputing.org)'s rather plaintive tagline, ["HPC Matters"](http://sc14.supercomputing.org).
 
