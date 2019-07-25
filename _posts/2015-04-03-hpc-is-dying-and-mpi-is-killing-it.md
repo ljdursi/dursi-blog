@@ -21,7 +21,7 @@ They are not.
 
 _[Indeed.com job trends data](http://www.indeed.com/jobtrends?q=hadoop%2Cspark%2Chpc%2Cmpi).  Note that as many MPI jobs plotted above require certifications with "Master Patient Index" or "Meetings Professionals International" as are seeking someone who knows how to call MPI\_Send_.
 
-<script type="text/javascript" src="//www.google.ca/trends/embed.js?hl=en-US&cat=0-5-31&q=mpi,+spark,+hadoop&cmpt=q&tz&tz&content=1&cid=TIMESERIES_GRAPH_AVERAGES_CHART&export=5&w=600&h=330"></script>
+<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/1845_RC03/embed_loader.js"></script> <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"MPI","geo":"","time":"today 5-y"},{"keyword":"hadoop","geo":"","time":"today 5-y"},{"keyword":"spark","geo":"","time":"today 5-y"}],"category":5,"property":""}, {"exploreQuery":"q=MPI,hadoop,spark&date=today%205-y&cat=5#TIMESERIES","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
 
 _Google trends data for MPI, Hadoop, and Spark_
 
