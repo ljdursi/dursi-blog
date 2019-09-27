@@ -176,8 +176,8 @@ worth reading.
 Scientists learn a lot of transferrable skills in their training,
 and the world needs more of their input in teams and projects
 across all sectors.  There's a stereotype about scientists being
-nerdy introverts, but collaborations across intsitutions build really 
-quite advanced communications and managemnt skills that can serve
+nerdy introverts, but collaborations across institutions build really 
+quite advanced communications and management skills that can serve
 them very well almost anywhere.  And if they need a little help
 adjusting to the different skills needed for managment less open-ended
 projects outside of academia, there are resources out there now to
