@@ -57,9 +57,9 @@ collaborations, and this is where you're developing your people and
 project management chops.  You are directing some particular piece
 of research that will lead to publications key for your career.
 You aim to be the lead author on one or more of those papers and
-you have a clear idea of the path to get there, and you're driven
-- you’ll be on the job market next year and you learned at a
-conference that a competitor’s lab is looking asking some of the same
+you have a clear idea of the path to get there, and you're driven &mdash;
+you’ll be on the job market next year and you learned at a
+conference that a competitor’s lab is looking at some of the same
 questions.
 
 But your &ldquo;project team&rdquo; are peers or even academics
