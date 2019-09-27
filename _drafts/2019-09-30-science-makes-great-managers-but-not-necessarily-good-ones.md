@@ -155,7 +155,7 @@ sciences _certainly_ can.
 So many computational scientists do end up becoming good &mdash;
 and so quickly become great &mdash; managers successfully on their
 own, but it can take a lot of trial and error, and be stressful for
-all involved.  (My own transition has been....  uneven.)   I think
+all involved.  (My own transition towards becoming good has been....  uneven.)   I think
 that's unnecessary; today there are some fantastic resources out
 there to help.  And maybe it's where I've been looking or which
 materials resonate with me, but a lot of the strongest sources
