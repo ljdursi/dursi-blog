@@ -24,7 +24,7 @@ or other suspiciously real-world activities).
 But management in an computational-science academic environment is
 very different from other areas.
 
-First, academic work is largely performed by trainees, who have a
+First, academic work is largely performed by trainees like students, who have a
 very different relationship to their academic supervisor than an
 employee does to their manager.  At its best, when an academic lab
 is run by ethical and competent leadership[^1], significant effort
