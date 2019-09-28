@@ -19,7 +19,7 @@ science to the coordinating, orchestrating, planning of, and
 advocating for scientific projects; or, in other words, management
 (though we'd _never_ call it that; academia is rife with open
 distain for anything that smacks of management, marketing,
-or other suspiciously private-sector acivities).
+or other suspiciously private-sector activities).
 
 But management in an computational-science academic environment is
 very different from other areas.
