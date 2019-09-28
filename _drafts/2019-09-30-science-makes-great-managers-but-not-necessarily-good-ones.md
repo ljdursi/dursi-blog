@@ -17,9 +17,9 @@ graduate student, postdoc, Junior PI and beyond - involves a
 progression first towards and then away from the actual doing of
 science to the coordinating, orchestrating, planning of, and
 advocating for scientific projects; or, in other words, management
-(though we'd _never_ call it that; academia is rife with open
+(though we'd _never_ call it that; academia is full of
 distain for anything that smacks of management, marketing,
-or other suspiciously private-sector activities).
+or other suspiciously real-world activities).
 
 But management in an computational-science academic environment is
 very different from other areas.
