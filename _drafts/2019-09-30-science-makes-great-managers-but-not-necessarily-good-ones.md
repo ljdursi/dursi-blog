@@ -136,7 +136,7 @@ So:
 1. Making the transition to being the manager of the team is going to be doubly difficult for our postdoc &mdash; both in internalizing their role as a manager, and in putting the time in to develop really solid working relationships with the team members.
 2. Performance communications - giving people regular feedback (positive and negative on their work, rather than waiting weeks or months for some big sub project to be done and then assessig on the finished project - is going
 to be completely foreign, if not anathema, to them.
-3. Our postdoc is going to spend little to no time actually managing, or communicating about the things they haven't had to communicate about (like sharing the vision aind aims of the team; &ldquo;Isn't that obvious?&rdquo;)
+3. Our postdoc is going to spend little to no time actually managing, or communicating about the things they haven't had to communicate about before like sharing the vision aind aims of the team, or individual goals for specific team members.
  
 So while many or even all of the advanced skills might well be in
 place for scientist trainees to excel at management outside of the
