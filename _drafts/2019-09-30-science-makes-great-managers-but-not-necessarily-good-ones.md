@@ -9,7 +9,7 @@ tags: ['research', 'career', 'management']
 > significantly different, as are those people who spent a large
 > amount of time working in a single group in a well-defined large
 > project.  I’d certainly like to hear from colleagues from those
-> areas; are there similarities, or are things quite different?
+> areas; are there similarities, or are things quite different?_
  
 We don't like to talk about it much, but the natural path of
 progression in academia - from undergrad to research assistant to
@@ -134,14 +134,13 @@ management _shouldn't_ be done; &ldquo;we're not that sort of people&rdquo;.
 So:
 
 1. Making the transition to being the manager of the team is going to be doubly difficult for our postdoc &mdash; both in internalizing their role as a manager, and in putting the time in to develop really solid working relationships with the team members.
-2. Performance communications - giving people regular feedback (positive and negative on their work, rather than waiting weeks or months for some big sub project to be done and then assessig on the finished project - is going
-to be completely foreign, if not anathema, to them.
-3. Our postdoc is going to spend little to no time actually managing, or communicating about the things they haven't had to communicate about before like sharing the vision aind aims of the team, or individual goals for specific team members.
+2. Performance communications - giving people feedback (positive and negative) on their work often and regularly, rather than waiting weeks or months for some big sub-project to be done and then assessing the finished project - is going to be completely foreign, if not anathema, to them.
+3. Our postdoc is going to spend little to no time actually managing, or communicating about the things they haven't had to communicate about before like sharing the vision aind aims of the team, or finding out specific career goals for individual team members.
  
 So while many or even all of the advanced skills might well be in
 place for scientist trainees to excel at management outside of the
-academy, the basic skills - and even models of what the basic skills
-would look like - are often going to be lacking.
+academy, the basic skills &mdash; or even models of what the basic skills
+would look like &mdash; are often going to be lacking.
 
 But those basic skills are the easiest to address!  Anyone can learn
 them, and someone who's spent a good chunk of their career in the
