@@ -1,6 +1,6 @@
 ---
+tags: ['career', 'management']
 title:  "Computational Science Collaborations Train Great Managers - But Trainees Might Need Help To Become Good Managers First"
-tags: ['research', 'career', 'management']
 ---
 
 > _What I write below likely applies to fields of theoretical
@@ -11,14 +11,14 @@ tags: ['research', 'career', 'management']
 > project.  I’d certainly like to hear from colleagues from those
 > areas; are there similarities, or are things quite different?_
  
-We don't like to talk about it much, but the natural path of
-progression in academia - from undergrad to research assistant to
+We don't like to talk about it much, but the natural career path 
+in academia - from undergrad to research assistant to
 graduate student, postdoc, Junior PI and beyond - involves a
 progression first towards and then away from the actual doing of
 science to the coordinating, orchestrating, planning of, and
 advocating for scientific projects; or, in other words, management
 (though we'd _never_ call it that; academia is full of
-disdain for anything that smacks of management, marketing,
+open disdain for anything that smacks of management, marketing,
 or other suspiciously real-world activities).
 
 But computational-science academic environments are pretty particular places, with different approaches to working in a team than, say, in much of business.
@@ -38,7 +38,7 @@ in assigning tasks is relatively uncommon; updates tend to sound like
 
 Third, due to the open-endedness, the trainee/mentor relationship,
 and modelling the extreme independence of senior academics, there
-is a norm of collegiality.  Being directive about someone's work
+is a norm of collegiality.  Directing someone's work
 comes across as very heavy handed; the final work output can be
 ruthlessly assessed, but path to get there, the work process, is
 somewhat off-limits.
@@ -70,9 +70,8 @@ more junior, trainees are just beginning their journey, and for
 them to contribute meaningfully you have to find ways to develop
 their skills and the best ways to benefit from those skills.
 You want everyone to be invested, contributing, and growing their
-skills, and you don't have interest in telling people how to do
-their work even if you did have the time to be that prescriptive.
-And the clock is ticking.
+skills, and you don't have time to direct people in how to do
+their work even if you were so inclined. And the clock is ticking.
 
 What kind of skills are you developing as you’re thrust into this situation?
 
@@ -103,7 +102,7 @@ How will our postdoc rate against those criteria?  Well:
 
 1. They are going to be very concerned with skills development in their direct reports, encouraging them on to bigger and better things &mdash; so the postdoc learns to be a good coach;
 2. They certainly won’t micromanage &mdash; they'll let team members decide how to approach their work;
-3. They'll be very aware of the need to develop their team member's success, partly due to norms around credit, and partly due to expectations that people move up and on in their roles;
+3. They'll be very aware of the need to develop their team member's success, partly due to norms around credit, and partly due to expectations that people move up and on in their careers;
 4. They're very focussed on high-quality work and the steps to get there;
 5. Because they've never been able to rely on role power or organizational authority to coordinate the getting work done, they will have developed the communication skills necessary to communicate with and listen to the team, at least around tasks;
 6. Thinking about team-members career advancement needs and goals is going to be second nature, although they might take it for granted that they know what the team members goals are;
@@ -134,8 +133,8 @@ management _shouldn't_ be done; &ldquo;we're not that sort of people&rdquo;.
 So:
 
 1. Making the transition to being the manager of the team is going to be doubly difficult for our postdoc &mdash; both in internalizing their role as a manager, and in putting the time in to develop really solid working relationships with the team members.
-2. Performance communications - giving people feedback (positive and negative) on their work often and regularly, rather than waiting weeks or months for some big sub-project to be done and then assessing the finished project - is going to be completely foreign, if not anathema, to them.
-3. Our postdoc is going to spend little to no time actually managing, or communicating about the things they haven't had to communicate about before like sharing the vision aind aims of the team, or finding out specific career goals for individual team members.
+2. Performance communications - giving people feedback (positive and negative) on their work often and regularly, rather than waiting weeks or months for some big sub-project to be done and then assessing the finished project &mdash; is going to be completely foreign, if not anathema, to them.
+3. Our postdoc is going to spend little to no time actually managing, or communicating about the things they haven't had to communicate about before like sharing the vision aind aims of the team, or finding out the specific career goals of individual team members.
  
 So while many or even all of the advanced skills might well be in
 place for scientist trainees to excel at management outside of the
@@ -151,7 +150,7 @@ and so quickly become great &mdash; managers successfully on their
 own, but it can take a lot of trial and error, and be stressful for
 all involved.  (My own transition towards becoming good has been....  uneven.)
 
-I think the difficulty of that transition is unnecessary; today there are 
+I don't think that transition _has_ to be so difficult; today there are 
 some fantastic resources out
 there to help.  And maybe it's where I've been looking or which
 materials resonate with me, but a lot of the strongest sources
@@ -160,11 +159,11 @@ side.  I'm a huge fan of [Manager Tools](https://www.manager-tools.com),
 which have amassed a huge library a “here’s a number of steps you
 can start taking today” podcasts and a couple of books, with data
 to back them up.  A number of colleagues really like [The Manager’s
-Path](https://www.oreilly.com/library/view/the-managers-path/9781491973882/)
+Path](https://www.oreillyå.com/library/view/the-managers-path/9781491973882/)
 which takes a career-long view of stepping up the career ladder
 (set in the tech industry but most of the material would carry over
 to other fields) and the different skills and responsibilities
-needed at each stage.  And Google's ongoing organizational work and
+needed at each stage.  And Google's ongoing organizational reasearch and
 resulting training materials at
 [rework.withgoogle.com](https://rework.withgoogle.com ) are well
 worth reading.
@@ -175,10 +174,10 @@ across all sectors.  There's a stereotype about scientists being
 nerdy introverts, but collaborations across institutions build really 
 quite advanced communications and management skills that can serve
 them very well almost anywhere.  And if they need a little help
-adjusting to the different skills needed for managment less open-ended
-projects outside of academia, there are resources out there now to
-help them succeed.  If there are resources that have especially helped
-you, please do share them with me and I'll list them here as well.
+adjusting to the different skills needed for managment of 
+projects or teams outside of academia, there are resources out there now to
+help them succeed.  If there are some that have especially helped
+you, please do share them with me and I'll list them here.
 
 [^1]: Which, more visibly now than ever before, cannot be taken as a given.
 [^2]: Note that at Google, technical skills are _dead last_ as a skill for managers; but that largely results from Google having such a high technical bar for hiring.
