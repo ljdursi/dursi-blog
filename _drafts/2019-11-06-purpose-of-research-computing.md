@@ -177,8 +177,8 @@ alternate providers.
 
 But going beyond meeting the basic needs of providing research
 computing cycles and storage, which was a much greater need in the
-90s than it is today, is genuinely hard.  It’s very labour intensive
-- it requires going out to the entire research community you aim
+90s than it is today, is genuinely hard.  It’s very labour intensive -
+it requires going out to the entire research community you aim
 to support, including those who you’ve never had a working relationship
 with, and understanding needs.  It’s very uncomfortable - you have
 to then prioritize those needs based on their value to the larger
