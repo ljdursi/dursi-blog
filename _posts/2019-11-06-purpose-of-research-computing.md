@@ -32,7 +32,7 @@ decided to grow current capability, no one is getting an uncomfortable
 call from the boss at these centres.  Ticket closure rates going
 down 5% though… maybe you’re getting a call.
 
-<img style="float: left; width: 33%" src="/assets/purpose_research_computing/pexels_inside-a-store-2199190.jpg" alt="Organizations that care about their clients make their offerings very clear."/>
+<img style="float: left; width: 33%; padding: 15px 15px 15px 0px;" src="/assets/purpose_research_computing/pexels_inside-a-store-2199190_crop.jpg" alt="Organizations that care about their clients make their offerings very clear."/>
 
 It doesn’t take very long to spot centres like this, even from the
 outside.  On their websites, most prominently of all, are the
@@ -92,7 +92,7 @@ Is that up this quarter, or down; and if it’s down, why?  What
 fraction of the expertise of the support staff is being used?  What
 is the meaningful contribution rate?
 
-<img style="float: right; width: 50%" src="/assets/purpose_research_computing/shutterstock_input_outcome.jpg" alt="Inputs produce outpus which produce outcoms which produce impact.  The inputs are not what you should measure."/>
+<img style="float: right; width: 50%; padding: 15px 0px 15px 15px;" src="/assets/purpose_research_computing/shutterstock_input_outcome.jpg" alt="Inputs produce outpus which produce outcoms which produce impact.  The inputs are not what you should measure."/>
 
 The reason that those staff input metrics aren’t being measured and
 others are is simple, and clarifying.  The hardware inputs aren’t
@@ -192,20 +192,74 @@ based on numbers on a dashboard that are largely under your control,
 to unfamiliar qualitative evaluations and doing the hard work of
 trying to measure research outcomes.
 
+But there's a relatively straightforward approach to get there
+starting from where you are.  It takes some work, but just going
+through the process is clarifying.
 
+1. **What do you do now?**  You know, broadly, what services you offer to
+researchers, you've just never had to make it explicit.  Start to put
+together a very simple [service catalog](https://www.cherwell.com/library/blog/7-steps-to-defining-and-designing-an-effective-service-catalog/).
+It doesn't have to be very complicated; figure out internally what
+services you offer, at quite a high level, in language that researchers
+would care about.  Get staff to offer suggestions.  For each service,
+for internal consumption only, figure out what's involved in providing it - what are 
+typical amount of hours involved, who has to coordinate with whom, _etc._.
+2. **How do those services help researchers?**  Again, you have a broad
+sense of this, but make it concrete.  Is it more publications?
+Higher-impact publications?  _Faster_ publication?  Better collaboration
+opportunties?  Higher funding success rates?  Better job prospects for
+students and postdocs?  More successful faculty or postdoc recruitment?
+Friendly users or your VPR can help with this. Come up with a handful
+that seem most important in your user community.
+3. **Connect services and benefits.** Come up with some concrete
+examples of how you've provided each of those benefits with the services you
+make available.  You may find benefits that you can't yet justify claiming
+you provide, or services you've forgotten about.
+4. **Refine your services and benefits lists.** Start talking about
+these benefits and services, in talks at user groups or when doing
+outreach to departments, new hires, incoming graduate student
+training, and the like.  Find out which ones attract attention,
+which ones don't.  Ask for suggestions for new items for the lists,
+and new conncetions between the two.
+4. **Start thinking about indicators and evaluation.**  Besides anecdotes,
+how could you convince your funder, or senior leadership at your institution,
+that you provide those benefits?  How could you show you were getting
+better? How could you convince them that a 15% increase in funding would
+provide some meaningful improvement to research institution?  The answer
+will depend on the benefits you've chosen, but there are lots of
+[resources](https://www.councilofnonprofits.org/tools-resources/evaluation-and-measurement-of-outcomes)
+out [there](https://managementhelp.org/evaluation/outcomes-evaluation-guide.htm)
+to help you with this.  Closer to home, I absolutely promise you
+there are people at your instution who will talk to you about program
+evaluation until you want to pass out just to enjoy some quiet.
+What you come up with will seem quite different to you.  They won't
+be instruments with 3 decimal places of accuracy; they
+may be citation counts or randomly sampled surveys or qualitative
+interviws.  Measuring research is hard - but everyone in research
+knows and understands this.  Approaches like short surveys or
+interviews are labour intensive, but provide amazing information -
+they will provide a constant stream of incoming success stories that
+you can make use of, and less successful storis you can learn from.
+5. **Start thinking about rebalancing your service offerings**.  Once
+you have these lists, and approaches to evaluations, then and only
+then do you have a principled way to make decisions about in which services
+to invest more, and in which to invest less.  And you'll have very
+convincing arguments to take to funders and leadership.
 
-So I get it that asking what the right next thing to do to help
-research isn’t easy.  It absolutely isn’t.  A centre that hasn’t
+I get it that going through this process to the point where you
+can meaningfully what ask the right next thing to do to help
+research isn’t easy.  It absolutely isn’t.  It's a lot of work,
+and while it is useful in many different ways, it still doesn't
+make things easy - if anything, it forces you to confront tradeoffs
+and hard choices that focusing on inputs may have let you avoid.  A centre that hasn’t
 been thinking this way for a while will have some low-hanging fruit
 that can be picked to start, but after that there will be  multiple
 ways for a centre to be supporting research, and no clear answer
 which is the “best”.   Making those choices will require knowing
 the strengths of the centre and knowing where those strengths are
 needed in the research community it serves — and not all research
-needs are the same!  But _those_ are questions that teams leaders
-need to be wrestling with; after those, the question of whether to
-buy more storage or more big-memory nodes becomes simple or neither
-and instead investing in more expertise, becomes simple.
+needs are the same!  But _those_ are questions that team leaders
+need to be wrestling with.
 
 The alternative, just running a set of computers for the same
 friendly user group of people year after year, isn’t research
