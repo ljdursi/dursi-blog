@@ -2,7 +2,6 @@
 tags: ['hpc', 'cloud', 'canada']
 title:  "The Purpose of Research Computing is the Research, not the Computing"
 ---
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Any research computing centre where technical decisions don’t start and end with the questions “what do researchers say” and “is this the best way we can help research” is running computers as a hobby, not as a service.</p>&mdash; Jonathan Dursi (@ljdursi) <a href="https://twitter.com/ljdursi/status/1180123733538856960?ref_src=twsrc%5Etfw">October 4, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Absolutely everyone in research computing will agree that supporting
 research is their centre’s highest goal.  And they’re not lying,
@@ -32,6 +31,8 @@ two productive groups need new capabilities but the centre has
 decided to grow current capability, no one is getting an uncomfortable
 call from the boss at these centres.  Ticket closure rates going
 down 5% though… maybe you’re getting a call.
+
+<img style="float: left; width: 33%" src="/assets/purpose_research_computing/pexels_inside-a-store-2199190.jpg" alt="Organizations that care about their clients make their offerings very clear."/>
 
 It doesn’t take very long to spot centres like this, even from the
 outside.  On their websites, most prominently of all, are the
@@ -90,6 +91,8 @@ our data centre monitoring expert spend swapping memory and cables?
 Is that up this quarter, or down; and if it’s down, why?  What
 fraction of the expertise of the support staff is being used?  What
 is the meaningful contribution rate?
+
+<img style="float: right; width: 50%" src="/assets/purpose_research_computing/shutterstock_input_outcome.jpg" alt="Inputs produce outpus which produce outcoms which produce impact.  The inputs are not what you should measure."/>
 
 The reason that those staff input metrics aren’t being measured and
 others are is simple, and clarifying.  The hardware inputs aren’t
@@ -188,6 +191,8 @@ needs.  And it’s incredibly uncertain - it means going from evaluations
 based on numbers on a dashboard that are largely under your control,
 to unfamiliar qualitative evaluations and doing the hard work of
 trying to measure research outcomes.
+
+
 
 So I get it that asking what the right next thing to do to help
 research isn’t easy.  It absolutely isn’t.  A centre that hasn’t
