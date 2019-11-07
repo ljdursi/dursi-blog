@@ -55,7 +55,8 @@ clicks to get to the menu and their hours?  If the restaurant took
 the menu off the website entirely and you instead had to file a
 ticket so you could ask specifically if they made spaghetti carbonara,
 that’s what most research computing centre websites are like for
-researchers).
+researchers.  Organizations that care about their customers make
+their offerings very clear.)
 
 The thing is, using metrics like utilization, tickets, storage and
 the like to measure how much research support is happening is
