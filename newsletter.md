@@ -42,7 +42,7 @@ learn from them.
 This is a newsletter, starting mid-to-late Feb 2020, covering "Everything about
 R&D computing except the computers".  
 
-## The audience
+## The intended audience
 
 * Trained in or experienced with research
 * Technically capable in R&D computing
@@ -60,33 +60,29 @@ R&D computing except the computers".
 Feedback from subscribers will greatly shape the topics we cover.  Likely early topics include:
 
 - Hiring
-    - Hiring junior staff from outside research
-    - Writing job ads
-    - Onboarding, and the ladder of increasing responsibilities
+    - Hiring from outside research, writing job ads, onboarding, the responsibility ladder
 - Managing
-    - One-on-Ones
-    - Giving feedback 
-    - Coaching and Training
+    - One-on-Ones, giving feedback, coaching and training
+- "Managing upwards"
+    - Building and sustaining support for projects, shepharding multi-institution collaborations, communications
+- Career paths, for our team members and ourselves
 - R&D computing and academic credit
-- Career paths
-- Why technical debt isn't as relevant a concept for most research software as technological maturity
-- Software and citation
 - Automation and reproducibility
-- Grants
-- Sustainability
+- R&D Software planning and development throughout the lifecycle
+- Grants and Sustainability
 
-
-**Not on topic**:
+**Definitely not on topic**:
 * GPU vs FPGA
 * POSIX vs Object Store
-* Python vs R
+* Python vs C++
 
 **Maybe on topic:**
-* Why and how an R&D computing team planned and pulled off a migration from GPU/POSIX/Python to FPGA/Object Store/R
+* Why and how an R&D computing team planned and pulled off a migration from GPU/POSIX/Python to FPGA/Object Store/C++
 
-**Not on topic**:
+**Definitely not on topic**:
 * Jonathan rants about MPI
 * Jonathan rants about exascale
+* Rants will still be readily available on twitter
 
 Sound interesting?  You can sign up for the [Buttondown-powered](https://buttondown.email) newsletter below, or
 directly at [this link](https://buttondown.email/ljdursi):
