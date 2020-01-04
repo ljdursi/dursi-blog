@@ -21,6 +21,7 @@ seo:
 menu:
 - {name: HOME, url: '/'}
 - {name: ABOUT, url: '/about.html'}
+# - {name: NEWSLETTER, url: '/newsletter.html'}
 - {name: CONTACT, url: '/contact.html'}
 
 #--------------------------------
