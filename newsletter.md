@@ -53,7 +53,7 @@ R&D computing except the computers".
 
 * Short emails roughly every weekday on the care and feeding of R&D computing teams and efforts
 * Weekly link roundups with occasional longer posts
-* Reply to any message (it'll go directly to me and only to me) with thoughts, comments, and feedback on the posts
+* Reply to any message (it'll go directly to me and only to me) with thoughts, comments, and feedback.
 
 ## The content
 
@@ -97,8 +97,8 @@ directly at [this link](https://buttondown.email/ljdursi):
 
 **Q: So you are an expert on this stuff, right?** <br/>
 A: Absolutely not.  I have a lot of experience in this area from a lot of different perspectives,
-but I continue to make a obvious rookie mistakes.  I continue trying to learn and improve, and while
-I work on that, maybe others can benefit too.
+but I continue to make obvious rookie mistakes.  I continue trying to learn and improve, and 
+anyone interested is welcome to join.
 
 **Q: Will the posts be archived anywhere?** <br/>
 A: No - these are short discussions and links-of-the-week with commentary; the topics we discuss
