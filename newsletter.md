@@ -101,15 +101,9 @@ but I continue to make obvious rookie mistakes.  I continue trying to learn and 
 anyone interested is welcome to join.
 
 **Q: Will the posts be archived anywhere?** <br/>
-A: No - these are short discussions and links-of-the-week with commentary; the topics we discuss
-will frequently end up developing into longer-form blog posts, but the emails themselves aren't
-writings that need preserving.
-
-**Q: Will there be tracking of the emails?** <br/>
-A: No.  Email tracking is creepy.
-
-**Q: Then how will you tell which emails people found interesting or useful?** <br/>
-A: Well, I'm kind of hoping that you'll just tell me!
+A: That's not the intention, no.  These are short discussions and links-of-the-week with commentary;
+the topics we discuss will frequently end up developing into longer-form blog posts, but the emails
+themselves aren't intended to be writings that need preserving.
 
 **Q: Will my email address get sold/used for anything else?** <br/>
 A: No.  I'll use it only for sending you my thoughts on R&D computing teams, and when you no longer care to continue hearing those thoughts, unsubscribe at any time, and I'll remove the unsubscribed member's information routinely.  No one other than me and
