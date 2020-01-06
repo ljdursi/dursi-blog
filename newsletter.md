@@ -75,8 +75,7 @@ Issues that would _not_ be on topic include GPU vs FPGA, POSIX vs Object stores,
 on the other hand, a story about why and how an R&D computing team planned and succeeded at 
 a migration from GPU/POSIX/Python to FPGA/Object Store/C++ might well be on topic.  
 
-(Jonathan's rants about MPI and exascale would also not be on topic, but that content as always will
-remain available on twitter.)
+(Jonathan's twitter rants about things like MPI and exascale will **not** be on topic for this newsletter.)
 
 Does this sound interesting?  You can sign up for the [Buttondown-powered](https://buttondown.email) newsletter below, or
 directly at [this link](https://buttondown.email/ljdursi):
@@ -97,15 +96,17 @@ directly at [this link](https://buttondown.email/ljdursi):
 ## FAQs
 
 **Q: So you are an expert on this stuff, right?** <br/>
-A: Not a chance.  I have a lot of experience in this area from a lot of different perspectives,
-but I continue to make a series of rookie mistakes.  I'm trying to learn and improve, and while I'm working
-on that, maybe some others can benefit too.
+A: Absolutely not.  I have a lot of experience in this area from a lot of different perspectives,
+but I continue to make a obvious rookie mistakes.  I continue trying to learn and improve, and while
+I work on that, maybe others can benefit too.
 
 **Q: Will the posts be archived anywhere?** <br/>
-A: No - these are short discussions and links-of-the-week with commentary; the topics we discuss will frequently end up developing into longer-form blog posts, but the emails themselves aren't writings that need preserving.
+A: No - these are short discussions and links-of-the-week with commentary; the topics we discuss
+will frequently end up developing into longer-form blog posts, but the emails themselves aren't
+writings that need preserving.
 
 **Q: Will there be tracking of the emails?** <br/>
-A: No.  That stuff is creepy.
+A: No.  Email tracking is creepy.
 
 **Q: Then how will you tell which emails people found interesting or useful?** <br/>
 A: Well, I'm kind of hoping that you'll just tell me!
@@ -116,7 +117,8 @@ whatever tool I'm using at the time to send out the newsletter will ever have ac
 
 ## Resources
 
-Below are resources I've found useful and I'll often be leaning heavily on for link roundups, I'll keep this list updated:
+Below are resources on intended topics that I've found to be useful in the past.
+I'll keep this list updated with sources that come up in the link roundups.
 
 * General managment topics
     - [Manager-Tools](https://www.manager-tools.com) - kind of the OG of management podcasts and resources; focuses on super-detailed actionable recommendations.
