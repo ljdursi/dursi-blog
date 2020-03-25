@@ -9,7 +9,11 @@ We all know that [remote teams need more communication](https://www.extension.ha
 
 What follows is a one-week plan to get started doing one-on-ones with your newly-remote research computing team.  For each weekday, there’s about 10 minutes of reading and another 10-15 minutes of homework to do to get you started doing one-on-ones with your team starting one week from when you begin.  There’s follow-up activities in weeks two and three to take stock, make tweaks, and start thinking about tools that will help.
 
-This document is available in [pdf](/assets/quickstart-one-on-ones/quickstart-one-on-one.pdf) and [epub](/assets/quickstart-one-on-ones/quickstart-one-on-one.epub) formats.
+This document is available in [pdf](/assets/quickstart-one-on-ones/quickstart-one-on-one.pdf) and [epub](/assets/quickstart-one-on-ones/quickstart-one-on-one.epub) formats.  You can also sign up below to get 
+the material sent to you one day at a time in a series (your email won't
+be used for _anything_ else except sending you the material below.)
+
+<script async data-uid="a59158afa1" src="https://thoughtful-leader-236.ck.page/a59158afa1/index.js"></script>
 
 # Day 1 - Background and Planning
 
