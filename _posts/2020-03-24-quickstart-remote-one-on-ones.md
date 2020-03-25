@@ -9,6 +9,8 @@ We all know that [remote teams need more communication](https://www.extension.ha
 
 What follows is a one-week plan to get started doing one-on-ones with your newly-remote research computing team.  For each weekday, there’s about 10 minutes of reading and another 10-15 minutes of homework to do to get you started doing one-on-ones with your team starting one week from when you begin.  There’s follow-up activities in weeks two and three to take stock, make tweaks, and start thinking about tools that will help.
 
+This document is available in [pdf](/assets/quickstart-one-on-ones/quickstart-one-on-one.pdf) and [epub](/assets/quickstart-one-on-ones/quickstart-one-on-one.epub) formats.
+
 # Day 1 - Background and Planning
 
 Even on-site, one of the most important things a manager can do with their teams is to have regular one-on-one meetings with each of their team members.  This practice is almost ubiquitous in tech companies and many other industries.  The fact that there are tools, websites, podcasts, and videos about it might lead you to think they’re complicated; they’re not. They’re super simple.  Those resources all exist because one-on-ones are important and people are trying to help.  Some of those resources are quite good, and I’ll provide some pointers to some of them that I think are particularly relevant in our research computing context; but you don’t *need* any of them. 
