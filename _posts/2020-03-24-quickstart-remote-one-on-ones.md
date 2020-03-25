@@ -257,7 +257,7 @@ On my iPad, I have a notebook for each team member (I use Goodnotes, there’s a
 
 The other key note-taking thing is to take notes like you would for a meeting, **not** like you would for a class.  We in academia-adjacent fields can be really bad about this.  We’ve spent a lot of time in class and lectures and symposia and colloquia writing down all the information being presented like any of it might be on the exam.  That’s easier when you’re *doing* the note taking - you don't have to make decisions about what’s important and what’s not - but it means that it’s more work to *use* the notes later, since everything’s there no matter how important it was.  And in our line of work we know that stuff is read many more times than it’s written.
 
-So while you’re taking notes, try to focus on the important things; specific things they say or do that you want to remember, things that need to be followed up on, surprises, etc.  This will make you a better listener, too.  If you’re not sure if something was important, ask a followup question about it and you’ll find out pretty quickly.
+So while you’re taking notes, try to focus on the important things; specific things they say or do that you want to remember, things that need to be followed up on, surprises, etc.  This will make you a more careful listener, too.  If you’re not sure if something was important, ask a followup question about it and you’ll find out pretty quickly.  Useful multi-purpose followup prompts every research computing manager should have in their toolbox include: &ldquo;Tell me more about that.&rdquo; &ldquo;That sounds tricky.&rdquo; and &ldquo;What are some options for handling that?&rdquo; 
 
 **Your assignment**: As above; add the meetings to your calendar as the signups come in, and answer any questions that you get.  If there are people who haven’t signed up, send a reminder message.  Get some note taking forms ready for your meetings; we’ll populate them with some initial questions and topics tomorrow.  Just make sure there’s some room at the **start** of the form for what they tell or ask you (because they go first), a place for you to write down things you want to talk about (we’ll put stuff there tomorrow), and a place to take note of things that need to be followed-up on, by either of you.
 
@@ -322,7 +322,7 @@ And that’s it.  Everyone’s signed up; the one-on-one forms are ready and wai
 A: Kind of, yeah.  But it’s a lot more work getting them started than keeping them going.  Once everything is set up, it only takes a few minutes a week per team member in addition to the meetings to get all of the benefits of one-on-ones — which will help your team members and help you.
 
 **Q: I’ve gone back and forth with one team member and answered their questions and they still seem reluctant; what should I say?**<br/>
-A: “I look forward to speaking more about this with you on Wednesday at 1pm.”
+A: “I look forward to speaking more about this with you Wednesdays at 1pm.”
 
 Seriously, there are *very few times* when “because I’m the boss” is a good enough reason; these sort of process details about how the team will work together when you’re now all suddenly working remotely is *exactly* one of those times.  It’s good to hear their concerns if they have any, you should respect those concerns, and you should expect them to show up for the one-on-one.
 
