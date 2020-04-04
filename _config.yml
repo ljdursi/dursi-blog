@@ -1,7 +1,7 @@
 # Site settings
 title:  Jonathan Dursi
 description:  'R&amp;D computing at scale'
-url:  http://www.dursi.ca/
+url:  http://www.dursi.ca
 baseurl:  / # Change this to your relative path (ex: /blog/), or leave just a /
 location: Toronto
 
