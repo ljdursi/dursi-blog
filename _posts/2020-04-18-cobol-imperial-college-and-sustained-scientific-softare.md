@@ -5,9 +5,8 @@ tags: ['software', 'funding']
 
 We've all read about the huge rise in unemployment claims causing
 unprecedented loads on US state software systems, with the situation
-was so dire that the governor of New Jersey put out [an urgent call
-for COBOL
-programmers](https://qz.com/1832988/covid-19-results-in-new-jersey-desperately-needing-cobol-coders/).
+so dire that the governor of New Jersey put out [an urgent call
+for COBOL programmers](https://qz.com/1832988/covid-19-results-in-new-jersey-desperately-needing-cobol-coders/).
 It's worth looking at this form the point of view of research
 software, where we need software to be sustainable and reproducible
 for long periods of time.
