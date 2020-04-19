@@ -76,7 +76,7 @@ We still genuinely don't know how to reliably provide maintenance, bursty
 or otherwise, for software and shared databases or systems in
 our research communities.  Our funding models are all built around
 supporting experiments, observations, or theoretical works &mdash;
-short-term projects which start, proceed, result in publication(s),
+short-term projects which start, proceed, result in publications
 and other research outpus, and are then done.  Mechanisms for ongoing support of evolving
 research _inputs_ isn't even a work in progress &mdash; it's absent.
 
