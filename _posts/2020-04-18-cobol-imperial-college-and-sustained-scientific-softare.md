@@ -5,10 +5,9 @@ tags: ['software', 'funding']
 
 We've all read about the huge rise in unemployment claims causing
 unprecedented loads on US state software systems, with the situation
-was so dire that the governor of New Jersey put out [an urgent call
-for COBOL
-programmers](https://qz.com/1832988/covid-19-results-in-new-jersey-desperately-needing-cobol-coders/).
-It's worth looking at this form the point of view of research
+so dire that the governor of New Jersey put out [an urgent call
+for COBOL programmers](https://qz.com/1832988/covid-19-results-in-new-jersey-desperately-needing-cobol-coders/).
+It's worth looking at this from the point of view of research
 software, where we need software to be sustainable and reproducible
 for long periods of time.
 
@@ -19,7 +18,7 @@ software. So the current issue clearly isn't with the quality of
 the software itself _per se_.
 
 Is COBOL being &ldquo;obsolete&rdquo; the problem?  I mean, look
-at that record of success again.  COBOL is proven, [perfectly
+at that record of success again.  COBOL is a proven, [perfectly
 serviceable](https://hackernoon.com/i-took-a-cobol-course-and-it-wasnt-the-worst-z1ba3yrp),
 domain-specific language for these sorts of batch tasks. There's
 ways to connect to tools and services written in other languages,
@@ -74,11 +73,11 @@ research computing software, any more than it is for unemployment
 application processing systems.
 
 We still genuinely don't know how to reliably provide maintenance, bursty
-or otherwise, for software and shared databases or systems in
+or otherwise, for software, shared databases, or systems in
 our research communities.  Our funding models are all built around
 supporting experiments, observations, or theoretical works &mdash;
-short-term projects which start, proceed, result in publication(s),
-and other research outpus, and are then done.  Mechanisms for ongoing support of evolving
+short-term projects which start, proceed, result in publications
+and other research outputs, and are then done.  Mechanisms for ongoing support of evolving
 research _inputs_ isn't even a work in progress &mdash; it's absent.
 
 If experimental methods work develops new kinds of equipment or
@@ -87,7 +86,7 @@ manufacturing and selling those items to researchers, with money
 that comes out of their grants &mdash; and that's the sustainability
 model.  We don't have that for ongoing efforts in software, databases,
 or even reliably for hardware shared at a larger scale than a single
-department yet.
+organization yet.
 
 For software undergoing active development, there are at least
 plausible approaches proposed.  Some of them look,
