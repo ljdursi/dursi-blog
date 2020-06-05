@@ -32,7 +32,7 @@ we are called on to enact real changes with ongoing programmes or products while
 funded only by budgets dependent on multiple short-term grants.
 
 But while there are many websites and podcasts, newsletters and tutorials, on the
-bytes and flops and Mbit/s of R&D computing, there is very little out there on the 
+bytes and flops and Mbit/s of research computing, there is very little out there on the 
 genuinely hard day-to-day work of designing, building and managing R&D computing
 teams, projects, and software.  Commercial or open-source software development,
 research, nonprofit, IT, business - our field is too different for advice from
@@ -40,7 +40,7 @@ those fields to routinely directly carry over, even if there are lessons we can
 learn from them.
 
 This is a newsletter that started in mid-Feb 2020, covering "Everything about
-R&D computing except the computers".  You can view previous posts [here](https://buttondown.email/ljdursi/archive/).
+research computing except the computers".  You can view previous posts [here](https://buttondown.email/ljdursi/archive/).
 
 ## The intended audience
 
@@ -52,8 +52,8 @@ R&D computing except the computers".  You can view previous posts [here](https:/
 ## The format
 
 * Weekly link roundups with occasional longer posts
-* Occasional (no more than weekly) short emails with links to
-* Reply to any message (it'll go directly to me and only to me) with thoughts, comments, and feedback.
+* Occasional (no more than weekly) short emails with links
+* Reply to any message (it'll go directly to me and only to me) with thoughts, comments, and feedback
 
 ## The content
 
