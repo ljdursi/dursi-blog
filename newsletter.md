@@ -1,6 +1,6 @@
 ---
 layout: page
-title: The R&D Computing Team Newsletter
+title: The Research Computing Team Newsletter
 subtitle: Everything about R&D Computing except the Computers
 ---
 
@@ -21,7 +21,7 @@ input[type=submit] {
 }
 </style>
 
-R&D Computing is a tough field that combines the challenges of many disciplines.
+Research Computing is a tough field that combines the challenges of many disciplines.
 
 Like IT or commercial software development, we need to deliver real usable tools
 to support our users; but like research, our projects are often extremely open-ended,
@@ -39,8 +39,8 @@ research, nonprofit, IT, business - our field is too different for advice from
 those fields to routinely directly carry over, even if there are lessons we can
 learn from them.
 
-This is a newsletter, starting mid-to-late Feb 2020, covering "Everything about
-R&D computing except the computers".
+This is a newsletter that started in mid-Feb 2020, covering "Everything about
+R&D computing except the computers".  You can view previous posts [here](https://buttondown.email/ljdursi/archive/).
 
 ## The intended audience
 
