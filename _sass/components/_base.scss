@@ -34,7 +34,9 @@ a{
   font-family: inherit;
   text-decoration: none;
   color: inherit;
-  display: inline-block;
+  display: block;
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -45,6 +47,7 @@ h1, h2, h3, h4, h5, h6{
 
 p{
   font-size: 1.125rem;
+  word-wrap: break-word;
 }
 
 em, strong{
