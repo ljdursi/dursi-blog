@@ -1,0 +1,46 @@
+
+//default page style
+.full-page-container{
+  float: right;
+  width: 100%;
+  border-bottom: 1px solid #f3f3f3;
+  margin-bottom: 10em;
+  padding: 1em 2em 3.5em 2em;
+
+  @include desktop-laptop{
+    float: none;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  @include smaller-tablet{
+    padding: .80em .80em 3.5em .80em;
+  }
+
+  img{
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  a{color: $color-scheme;}
+
+  .blog-entries{
+    width: 100%;
+    position: relative;
+
+    @include smaller-tablet{
+      padding: 0;
+      margin-top: 3em;
+
+      .read-more{
+        margin: 1em 0 3em;
+      }
+    }
+
+    img{
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
