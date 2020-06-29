@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: fullpage
 title: Appointments
 image: /assets/imgs/me.png
 ---

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: fullpage
 title: The Research Computing Team Newsletter
 subtitle: Everything about R&D Computing except the Computers
 ---
