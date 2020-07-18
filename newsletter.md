@@ -39,8 +39,8 @@ research, nonprofit, IT, business - our field is too different for advice from
 those fields to routinely directly carry over, even if there are lessons we can
 learn from them.
 
-This is a newsletter that started in mid-Feb 2020, covering "Everything about
-research computing except the computers".  You can view previous posts [here](https://buttondown.email/ljdursi/archive/).
+This is a newsletter that started in Jan 2020, covering all aspects of managing
+research computing teams.  You can view previous posts [here](https://buttondown.email/ljdursi/archive/).
 
 ## The intended audience
 
@@ -114,7 +114,12 @@ using at the time to send out the newsletter will ever have access
 to your email address.
 
 **Q: How much tracking is being done in the emails?** <br/>
-A: None; I've turned off tracking and analytics for the emails.
+A: None; I've turned off all tracking and analytics for the emails.  That means
+the only way I find out if you're reading them, liked what you read, and
+were interested in some parts more than others is when you email me to
+tell me!  So please at any time just hit reply (the email will only
+go to me) and tell me your opinions about what you've read or what you'd
+like to see more of.
 
 ## Resources
 
@@ -130,7 +135,6 @@ I'll keep this list updated with sources that come up in the link roundups.
     - [Re:work at Google](https://rework.withgoogle.com/)
 * Nonprofit management
     - [The Good Partnership](https://www.thegoodpartnership.com)
-    - [Joan Garry](https://www.joangarry.com)
 * Data-science teams
     - [The Care and Feeding of Data Science Teams](https://oreilly-ds-report.s3.amazonaws.com/Care_and_Feeding_of_Data_Scientists.pdf)
 
