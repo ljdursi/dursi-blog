@@ -70,9 +70,9 @@ Feedback from subscribers will greatly shape the topics we cover.  Likely early 
 - Automation and reproducibility
 - R&D Software planning and development throughout the lifecycle
 - Grants and Sustainability
-- Working with reserach communities.
+- Working with research communities.
 
-Issues that would _not_ be on topic include GPU vs FPGA, POSIX vs Object stores, Python vs C++, etc; 
+Issues that would _not_ be on topic include: GPU vs FPGA, POSIX vs Object stores, Python vs C++, etc; 
 on the other hand, a story about why and how an R&D computing team planned and succeeded at 
 a migration from GPU/POSIX/Python to FPGA/Object Store/C++ might well be on topic.
 
