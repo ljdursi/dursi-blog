@@ -14,7 +14,7 @@ are their strengths and weaknesses, and how do they compare?
 Here we walk through a comparison, focusing on distributed-memory
 parallelism of the sort one would want for HPC-style simulation.
 Both have strengths in largely disjoint areas.  If you want matlib-like
-interactivity and plotting, and need only master-worker parallelism,
+interactivity and plotting, and need only coodinator-worker parallelism,
 Julia is the clear winner; if you want MPI+OpenMPI type scability
 on rectangular distributed arrays (dense or sparse), Chapel wins
 handily.  Both languages and environments have clear untapped
@@ -679,7 +679,7 @@ proc main() {
 </table>
 
 In Julia, starting julia with `juila -p 4` will launch julia with
-4 worker tasks (and one master task) on the local host; a `--machinefile`
+4 worker tasks (and one coordinator task) on the local host; a `--machinefile`
 option can be set to launch the tasks on remote hosts (over ssh,
 by default, although other "ClusterManager"s are available, for
 instance launching tasks on SGE clusters).  In Chapel, launching a
@@ -801,7 +801,7 @@ is built around its PGAS distributions and iterators atop them.
 Julia's DistributedArrays are known not to perform particularly well,
 and have been taken out of the base language since 0.4.  They have
 been worked on since in preparation for the 0.6 release; however,
-the branch in master does not appear to be working with 0.6-rc2, or
+the main branch does not appear to be working with 0.6-rc2, or
 at least I couldn't get it working.  This section then mostly covers the
 previous version of DistributedArrays.
 
@@ -822,7 +822,7 @@ that is handy, it's not clear what one would use the distributed
 array for rather than just having each task have its own local
 array.
 
-However, for largely local computation (such as master-worker type
+However, for largely local computation (such as coordinator-worker type
 operations), the distributed arrays work well.  Here
 we have a STREAM calculation:
 
@@ -1058,11 +1058,12 @@ As with the stream benchmark, we see that the Julia DistributedArrays
 require a lot of bookkeeping to use; both Chapel and Dask are much
 more straightforward.
 
-The on-node timings here aren't even close
-took in Chapel - not that different from Julia (I'll update this post
-soon with some scaling tests), Chapel benefits dramatically from being
+The one-node timings here aren't even close.  By forcing Chapel to run
+on each core separately, the performance isn't that different than Julia.
+But when informed that there is one "locale" and letting
+it sort out the details, Chapel benefits dramatically from being
 able to use multiple levels of parallelism, and with no extra work;
-one a single 8-processor node, running a 1000x1000 grid with all cores
+on a single 8-processor node, running a 1000x1000 grid with all cores
 takes the following amount of time:
 
 <table style="border: 1px solid black; margin: 0 auto; border-collapse:collapse;">
@@ -1073,7 +1074,7 @@ takes the following amount of time:
 <tr>
 <td style="border: 1px solid black;">177s s</td>
 <td style="border: 1px solid black;">264 s</td>
-<td style="border: 1px solid black;">**0.4 s**</td>
+<td style="border: 1px solid black;"><b>0.4 s</b></td>
 <td style="border: 1px solid black;">145 s</td>
 <td style="border: 1px solid black;">193 s</td></tr>
 </tbody>
@@ -1311,7 +1312,7 @@ I'd have no qualms about recommending Chapel to someone who wanted
 to tackle computations on large distributed rectangular arrays,
 dense or sparse, or Julia for someone who had a short-lived project
 and wanted something interactive and requiring only single-node or
-master-worker computations (or patterns that were more about
+coordinator-worker computations (or patterns that were more about
 concurrency than parallelism).  Julia also seems like a good choice for
 prototyping a DSL for specific scientific problems.
 
@@ -1351,7 +1352,7 @@ much broader community of scientists (and thus science).
 
 Julia has the same potential to broaden computational science on
 the desktop, and (at least in the near term) for computations
-requiring only minimal communication like master-worker computations.
+requiring only minimal communication like coordinator-worker computations.
 But Python is already doing this, and making suprising inroads on
 the distributed-memory computing front, and there will be something of a
 race to see which gets there first.
