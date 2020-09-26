@@ -21,8 +21,7 @@ seo:
 menu:
 - {name: HOME, url: '/'}
 - {name: ABOUT, url: '/about.html'}
-- {name: RCT NEWSLETTER, url: '/newsletter.html'}
-- {name: RCT JOBS, url: '/jobboard.html'}
+- {name: RCT NEWSLETTER, url: 'https://www.researchcomputingteams.org'}
 - {name: CONTACT, url: '/contact.html'}
 
 #--------------------------------
