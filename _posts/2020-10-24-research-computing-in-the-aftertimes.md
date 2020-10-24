@@ -7,7 +7,7 @@ tags: ['management', 'funding']
 We're nowhere near the endgame yet.  But even now in the middle of the COVID-19 times it is not too soon to think about what research computing will look like when the threat of infection by SARS-CoV-2 no longer shapes our work lives.  While the future looks good for research computing team individual contributors who are willing to learn on the fly, the coming years
 will be treacherous for teams as organizations, and their managers.
 
-## What hath 2020 brought
+## What hath 2020 wrought
 
 There's a few pretty unambiguous "inputs" from 2020 that will have consequences for years to come:
 
