@@ -9,7 +9,7 @@ install:
   - pip install --user -U pip
   - pip install --user awscli
 script: 
-  - bundle exec jekyll build
+  - bundle exec jekyll build --trace
 deploy:
   on:
     branch: master
