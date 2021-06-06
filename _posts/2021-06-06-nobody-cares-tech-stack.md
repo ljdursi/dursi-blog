@@ -5,7 +5,7 @@ title: Nobody Else Cares About Your Tech Stack
 ## Focus on your researchers' and funders' problems, not your technical solution
 
 (Note: This post is adapted from [#75](https://newsletter.researchcomputingteams.org/archive/research-computing-teams-link-roundup-22-may-2021/) 
-of the [Resarch Computing Teams Newsletter](https://www.researchcomputingteams.org))
+of the [Research Computing Teams Newsletter](https://www.researchcomputingteams.org))
 
 Many of us who are managing research computing and data teams come up through the ranks doing research ourselves, and have
 experience in grantwriting for open research calls.  That can actually _hold us back_ from succeeding with getting grants
