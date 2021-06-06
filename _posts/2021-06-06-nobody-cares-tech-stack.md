@@ -1,0 +1,79 @@
+---
+title: Nobody Else Cares About Your Tech Stack
+---
+
+## Focus on your researchers' and funders' problems, not your technical solution
+
+(Note: This post is adapted from [#75](https://newsletter.researchcomputingteams.org/archive/research-computing-teams-link-roundup-22-may-2021/) 
+of the [Resarch Computing Teams Newsletter](https://www.researchcomputingteams.org))
+
+Many of us who are managing research computing and data teams come up through the ranks doing research ourselves, and have
+experience in grantwriting for open research calls.  That can actually _hold us back_ from succeeding with getting grants
+for &ldquo;digital research infrastructure&rdquo; &mdash; building teams and infrastructure to support research.
+
+The thing is, digital research infrastructure calls, the sort that support research computing and data teams and tools,
+are more like applying to grants as a nonprofit than as a researcher.  And we can learn a lot from how the nonprofit
+community writes funding proposals.
+
+<img style="float: right; width: 50%" src="/assets/nobody_tech_stack/nonprofit_not_researcher.png"
+alt="We're not proposing a research project, we're proposing to solve problems a funder sees for a research community." />
+
+Any funder has things they want to accomplish, and the goal as a potential fundee is to find something in the intersection of
+&ldquo;work that helps the funder accomplish their goals&rdquo; and &ldquo;work that we are able to do and that is aligned
+with our goals&rdquo;.   Excellent work that isn’t in that first set won’t get funding.  Money attached to work that isn’t
+in the second set is at best a distraction, at worst drains your teams’ credibility.
+
+Most of us in research got our experience in grants from open disciplinary competitions where the funders and fundees goals
+are aligned &mdash; be seen to be funding/doing the best research.  That means you don’t have to think about the distinction
+very much.  The funder wants a portfolio of projects that are promising and could have impact - some will pan out and some
+won’t, but such is research.   So everyone is focussed on “the best” work.  There’s a lot of focus on methods and technology
+used, because those are relevant for assessing the best work.  A new technology or method might be why it’s important to
+fund this work now - some key observation wasn’t possible before, but now it is, and the funder and team who makes the
+observation now will get the impact.  And methods can sabotage a project - a team that does great work with the wrong
+methods won’t get the best results.
+
+Special digital research infrastructure calls &mdash; like those that research computing projects typically fall under &mdash;
+and calls by nonprofit funders, are different.  The funder has some particular change they want to see in the world;
+some community they want to see better served.  They are generally much less willing to take a flyer on projects with
+only a modest chance of success, because failures won’t serve the community they want to see served.
+
+Methods and technology matter much less to these funders.  They want to know that you can credibly deliver on the proposal,
+and that you have a plan, but the nuts and bolts typically are much less interesting. 
+
+A nonprofit funder absolutely wants to understand how the after-school homework tutoring program you’re proposing will
+interact with the community &mdash; how it will find underserved students, how the tutoring will be delivered to the
+students, what indicators will be used to measure success &mdash; but the behind the scenes tech stack like what task
+management and tutor booking software you’ll use is completely irrelevant unless it’s to justify that you’ll
+be able to deliver the program.  And if you are in a position where you need details like that to justify your
+credibility for delivering the program, you are probably not in serious contention for the funding).  Every paragraph
+you spend talking about the cool new tutor booking software you’re going to use is a paragraph that doesn’t get spent
+highlighting the funder’s goals being achieved &mdash; more underserved students doing better in school.
+ 
+A research computing funder who’s receptive to a &ldquo;we’ll run a new research data management platform specifically
+aimed at [discipline X]&rdquo; proposal absolutely wants to know that you’re familiar with the underserved area, that
+you’ve been successful delivering similar things before, and what metrics you’ll use for success.  They do not care
+that your roadmap includes Kubernetes and some exciting new operators.  Would they be disappointed if mid-stream, you
+pivoted to running the tasks on bare metal with Ansible?  If not, why draw their attention and yours to obscure and
+uncertain details rather than to how your work will best advance their goals?
+
+The thing is, this same approach applies to not just research funders, but anyone you plan to work with; any research
+group that contacts your team looking for something.  They have a problem; the greater the up-front focus on understanding
+ and solving researcher's problem, the better the chance of success.  
+
+How will you know what the funder’s or researcher’s problems and goals are?  In the funder’s case, the call will sometimes
+spell it out; in the researcher’s case, they’ll usually say something.  In both cases, it may require some question-asking
+and digging deeper; the researcher’s or even the funder's &ldquo;presenting problem&rdquo; may not be the underlying issue,
+and the funder’s call may focus on one particular aspect rather than the overarching goals.  But the solution is the same;
+just ask a bunch of questions.
+
+&ldquo;Do you mean they will they just tell you?&rdquo;  I know a team in a Hackathon who went to an open pre-hackathon info
+session, and approached the organizer and sponsor in a gaggle afterwards.  They asked the sponsor — the lead judge — what
+a successful Hackathon would be from their point of view.  The sponsor — who, again, was the *lead judge* — answered with
+a particular problem they’d like solved as an example.  That team and mystifyingly only that team delivered a partial but
+promising solution to the exact problem described in detail and in public, and they of course won first prize.  How could
+they not?  People organize special funding calls and hackathons *because they want other people to help them achieve their
+goals*.  Yes, they’ll tell you, and if you keep asking questions they’ll keep talking about it until you politely explain
+that you have to leave for the evening.  They put that contact information there and run informational sessions for a reason.
+
+The stakeholder side of research computing isn’t rocket surgery.  But listening, digging in, and focussing on their goals
+is still rare enough that doing it well is almost an unfair advantage.
