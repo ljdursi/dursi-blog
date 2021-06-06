@@ -35,7 +35,9 @@ methods won’t get the best results.
 Special digital research infrastructure calls &mdash; like those that research computing projects typically fall under &mdash;
 and calls by nonprofit funders, are different.  The funder has some particular change they want to see in the world;
 some community they want to see better served.  They are generally much less willing to take a flyer on projects with
-only a modest chance of success, because failures won’t serve the community they want to see served.
+only a modest chance of success, because failures won’t serve the community they want to see served.  Something that
+successfully serves the community can always be improved in future iterations; something that fails to meet the communities
+needs may well be unsalvagable.
 
 Methods and technology matter much less to these funders.  They want to know that you can credibly deliver on the proposal,
 and that you have a plan, but the nuts and bolts typically are much less interesting. 
@@ -71,8 +73,8 @@ session, and approached the organizer and sponsor in a gaggle afterwards.  They 
 a successful Hackathon would be from their point of view.  The sponsor — who, again, was the *lead judge* — answered with
 a particular problem they’d like solved as an example.  That team and mystifyingly only that team delivered a partial but
 promising solution to the exact problem described in detail and in public, and they of course won first prize.  How could
-they not?  People organize special funding calls and hackathons *because they want other people to help them achieve their
-goals*.  Yes, they’ll tell you, and if you keep asking questions they’ll keep talking about it until you politely explain
+they not?  People organize special funding calls and hackathons *because* *they* *want* *other* *people* *to* *help* *them*
+*achieve* *their* *goals*.  Yes, they’ll tell you, and if you keep asking questions they’ll keep talking about it until you politely explain
 that you have to leave for the evening.  They put that contact information there and run informational sessions for a reason.
 
 The stakeholder side of research computing isn’t rocket surgery.  But listening, digging in, and focussing on their goals
