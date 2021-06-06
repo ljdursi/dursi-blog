@@ -35,7 +35,6 @@ paginate_path: "/blog/page:num"
 
 # Plugins
 plugins:
-- jekyll-autoprefixer
 - jekyll-paginate
 
 sass:
