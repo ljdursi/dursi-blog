@@ -11,6 +11,9 @@ ruby RUBY_VERSION
 # Happy Jekylling!
 
 gem "jekyll"
+gem "webrick"
+gem "execjs"
+gem "therubyracer"
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
@@ -21,4 +24,5 @@ group :jekyll_plugins do
    gem "jekyll-feed"
    gem 'jekyll-autoprefixer'
    gem 'jekyll-paginate'
+   gem 'kramdown-parser-gfm'
 end
