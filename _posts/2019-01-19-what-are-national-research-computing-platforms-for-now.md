@@ -1,6 +1,8 @@
 ---
 title:  "What Should a National Research Computing Platform Be?"
 tags: ['cloud', 'data', 'canada', 'white paper']
+image: assets/what_is_ardc_for/pixabay_mechanics-3310067.png
+summary: "What that support looks like and the kind of services that researchers most need, has changed radically over the past decades"
 ---
 
 # What is a National Research Computing Platform _For_ in 2019?
