@@ -1,5 +1,8 @@
 ---
 title: Nobody Else Cares About Your Tech Stack
+summary: "Focus on your researchers' and funders' problems, not your technical solution"
+image: /assets/nobody_tech_stack/nonprofit_not_researcher.png
+tags: ['funding']
 ---
 
 ## Focus on your researchers' and funders' problems, not your technical solution

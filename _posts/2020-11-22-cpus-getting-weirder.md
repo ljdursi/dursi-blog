@@ -1,5 +1,6 @@
 ---
 title: Buckle up, CPUs are going to get weirder
+summary: "The M1 is a good test run, let's get ready"
 ---
 
 ## The M1 is a good test run, let's get ready

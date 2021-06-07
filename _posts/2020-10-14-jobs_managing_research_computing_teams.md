@@ -1,5 +1,6 @@
 ---
 title: Things I Learned from Looking at 500 Research Computing Manager Jobs over 10 Months
+summary: Lots of jobs, a very diverse range of kinds of work, but no single place to look 
 tags: [management]
 ---
 

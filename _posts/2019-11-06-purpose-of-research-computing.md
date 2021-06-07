@@ -1,6 +1,7 @@
 ---
 tags: ['hpc', 'cloud', 'canada']
 title:  "The Purpose of Research Computing is the Research, not the Computing"
+image: assets/purpose_research_computing/shutterstock_input_outcome.jpg
 ---
 
 Absolutely everyone in research computing will agree that supporting
