@@ -35,7 +35,7 @@ need.
 
 <figure style="width:50%; float:left">
   <img style="float: left; width: 50%" src="/research_computing_funding_to_researchers/national-cancer-institute-LxPrHCm8-TI-unsplash.jpg", alt="A technician validates genetic variants identified through whole-exome sequencing at the Cancer Genomics Research Laboratory, part of the National Cancer Institute's Division of Cancer Epidemiology and Genetics (DCEG).">
-  <figcaption>We let researchers buy all kinds of complex equipment &mdash; they can handle buying research computing services."</figcaption>
+  <figcaption>We let researchers buy all kinds of complex equipment &mdash; they can handle buying research computing services.</figcaption>
 </figure>
 With research computing and data funding as an integral component
 of project funding, the same research review process that adjudicates
@@ -76,17 +76,15 @@ This approach will work well for capacity computing, data, and
 expertise — those needs where there are many possible service
 providers.  And in those areas, having the researcher in control
 of what services they can use where will help drive those vendors
-to having the kinds and quality of services that researchers need.
-
-Not all — most, but not all — such needs are capacity needs.  Not
-every kind of computing or expertise need is available enough for
-researchers to be able to easily buy needed services.  Researchers
-can't conjure into existence a (say) large quantum computing centre
-of excellence one researcher-led grant at a time.  Those
-not-yet-widely-available new capabilities have to be handled
+to providing the kinds and quality of services that researchers need.
+But not every kind of computing or expertise capability is available
+enough for researchers to be able to easily buy needed quantities of.
+Researchers can't conjure into existence a (say) large quantum
+computing centre of excellence one investigator-led grant at a time.
+Those new and emerging capabilities have to be handled
 separately, with existing funding councils setting priorities.  And
 some kinds of foundational infrastructures — research and education
-networks, advisory bodies — will need to be handled separately.
+networks, advisory bodies — will also need to be handled separately.
 
 But for the bulk of research computing, for capacity support of
 research using computing, data and related expertise, there's no
