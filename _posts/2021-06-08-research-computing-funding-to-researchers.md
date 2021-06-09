@@ -76,19 +76,18 @@ This approach will work well for capacity computing, data, and
 expertise — those needs where there are many possible service
 providers.  And in those areas, having the researcher in control
 of what services they can use where will help drive those vendors
-to providing the kinds and quality of services that researchers need.
-But not every kind of computing or expertise capability is available
-enough for researchers to be able to easily buy needed quantities of.
-Researchers can't conjure into existence a (say) quantum
-computing shared facility one investigator-led grant at a time.
-Those new and emerging capabilities have to be handled
-separately, with existing funding councils setting priorities.  
-Once those new capabilities are operational, they can and should be
+to providing the kinds and quality of services that researchers
+need.  But not every kind of computing or expertise capability is
+available enough for researchers to be able to easily buy needed
+quantities of.  Researchers can't conjure into existence a (say)
+quantum computing shared facility one investigator-led grant at a
+time.  Those new and emerging capabilities have to be handled
+separately, with existing funding councils setting priorities. Once
+those new capabilities are operational, they can and should be
 sustained with the same core-facility portable-funding model; if
-they can't, maybe they didn't need to be built.  Other needs like 
-foundational infrastructures — research and education
-networks, advisory bodies — will also need to be handled separately
-by funders.
+they can't, maybe they didn't need to be built.  Other needs like
+foundational infrastructures — research and education networks,
+advisory bodies — will also need to be handled separately by funders.
 
 But for the bulk of research computing, for capacity support of
 research using computing, data and related expertise, there's no
