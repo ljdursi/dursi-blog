@@ -136,7 +136,7 @@ But we need to give up the idea that there is a one-sized fits all approach to l
 
 ## We can build the future
 
-There's new ways of writing scalable code out there, and completely new classes of problems to tackle, many of which were totally inaccessible just years ago.  Isn't that why we got into this line of work?  Why don't more HPC centres have people contributing code to the [Chapel project](https://github.com/chapel-lang/chapel), and why isn't everyone at least playing with Spark, which is [trivial to get up and running on an HPC cluster](http://www.dursi.ca/spark-in-hpc-clusters/)?  Why are we spending time scoffing at things, when we can instead be making big research computing better, faster, and bigger?
+There's new ways of writing scalable code out there, and completely new classes of problems to tackle, many of which were totally inaccessible just years ago.  Isn't that why we got into this line of work?  Why don't more HPC centres have people contributing code to the [Chapel project](https://github.com/chapel-lang/chapel), and why isn't everyone at least playing with Spark, which is [trivial to get up and running on an HPC cluster](http://www.dursi.ca/post/spark-in-hpc-clusters/)?  Why are we spending time scoffing at things, when we can instead be making big research computing better, faster, and bigger?
 
 Are we the big research computing community, or the MPI community?  Because _one_ of those two has a bright and growing future.
 
@@ -144,7 +144,7 @@ _Many thanks to my colleague Mike Nolta for many suggestions and improvements to
 
 ## Appendix
 
-(***Update***: see objections that came up after the publication of this post, on twitter and email, [on this new post](http://dursi.ca/objections-continued/).  And see what I like about MPI and why it suggests low-level applications programming isn't the answer [on the third post](http://www.dursi.ca/in-praise-of-mpi-collectives-and-mpi-io/).)
+(***Update***: see objections that came up after the publication of this post, on twitter and email, [on this new post](http://dursi.ca/post/objections-continued/).  And see what I like about MPI and why it suggests low-level applications programming isn't the answer [on the third post](http://www.dursi.ca/post/in-praise-of-mpi-collectives-and-mpi-io/).)
 
 ### Objections
 
