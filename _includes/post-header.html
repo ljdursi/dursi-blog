@@ -7,6 +7,10 @@
           </div>
           <a class="post-author" href="{% if site.baseurl == "/" %}/author{% else %}{{ site.baseurl }}/author{% endif %}">{{ page.author }}</a>
         </div>
+            
+        {% if page.date %}
+        {{ page.date | date: '%B %d, %Y' }}
+        {% endif %}
 
         {% if page.tags.size > 0 %}
           <ul class="tags">
