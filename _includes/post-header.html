@@ -5,13 +5,9 @@
           <div class="avatar">
             <img src="{% if site.baseurl == "/" %}{{ site.data.settings.avatar }}{% else %}{{ site.data.settings.avatar | prepend: site.baseurl }}{% endif %}" alt="avatar"/>
           </div>
-          <a class="post-author" href="{% if site.baseurl == "/" %}/author{% else %}{{ site.baseurl }}/author{% endif %}">{{ page.author }}</a>
+          Written by <a class="post-author" href="{% if site.baseurl == "/" %}/author{% else %}{{ site.baseurl }}/author{% endif %}">{{ page.author }}</a>&nbsp; on {{ page.date | date: '%B %d, %Y' }}
         </div>
             
-        {% if page.date %}
-        {{ page.date | date: '%B %d, %Y' }}
-        {% endif %}
-
         {% if page.tags.size > 0 %}
           <ul class="tags">
             {% for tag in page.tags %}
