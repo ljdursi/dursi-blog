@@ -2,13 +2,12 @@
 title: Nobody Else Cares About Your Tech Stack
 summary: "Focus on your researchers' and funders' problems, not your technical solution"
 image: assets/nobody_tech_stack/nonprofit_not_researcher.png
-tags: ['funding']
+tags: ['funding', 'strategy']
 ---
 
-## Focus on your researchers' and funders' problems, not your technical solution
+## Focus on your researchers' and funders' problems, not your technical solutio
 
-(Note: This post is adapted from [#75](https://newsletter.researchcomputingteams.org/archive/research-computing-teams-link-roundup-22-may-2021/) 
-of the [Research Computing Teams Newsletter](https://www.researchcomputingteams.org))
+(Note: This post is adapted from [#75](https://newsletter.researchcomputingteams.org/archive/research-computing-teams-link-roundup-22-may-2021/) of the [Research Computing Teams Newsletter](https://www.researchcomputingteams.org))
 
 Many of us who are managing research computing and data teams come up through the ranks doing research ourselves, and have
 experience in grantwriting for open research calls.  That can actually _hold us back_ from succeeding with getting grants
@@ -43,7 +42,7 @@ successfully serves the community can always be improved in future iterations; s
 needs may well be unsalvagable.
 
 Methods and technology matter much less to these funders.  They want to know that you can credibly deliver on the proposal,
-and that you have a plan, but the nuts and bolts typically are much less interesting. 
+and that you have a plan, but the nuts and bolts typically are much less interesting.
 
 A nonprofit funder absolutely wants to understand how the after-school homework tutoring program you’re proposing will
 interact with the community &mdash; how it will find underserved students, how the tutoring will be delivered to the
@@ -53,7 +52,7 @@ be able to deliver the program.  And if you are in a position where you need det
 credibility for delivering the program, you are probably not in serious contention for the funding).  Every paragraph
 you spend talking about the cool new tutor booking software you’re going to use is a paragraph that doesn’t get spent
 highlighting the funder’s goals being achieved &mdash; more underserved students doing better in school.
- 
+
 A research computing funder who’s receptive to a &ldquo;we’ll run a new research data management platform specifically
 aimed at [discipline X]&rdquo; proposal absolutely wants to know that you’re familiar with the underserved area, that
 you’ve been successful delivering similar things before, and what metrics you’ll use for success.  They do not care
