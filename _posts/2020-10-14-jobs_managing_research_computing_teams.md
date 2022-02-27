@@ -12,7 +12,7 @@ in and of itself, and worth doing well.  Part of that is emphasizing
 the existence of career opportunities.
 
 So since the beginning I've included job listings and  maintained
-a [job board](https://www.researchcomputingteams.org/jobboard/),
+a [job board](https://www.researchcomputingteams.org/jobs),
 posting about 500 such jobs over the past 10 months and removing
 them as they become filled or otherwise unavailable.  My main
 criteria for such jobs are whether or not I would describe the work
