@@ -5,7 +5,7 @@ image: assets/nobody_tech_stack/nonprofit_not_researcher.png
 tags: ['funding', 'strategy']
 ---
 
-## Focus on your researchers' and funders' problems, not your technical solutio
+## Focus on your researchers' and funders' problems, not your technical solution
 
 (Note: This post is adapted from [#75](https://newsletter.researchcomputingteams.org/archive/research-computing-teams-link-roundup-22-may-2021/) of the [Research Computing Teams Newsletter](https://www.researchcomputingteams.org))
 
@@ -48,7 +48,7 @@ A nonprofit funder absolutely wants to understand how the after-school homework 
 interact with the community &mdash; how it will find underserved students, how the tutoring will be delivered to the
 students, what indicators will be used to measure success &mdash; but the behind the scenes tech stack like what task
 management and tutor booking software you’ll use is completely irrelevant unless it’s to justify that you’ll
-be able to deliver the program.  And if you are in a position where you need details like that to justify your
+be able to deliver the program.  (And if you are in a position where you need details like that to justify your
 credibility for delivering the program, you are probably not in serious contention for the funding).  Every paragraph
 you spend talking about the cool new tutor booking software you’re going to use is a paragraph that doesn’t get spent
 highlighting the funder’s goals being achieved &mdash; more underserved students doing better in school.
