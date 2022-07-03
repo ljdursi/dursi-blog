@@ -1,10 +1,10 @@
 ---
 title: The Utility vs the Professional Services Firm
-summary: "As Research Computing and Data becomes more complex and diverse, we need more professinal services firms and fewer utilities"
+summary: "As Research Computing and Data becomes more complex and diverse, we need more professional services firms and fewer utilities"
 tags: [strategy]
 ---
 
-## As Research Computing and Data becomes more complex and diverse, we need more professinal services firms and fewer utilties
+## As research computing and data becomes more complex and diverse, we need more professional services firms and fewer utilties
 
 (Note: This post is adapted from [#127](https://www.researchcomputingteams.org/newsletter_issues/0127) of the [Research Computing Teams Newsletter](https://www.researchcomputingteams.org))
 
@@ -24,6 +24,6 @@ A lot of research computing teams are interested in providing something more lik
 
 Even those teams who aren’t being held back by funders and who want to make the switch to professional services from their original utility model find it a hard transition. There’s no obvious, incremental path to go from providing a standard, stable commodity to changing, specialized, bundles of expertise.  Utilities operate very differently from professional services firms.  They value different things. The models for staff growth are different.  So they have to be managed quiet differently, and there's no clear path internally from A to B.
 
-Besides funding, and internal considerations, utilities and professioal services firms are also percieved and valued by their clients very differently.  Utilities' existing customers don’t want change, and new customers aren’t yet interested in getting advanced app software development suggestions from what they perceive to still be the mobile telephony provider.
+Besides funding, and internal considerations, utilities and professional services firms are also percieved and valued by their clients very differently.  Utilities' existing customers don’t want change, and new customers aren’t yet interested in getting advanced app software development suggestions from what they perceive to still be the mobile telephony provider.
 
 But research computing and data is changing, increasingly quickly, and the utility approach only meets a piece of these growing needs.  Navigating the transition isn’t going to be easy, for RCD teams, leaders, or funders; but expressing it clearly and talking about it more will maybe mean we’re not talking past each other so often.
