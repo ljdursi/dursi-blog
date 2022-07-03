@@ -1,6 +1,7 @@
 ---
 title: The Utility vs the Professional Services Firm
 summary: "As Research Computing and Data becomes more complex and diverse, we need more professional services firms and fewer utilities"
+image: assets/imgs/utility-vs-professional-svc.png
 tags: [strategy]
 ---
 
@@ -11,6 +12,11 @@ tags: [strategy]
 I get to talk with a lot of research computing and data teams - software, data, and systems.  Sometimes in these conversations it’s pretty clear that some teams, or the team and their funder, or a team and I, are talking a bit past each other.  And that’s usually because they or we are (currently) operating with very different mental models of how they operate.
 
 Some research computing and data teams are operating as Utilities, and see the world through that lens; a growing number are operating as Professional Services Firms.  Others are moving from one to the other, and are at different places along that very abrupt transition.  Some kinds of groups (like bioinformatics cores) are much more likely to already be operating in service mode, while others (like research compute infrastructure teams) are more likely to still think of themselves as utilities.  It varies from place to place, though, depending on local conditions.  But they’re very different models!
+
+<figure style="width:45%; float:right">
+  <img src="/assets/imgs/utility-vs-professional-svc.png" alt="Utility vs professional services.  Image Credit: left, John Moore (@thejmoore) at Unsplash.com; right, Jason Goodman @jasongoodman_youxventures at Unsplash.com">
+  <figcaption><i>Utility service and professional services delivery are very different, and require different funding, management, and career development models.  Image credit: <a href="https://unsplash.com/photos/0MKzwPmehRE">left</a> and <a href="https://unsplash.com/photos/X8H8vPcelPk">right</a>.</i></figcaption>
+</figure>
 
 Utilities, like power companies or garbage collection or municipal potable water, were really the only sensible role models for the first decades of research computing and data teams.  Those teams were entirely about operating large equipment purchased from vendors.  Costs were mostly a big capital expense.  Everyone who needed the utility needed the same thing - undifferentiated flops and bytes, or 60Hz 120VAC.  Because everyone needed the same thing, economies of scale led to [natural monopolies](https://en.wikipedia.org/wiki/Natural_monopoly); the most reasonable provision model was for the local jurisdiction/institution to own or control a single operator.  Differentiation or strategy, or gaining new customers, weren’t meaningful discussion topics.  The only thing that really makes a difference is scale, which leads to mergers.  Innovation happens slowly, top-down, at the industry-wide scale and usually from the vendors (“hey, did you hear about those new gas compressors Dyneco announced?”), and diffuses outwards.  Employees take pride in and the organization values operational skill and things ticking along smoothly.  Customers value reliability.  The only thing that matters for any individual operator is to operate effectively and to provide the standard service with the right amount of cost: high enough to absorb the available subsidy, low enough to not go broke.  If a customer needs something other than what the utility provides, rather than that being a market opportunity, it’s either an inconvenience or an irrelevance.  The power company or the water utility or the [old phone monopoly](https://vimeo.com/355556831) just doesn’t serve that need.
 
