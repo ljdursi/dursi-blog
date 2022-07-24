@@ -4,7 +4,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-  <meta name="description" content="{{ site.data.settings.seo.description }}">
   <link rel="shortcut icon" href="{{ "/assets/imgs/favicon.ico" | prepend: site.baseurl | replace: '//', '/' }}"/>
   <link rel="alternate" type="application/rss+xml" title="Jonathan Dursi RSS" href="/feed.xml">
 
@@ -20,20 +19,26 @@
   <meta name="twitter:site"    content="@{{ site.twitter_username }}">
   <meta name="twitter:creator" content="{{ page.author }}">
   <meta name="twitter:title"   content="{{ page.title }}">
-  <meta property="twitter:domain"   content="{{ site.url }}{{ site.baseurl }}">
+  <meta property="twitter:domain"   content={{ site.url | absolute_url }}>
 
   {% if page.summary %}
   <meta name="twitter:description" content="{{ page.summary }}">
+  <meta property="og:description" content="{{ page.summary }}">
+  <meta property="og:type" content="article">
   {% else %}
   <meta name="twitter:description" content="{{ site.description }}">
+  <meta property="og:description" content="{{ site.descrption }}">
+  <meta property="og:type" content="website">
   {% endif %}
 
   {% if page.image %}
   <meta name="twitter:card"  content="summary_large_image">
-  <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}{{ page.image }}">
+  <meta name="twitter:image" content={{ page.image | absolute_url }}>
+  <meta property="og:image" content={{ page.image | absolute_url }}>
   {% else %}
   <meta name="twitter:card"  content="summary">
-  <meta name="twitter:image" content="{{ site.url }}{{ data.settings.banner }}">
+  <meta name="twitter:image" content={{ data.settings.banner | absolute_url }}>
+  <meta property="og:image" content={{ data.settings.banner | absolute_url }}>
   {% endif %}
 
   {% include mathjax.html %} <!-- mathjax -->
