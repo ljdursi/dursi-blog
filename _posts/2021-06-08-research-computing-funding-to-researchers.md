@@ -1,7 +1,7 @@
 ---
 title: Research Computing Funding Should Mostly Just Go To Researchers
 summary: "Most research computing funding should go directly to researchers, via traditional funding councils, and the researchers should spend that research computing and data portion of their grants as they need."
-image: assets/research_computing_funding_to_researchers/national-cancer-institute-LxPrHCm8-TI-unsplash.jpg
+image: assets/research_computing_funding_to_researchers/national-cancer-institute-LxPrHCm8-TI-unsplash_sm.jpg
 tags: ['funding', 'canada']
 ---
 
