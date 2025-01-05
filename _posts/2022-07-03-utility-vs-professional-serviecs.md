@@ -5,7 +5,7 @@ image: assets/imgs/utility-vs-professional-svc.png
 tags: [strategy]
 ---
 
-## As research computing and data becomes more complex and diverse, we need more professional services firms and fewer utilties
+## As research computing and data becomes more complex and diverse, we need more professional services firms and fewer utilities
 
 (Note: This post is adapted from [#127](https://www.researchcomputingteams.org/newsletter_issues/0127) of the [Research Computing Teams Newsletter](https://www.researchcomputingteams.org))
 
