@@ -1,5 +1,5 @@
 ---
-title: "Use The Active Voice: Code is Sustained or Not Sustained, not 'Sustainable'"
+title: "Sustain is a Verb: Code is Sustained or Not Sustained, not 'Sustainable'"
 summary: "Code is sustained, or not, by people who are paid to sustain it/"
 tags: [software]
 ---
